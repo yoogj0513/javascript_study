@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var timerId = -1;
+
+	function changeTime(){
+		var h1Obj = document.getElementById("time");
+		var now = new Date(); // 현재 시간
+		h1Obj.innerHTML = now.toLocaleTimeString(); // 변화되는 시간 값을 넣음
+	}
+	
+	function startTimer(){
+		timerId = setInterval(changeTime, 1000);	
+	}
+	
+	function stopTimer(){
+		clearInterval(timerId);
+	}
+</script>
+</head>
+<body>
+	<h1 id="time">시간이 나타날 공간</h1>
+	<button onclick="startTimer()">start</button>
+	<button onclick="stopTimer()">stop</button>
+</body>
+</html>

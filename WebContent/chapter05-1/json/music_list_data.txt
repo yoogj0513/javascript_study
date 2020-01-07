@@ -1,0 +1,14 @@
+var list = {
+			"song" : [
+				{"title":"RE-BYE", "singer":"악동 뮤지션"},	
+				{"title":"CHEER UP", "singer":"TWICe(트와이스)"},
+				{"title":"사람들이 움직이는 게", "singer":"악동뮤지션"},
+				{"title":"내 입술 따뜻한 커피처럼(Feat. 이성경)", "singer":"에디킴"},
+				{"title":"하늘바라기(Feat.하림)", "singer":"정은지"},
+				{"title":"새삼스럽게 왜", "singer":"악동뮤지션"},
+				{"title":"봄이 좋냐?", "singer":"10cm"},
+				{"title":"Dream Girls", "singer":"아이오아이(I.O.I)"},
+				{"title":"Toy", "singer":"블락비(Block B)"},
+				{"title":"초록창가", "singer":"악동뮤지션"}
+			]
+		};

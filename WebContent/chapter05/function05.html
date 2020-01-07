@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	fieldset {
+		width: 200px;
+	}
+
+	input[type="text"]{
+		border: none;
+		background-color: aqua;
+		margin: 20px 0;
+		height: 20px;
+		padding: 0 10px;
+		padding-top: 5px;
+	}
+	
+	input[value="6"]{
+		margin: 20px 0;
+	}
+	
+	input[value="C"]{
+		margin: 20px 0;
+	}
+	
+	input[type="button"]{
+		width: 30px;
+		padding: 5px 0;
+		border: 1px solid blue;
+		border-radius: 5px;
+	}
+</style>
+
+<script>
+	function calculator(str){ //str: 1, 2, 3 ... 누른 버튼의 값
+		var winObj = document.getElementById("win");
+		if(str == "="){
+			// eval("산수식") : (문자의)산수식을 넣으면 계산을 한 값을 출력
+			var result = eval(winObj.value);
+			winObj.value = result;
+		} else if(str == "C"){
+			winObj.value = "";
+		} else {			
+			winObj.value += str;
+		}
+	
+	}
+</script>
+
+</head>
+<body>
+	<fieldset>
+		<legend>계산기</legend>
+		<input type="text" id="win" readonly="readonly">
+		<br>
+		<input type="button" value="1" onclick="calculator(1)">
+		<input type="button" value="2" onclick="calculator(2)">
+		<input type="button" value="3" onclick="calculator(3)">
+		<input type="button" value="4" onclick="calculator(4)">
+		<input type="button" value="5" onclick="calculator(5)">
+		<br>
+		<input type="button" value="6" onclick="calculator(6)">
+		<input type="button" value="7" onclick="calculator(7)">
+		<input type="button" value="8" onclick="calculator(8)">
+		<input type="button" value="9" onclick="calculator(9)">
+		<input type="button" value="0" onclick="calculator(0)">
+		<br>
+		<input type="button" value="/" onclick="calculator('/')">
+		<input type="button" value="*" onclick="calculator('*')">
+		<input type="button" value="-" onclick="calculator('-')">
+		<input type="button" value="+" onclick="calculator('+')">
+		<input type="button" value="=" onclick="calculator('=')">
+		<br>
+		<input type="button" value="C" onclick="calculator('C')">
+		
+	</fieldset>
+</body>
+</html>

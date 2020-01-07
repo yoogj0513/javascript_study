@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').click(function() {
+			$('#p1').text($('#img1').attr('src')); // body 경로 그대로
+			$('#p2').text($('#img1').prop('src')); // 절대 경로 그대로
+		})
+		
+		$('#btn2').click(function(){
+			//attr
+			/* var path = $('#img2').attr('src');
+			if(path == 'images/ball1.jpg'){
+				$('#img2').attr('src', 'images/ball2.jpg');
+			} else {
+				$('#img2').attr('src', 'images/ball1.jpg');
+			} */
+			
+			//prop
+			var path = $('#img2').prop('src');
+			if(path.indexOf('images/ball1.jpg') > 0){
+				$('#img2').attr('src', 'images/ball2.jpg');
+			} else {
+				$('#img2').attr('src', 'images/ball1.jpg');
+			}
+		})
+		
+		$('#btn3').click(function() {
+			// attr : html 바디 내용을 그대로 들고옴
+			$('#p3').text($('#ch1').attr('checked'));
+		
+			// 선택한 폼 요소의 상태 속성값을 가져옴(true/false)
+			$('#p4').text($('#ch1').prop('checked'));
+		})
+		
+		$('button').eq(3).click(function(){
+			$('.ch').prop('checked', true);
+		})
+		
+		$('button').eq(4).click(function() {
+			$('.ch').prop('checked', false);
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<img src="images/ball1.jpg" id="img1">
+	<p id="p1">attr</p>
+	<p id="p2">prop</p>
+	<button id="btn1">가져오기</button>
+	<hr />
+	<img src="images/ball1.jpg" id="img2">
+	<button id="btn2">이미지 변경</button>
+	
+	<hr />
+	
+	<input type="checkbox" id="ch1" checked>
+	<p id="p3">attr</p>
+	<p id="p4">prop</p>
+	<button id="btn3">체크 여부 확인</button>
+	
+	<hr />
+	
+	<input type="checkbox" class="ch"> 사과
+	<input type="checkbox" class="ch"> 딸기
+	<input type="checkbox" class="ch"> 귤
+	<input type="checkbox" class="ch"> 바나나
+	<br><br>
+	<button>전체선택</button>
+	<button>전체해제</button>
+</body>
+</html>

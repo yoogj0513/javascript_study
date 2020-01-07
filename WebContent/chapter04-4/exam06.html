@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#ex06 button {
+		background-color: navy;
+		color: #fff;
+		border: 2px solid #aaa;
+		border-radius: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	#ex06 input[value="결과날짜"]{
+		color: red;
+		font-weight: bold;
+	}
+</style>
+<script>
+	function res01(){
+		var inDay1Val = document.f1.inDay1.value;
+		var year = inDay1Val.substr(0, 4);
+		var month = inDay1Val.substr(4, 2);
+		var date = inDay1Val.substr(6, 2);
+		
+		var inDate = new Date(year, (month-1), date);
+		var numVal = document.f1.num.value;
+		var res = document.f1.result;
+		
+		inDate.setDate(inDate.getDate() + (Number(numVal)-1));
+		
+		res.value = inDate.getFullYear() + "."
+				  + (inDate.getMonth()+1) + "."
+				  + inDate.getDate();
+	}
+	
+	
+</script>
+</head>
+<body>
+	<div id="ex06">
+		<form name="f1">
+			<fieldset>
+				<legend>D-day</legend>
+				<p>
+					<label>기준일</label>
+					<input name="inDay1" type="text" placeholder="예)20191212">
+					<input type="reset" value="초기화">
+				</p>
+				<p id="p1">
+					<input name="num" type="text">일째 되는 날은?
+					<button type="button" onclick="res01()">계산</button>
+					<input name="result" type="text" value="결과날짜">
+				</p>
+			</fieldset>
+		</form>
+	</div>	
+</body>
+</html>

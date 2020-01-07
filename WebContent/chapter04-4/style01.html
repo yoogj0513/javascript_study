@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#box {
+		width: 300px;
+		border: 1px solid #000;
+		border-radius: 10px;
+		padding: 10px;
+		margin: 20px;
+		line-height: 30px;
+	}
+</style>
+<script>
+	function changeStyle01(){
+		var divObj = document.getElementById("box");
+		divObj.style.backgroundColor = "#000";
+		divObj.style.color = "#fff";
+		divObj.style.borderRadius = "150px";
+	}
+	
+	function backStyle01(){
+		var divObj = document.getElementById("box");
+		divObj.style.backgroundColor = "#fff";
+		divObj.style.color = "#000";
+		divObj.style.borderRadius = "10px";
+	}
+</script>
+</head>
+<body>
+	<div id="box" onmouseover="changeStyle01()" onmouseout="backStyle01()">
+		자바스크립트는 HTML 태그의 내용이나 속성 뿐 아니라 CSS 속성도 수정할 수 있다. 
+		자바스크립트는 HTML태그의 내용이나 속성뿐 아니라 CSS 속성도 수정할 수 있다.
+	</div>
+</body>
+</html>

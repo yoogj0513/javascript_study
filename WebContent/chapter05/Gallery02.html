@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	li {
+		list-style: none;
+	}
+	
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+	
+	#gallery {
+		width: 670px;
+		margin: 30px auto;
+		border: 1px solid #999;
+		box-shadow: 0 5px 5px rgba(0,0,0,.3);
+	}
+	
+	#gallery h1 {
+		text-align: center;
+	}
+	
+	#gallery img {
+		border: 1px solid #666;
+	}
+	
+	#photo {
+		text-align: center;
+	}
+	
+	#gallery ul {
+		width: 1760px;/*220*8*/
+	}
+	
+	#photo_list {
+		width: 660px;
+		overflow: hidden;
+		margin: 10px auto;
+	}
+	
+	#photo_list ul li {
+		width: 220px;
+		float: left;
+		text-align: center;
+	}
+	
+	#photo_list img {
+		width: 200px;
+	}
+	
+	.btn_wrap {
+		text-align: center;
+	}
+	
+	.btn_wrap a{
+		font-size: 2em;
+		font-weight: bold;
+	}
+</style>
+<script>
+	var index = 0;
+	function clickRightButton(){
+		var ulObj = document.getElementById("inner_list");
+		if(index <= -1100) {
+			return;
+		}
+		
+		index -= 220;
+		ulObj.style.marginLeft = index + "px"; //작아져야 함
+	}
+	
+	function clickLeftButton(){
+		var ulObj = document.getElementById("inner_list");
+		if(index >= 0){
+			return;
+		}
+		index += 220;
+		ulObj.style.marginLeft = index + "px";
+	}
+	
+	function clickShowImg(path){
+		var bigImg = document.getElementById("bigImg");		
+		bigImg.src = "images/" + path + ".jpg";
+	}
+</script>
+</head>
+<body>
+	<div id="gallery">
+		<h1>동해안 갤러리</h1>
+		<p id="photo">
+			<img src="images/pic_1.jpg" id="bigImg">
+		</p>
+		<div id="photo_list">
+			<ul id="inner_list">
+				<li>
+					<a href="#">
+						<img src="images/pic_t1.jpg" class="smallImg" onclick="clickShowImg('pic_1')">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t2.jpg" class="smallImg" onclick="clickShowImg('pic_2')">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t3.jpg" class="smallImg" onclick="clickShowImg('pic_3')"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t4.jpg" class="smallImg" onclick="clickShowImg('pic_4')"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t5.jpg" class="smallImg" onclick="clickShowImg('pic_5')"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t6.jpg" class="smallImg" onclick="clickShowImg('pic_6')"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t7.jpg" class="smallImg" onclick="clickShowImg('pic_7')"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/pic_t8.jpg" class="smallImg" onclick="clickShowImg('pic_8')"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<p class="btn_wrap">
+			<a href="#" onclick="clickLeftButton()">&lt;</a>
+			<a href="#" onclick="clickRightButton()">&gt;</a>
+		</p>
+	</div>
+</body>
+</html>

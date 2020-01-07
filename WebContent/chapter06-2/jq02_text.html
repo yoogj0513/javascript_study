@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').click(function(){
+			//text() : 시작태그와 끝태그 사이의 글자만 가져옴
+			alert($('#text').text());
+		})
+		
+		$('#btn2').click(function(){
+			// text() : html()과 다르게 태그도 글자로 가져옴
+			$('#text').text("<span>내용</span>");
+		})
+	})
+</script>
+</head>
+<body>
+	<p id="text"><span>객체</span> 글자만 가져옴</p>
+	<br />
+	<button id="btn1">가져오기</button>
+	<button id="btn2">변경하기</button>
+</body>
+</html>

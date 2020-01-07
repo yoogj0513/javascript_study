@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table{
+		width: 600px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	th, td, tr {
+		border: 1px solid #aaa;
+	}
+	
+	tr:first-child > th {
+		height: 50px;
+	}
+</style>
+<script>
+	function addProduct(){
+		var selVal = document.f1.sel.value;
+		var tableObj = document.getElementById("table");
+		var selArr = document.f1.sel;	
+		var opArr = selArr.getElementsByTagName("option");
+		
+		for(var i=0; i<opArr.length; i++){			
+			if(opArr[i].selected == true){
+				tableObj.innerHTML += "<tr><td><img src='images/"+selVal+"'></td><td>"
+									  + opArr[i].innerHTML + "</td><td><input type='checkBox' class='ch'></td></tr>";				
+			}
+		} 
+		
+	}
+	
+	function removeProduct(){
+		var tableObj = document.getElementById("table");
+		var chArr = document.getElementsByClassName("ch");
+		
+		/* for(var i=0; i<chArr.length; i++){
+			if(chArr[i].checked == true){
+				var tbody = chArr[i].parentNode.parentNode.parentNode;
+				tableObj.removeChild(tbody);
+				i--;
+			}		
+		}   */
+		
+		// 풀이
+		// 리스트 삭제할 때는 역순으로 체크한다. 인덱스 번호가 변화가 있기 때문에
+		for(var i=chArr.length-1; i>=0; i--){
+			if(chArr[i].checked == true){
+				var tbody = chArr[i].parentNode.parentNode.parentNode;
+				tableObj.removeChild(tbody);
+			}
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<form name="f1">
+		<label>구매한 상품을 선택해 주세요. </label>
+		<select name="sel">
+			<option value="watermelon.png">수박</option>
+			<option value="orange.png">오렌지</option>
+			<option value="grape.jpg">포도</option>
+			<option value="peach.png">복숭아</option>
+		</select>
+		<button type="button" onclick="addProduct()">추가</button>
+	</form>
+	<table id="table">
+		<tr>
+			<th colspan="3">추가 상품</th>
+		</tr>
+	</table>
+	<button onclick="removeProduct()">check상품 삭제</button>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var fArray = ["사과", "딸기", "귤", "감"];
+		
+		$('button').eq(0).click(function() {
+			/* $('.path').eq(0).html(fArray[0]);
+			$('.path').eq(1).html(fArray[1]);
+			$('.path').eq(2).html(fArray[2]);
+			$('.path').eq(3).html(fArray[3]); */
+			
+			// i:0, obj:$('.path').eq(0)
+			// i:1, obj:$('.path').eq(1)
+			$('.path').each(function(i, obj){
+				$(obj).html(fArray[i]);
+			})
+		})
+		
+		$('button').eq(1).click(function() {
+			var imgPath = ["h2.jpg", "t2.jpg", "m2.jpg", "l2.jpg"];
+			$('img').each(function(i, obj) {
+				$(obj).attr("src", 'images/'+imgPath[i]);
+			})
+		})
+		
+		$('button').eq(2).click(function() {
+			var titleA = ["네이버", "다음", "구글"];
+			$('a').each(function(i, obj){
+				$(obj).html(titleA[i]);
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<p class="path"></p>
+	<p class="path"></p>
+	<p class="path"></p>
+	<p class="path"></p>
+	<button>과일 추가</button>
+	
+	<hr />
+	
+	<img src="images/h.jpg">
+	<img src="images/t.jpg">
+	<img src="images/m.jpg">
+	<img src="images/l.jpg">
+	<br>
+	<button>이미지 모두 변경</button>
+	
+	<hr />
+	
+	<a href="#">링크1</a><br>
+	<a href="#">링크2</a><br>
+	<a href="#">링크3</a><br>
+	<button>a태그 글자 변경</button>
+</body>
+</html>

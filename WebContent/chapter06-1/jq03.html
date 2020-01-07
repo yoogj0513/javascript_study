@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table{
+		border-collapse: collapse;
+		width: 350px;
+		height: 100px;
+		margin-top: 30px;
+	}
+	td, th, tr {
+		border: 1px solid #000;
+	}
+	
+	td {
+		padding: 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// 모든 선택자 : 배경색 #FAE0D4
+		$('*').css('background-color', '#FAE0D4');	
+	
+		// talbe태그의 모든 이전 형제중 p만 밑줄
+		$('table').prevAll('p').css('text-decoration', 'underline');
+		
+		//ul의 형제들 중 table만 글자색 빨강
+		$('ul').siblings('table').css('color', 'red');
+		
+		//second id의 다음 형제 글자색 파랑
+		$('#second').next().css('color', 'blue');
+		
+		// first id의 부모 width: 400px, margin: 0 auto
+		$('#first').parent().css('width', '400px').css('margin', '0 auto');
+		
+		// first id의 이전 형제의 모든 자식들에게 글자색 보라
+		//$('#first').prev().children().css('color', 'purple');
+
+	})
+</script>
+</head>
+<body>
+	<div id="container">
+		<p>학년별 엠티 일정입니다.</p>
+		<p>자신의 학년을 클릭하면 엠티 일정을 볼 수 있습니다.</p>
+		<ul>
+			<li>1학년</li>
+			<li>2학년</li>
+			<li>3학년</li>
+			<li>4학년</li>
+		</ul>
+		
+		<table id="first">
+			<caption>1학년 엠티 공고</caption>
+			<tr>
+				<th>날짜</th>
+				<td>4월 7일 ~ 4월 10일</td>
+			</tr>
+			<tr>
+				<th>장소</th>
+				<td>가평 휴양림</td>
+			</tr>
+			<tr>
+				<th>집결장소</th>
+				<td>4/7 오후 2시까지 학생회관 앞</td>
+			</tr>
+		</table>
+		
+		<table id="second">
+			<caption>2학년 엠티 공고</caption>
+			<tr>
+				<th>날짜</th>
+				<td>4월 7일 ~ 4월 10일</td>
+			</tr>
+			<tr>
+				<th>장소</th>
+				<td>남이섬</td>
+			</tr>
+			<tr>
+				<th>집결장소</th>
+				<td>4/7 오후 2시까지 체육관 앞</td>
+			</tr>
+		</table>
+		
+		<div>
+			<p>여러 사람이 함께 움직이므로 반드시 시간 엄수해 주세요.</p>
+			<p>엠티 비용은 학년 관계없이 5만원입니다. 과대표에세 내주세요.</p>
+		</div>
+	</div>
+</body>
+</html>

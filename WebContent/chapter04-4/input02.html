@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function clickTest1(){
+		var inputObj = document.getElementById("userid");
+		alert(inputObj.value);
+	}
+	
+	function clickTest2(){
+		// document.formName.inputName.속성
+		var value = document.f1.userid.value;
+		alert(value);
+	}
+	
+	function clickTest3(){
+		// 아이디, 비밀번호
+		var id = document.f2.id.value;
+		var password = document.f2.pass.value;
+		
+		var pObj = document.getElementById("p1");
+		pObj.innerHTML = "아이디 : " + id + ", 비밀번호 : " + password;
+	}
+	
+	function clickTest4(cal){
+		var num1 = document.f3.num1.value;
+		var num2 = document.f3.num2.value;
+		
+		var pObj = document.getElementById('p2');
+		
+		switch(cal){
+		case '+':
+			pObj.innerHTML = Number(num1) + Number(num2);
+			break;
+		case '-':
+			pObj.innerHTML = Number(num1) - Number(num2);
+			break;
+		case '*':
+			pObj.innerHTML = Number(num1) * Number(num2);
+			break;
+		case '/':
+			pObj.innerHTML = Number(num1) / Number(num2);
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="f1">
+		<input type="text" id="userid" name="userid"><!-- name의 값은 임의로 주는 것, id와 같지 않아도 됨 -->
+	</form>
+	<br><br>
+	<button onclick="clickTest1()">getElementById로 값 가져오기</button>
+	<button onclick="clickTest2()">name으로 접근</button>
+	
+	<hr>
+	<form name="f2">
+		아이디 : <input type="text" name="id"><br>
+		비밀번호 : <input type="text" name="pass">
+	</form>
+	<button onclick="clickTest3()">가져오기</button>
+	<p id="p1"></p>
+	
+	<hr />
+	
+	<form name="f3">
+		숫자 1: <input type="text" name="num1"/><br>
+		숫자 2: <input type="text" name="num2"/>
+	</form>
+	<button onclick="clickTest4('+')">더하기</button>
+	<button onclick="clickTest4('-')">빼기</button>
+	<button onclick="clickTest4('*')">곱하기</button>
+	<button onclick="clickTest4('/')">나누기</button>
+	<p id="p2"></p>
+</body>
+</html>

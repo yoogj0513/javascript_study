@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function allCheck(){
+	 /* document.f1.ch[0].checked = true;
+		document.f1.ch[1].checked = true;
+		document.f1.ch[2].checked = true;
+		document.f1.ch[3].checked = true; */ 
+		
+		var ch = document.f1.ch;
+		for(var i=0; i<ch.length; i++){			
+			ch[i].checked = true;
+		}
+	}
+	
+	function allUnCheck(){
+		var ch = document.f1.ch;
+		
+		for(var i=0; i<ch.length; i++){
+			ch[i].checked = false;
+		}
+	}
+	
+	function allUnCheck02(){
+		var ch = document.f2.ch;
+		if(ch[0].checked == true){
+			for(var i=1; i<ch.length; i++){
+				ch[i].checked = true;
+			}
+		} else {
+			for(var i=1; i<ch.length; i++){
+				ch[i].checked = false;
+			}
+		}
+		
+		calculatorCheck();
+	}
+	
+	function calculatorCheck(){
+		var sum = 0;
+		var ch = document.f2.ch;
+		
+		if(ch[1].checked == true){
+			sum += Number(ch[1].value);
+		}
+		
+		if(ch[2].checked == true){
+			sum += Number(ch[2].value);
+		}
+		
+		if(ch[3].checked == true){
+			sum += Number(ch[3].value);
+		}
+		
+		var spanObj = document.getElementById("result");
+		spanObj.innerHTML = sum;
+	}
+	
+	
+</script>
+</head>
+<body>
+	<form name="f1">	
+		<input type="checkbox" name="ch"> 딸기 <br>
+		<input type="checkbox" name="ch"> 귤 <br>
+		<input type="checkbox" name="ch"> 고구마 <br>
+		<input type="checkbox" name="ch"> 감자<br>
+	</form>
+	<button onclick="allCheck()">전체 선택</button>
+	<button onclick="allUnCheck()">전체 해제</button>
+	
+	<hr />
+	
+	<form name="f2">
+		<fieldset>
+			<legend>check테스트</legend>
+			<input type="checkbox" name="ch" onclick="allUnCheck02()">전체선택<br>
+			<input type="checkbox" name="ch" value="1000" onclick="calculatorCheck()">1000<br>
+			<input type="checkbox" name="ch" value="2000" onclick="calculatorCheck()">2000<br>
+			<input type="checkbox" name="ch" value="3000" onclick="calculatorCheck()">3000<br>
+		</fieldset>
+	</form>
+	<p id="p1">결과값 확인: <span id="result"></span> </p>
+	
+</body>
+</html>

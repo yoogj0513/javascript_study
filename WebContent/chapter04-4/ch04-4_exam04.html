@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container {
+		margin: 10px;
+		width: 1000px;
+		height: 500px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	#small {
+		width: 25%;
+		float: left;
+		height: 100%;
+	}
+	
+	#small .item {
+		height: 32%;
+		margin-bottom: 4%;
+	}
+	
+	#big {
+		float: right;
+		width: 75%;
+		height: 100%;
+	}
+	
+	#big img {
+		padding-left: 10px;
+		
+	}
+</style>
+<script>
+	function changeImg(num){
+		var imgObj = document.getElementById("changeImg");
+		var imgArr = document.getElementsByClassName("imgs");
+		imgObj.src = imgArr[num].src;
+	}
+</script>
+</head>
+<body>
+	<div id="container">
+		<div id="small">
+			<div class="item">
+				<img src="images/20.jpg" alt="이미지" onclick="changeImg(0)" class="imgs"/>
+			</div>
+			<div class="item">
+				<img src="images/22.jpg" alt="이미지" onclick="changeImg(1)" class="imgs"/>
+			</div>
+			<div class="item">
+				<img src="images/23.jpg" alt="이미지" onclick="changeImg(2)" class="imgs"/>
+			</div>
+		</div>
+		<div id="big">
+			<img src="images/20.jpg" alt="이미지" id="changeImg"/>
+		</div>
+	</div>
+</body>
+</html>

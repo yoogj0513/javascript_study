@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var area = prompt("지역을 입력하세요.");
+		var num = 0;
+		
+		switch(area){
+		case "서울":
+			num = "02";
+			break;
+		case "대구":
+			num = "053";
+			break;
+		case "부산":
+			num = "051";
+			break;
+		case "인천":
+			num = "032";
+			break;
+		case "대전":
+			num = "042";
+			break;
+		case "광주":
+			num = "062";
+			break;
+		default:
+			document.write("잘못입력하였습니다.");
+			break;
+		}
+		
+		if(num != 0) {			
+			document.write(area + "지역의 국번은 " + num + "입니다.");
+		}
+		
+	</script>
+</body>
+</html>

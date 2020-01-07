@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 
+	function changeImg5(path){ // path:"images/5.jpg"
+		var arr = document.getElementsByTagName("img"); //배열로 리턴됨, [img1, img2, img3, img4, img5];
+		arr[4].src = path;
+	}
+ 	*/
+	
+	function changeImg(path, i){
+		var arr = document.getElementsByTagName("img", i);
+		arr[i].src = path;
+	}
+</script>
+</head>
+<body>
+	<h1>Tag로 접근합니다.</h1>
+	<img src="images/h.jpg" alt="h" onclick="changeImg('images/h2.jpg', 0)"/>
+	<img src="images/t.jpg" alt="t" onclick="changeImg('images/t2.jpg', 1)"/>
+	<img src="images/m.jpg" alt="m" onclick="changeImg('images/m2.jpg', 2)"/>
+	<img src="images/l.jpg" alt="l" onclick="changeImg('images/l2.jpg', 3)"/>
+	<img src="images/4.jpg" alt="4" onclick="changeImg('images/5.jpg', 4)"/>
+	
+</body>
+</html>

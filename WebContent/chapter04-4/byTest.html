@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeImg(){
+		var imgObj = document.getElementById("img1")
+		var imgSrc = imgObj.src;
+		var seach1 = imgSrc.lastIndexOf("5.jpg");
+		//var seach2 = imgSrc.lastIndexOf("5-2.jpg");
+		if(seach1 > -1) {
+			imgObj.src = "images/5-2.jpg";
+		} else {
+			imgObj.src = "images/5.jpg";
+		}
+	}
+	
+	function changeH1(){
+		var h1Obj = document.getElementById("h1");
+		var str = h1Obj.innerHTML;
+		var seach1 = str.indexOf("안녕하세요.");
+		//var seach2 = str.indexOf("만나서 반갑습니다.");
+		if(seach1 > -1){
+			h1Obj.innerHTML = "만나서 반갑습니다.";
+		}else{
+			h1Obj.innerHTML = "안녕하세요.";
+		} 
+	}
+	
+	
+	/* // 풀이
+	function changeImage(){
+		var imgObj = document.getElmentById("img");
+		var str = imgObj.src;
+		if(str.indexOf("5.jpg") > -1){
+			imgObj.src = "images/5-2.jpg";
+		}else{
+			imgObj.src = "images/5.jpg";
+		}
+	} */
+</script>
+</head>
+<body>
+	<img src="images/5.jpg" alt="5" id="img1" onclick="changeImg()"/> <!-- 5-2.jpg -->
+	<hr />
+	<h1 id="h1" onclick="changeH1()">안녕하세요.</h1><!-- 만나서 반갑습니다. -->
+</body>
+</html>

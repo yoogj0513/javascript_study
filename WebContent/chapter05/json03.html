@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		var korea = {
+				seoul : {name:"서울", desc: "한국의 수도"},
+				jaeju : {name:"제주", desc: "자연이 아름다운 섬"}
+		};
+		
+		var divObj = document.getElementById("box");
+		divObj.innerHTML += "<p>"+korea.seoul.name + ", " + korea.seoul.desc+ "</p>";
+		divObj.innerHTML += "<p>"+korea.jaeju.name + ", " + korea.jaeju.desc+ "</p>";
+	</script>
+</body>
+</html>

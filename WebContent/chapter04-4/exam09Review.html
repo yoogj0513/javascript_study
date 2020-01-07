@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#container {
+		margin: 30px;
+	}
+	
+	img {
+		width: 43px;
+		height: 43px;
+		float: left;
+		cursor: pointer;
+		margin: 0 10px;
+	}
+	
+	#date {
+		float: left;
+		margin-bottom: 20px;
+	}
+	
+	table {
+		clear: both;
+		border-collapse: collapse;
+		width: 230px;
+		height: 200px;
+		text-align: center;
+	}
+	
+	td, tr, th {
+		border: 1px solid #aaa;
+	}
+	
+	tr>th:first-child, tr>td:first-child {
+		color: red;
+	}
+	
+	tr>th:last-child, tr>td:last-child {
+		color: blue;
+	}
+</style>
+<script>
+	var date = new Date(); 
+	
+	function displayCanlendar(){
+		var y = date.getFullYear();
+		var m = date.getMonth();
+		var d = date.getDate();
+		var weeks = ["일", "월" ,"화", "수", "목", "금", "토"];
+		
+		var date2 = new Date(y, m, 1); // 해당 달의 1일
+		var theDay = date2.getDay(); // 요일값, 1일 앞의 빈칸 갯수를 위해 가져옴
+		
+		var lastArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // 각 달의 마지막 날짜 
+		
+		// 윤년 (4년 주기이고 100년 주기는 제외 또는 400년 주기포함) / 2월의 29일
+		if(y%4==0 && y%100!=0 || y%400==0) {
+			lastArr[1] = 29;
+		}
+		
+		var lastDate = lastArr[m];
+		var row = Math.ceil((theDay + lastDate) / 7); // 행의 갯수
+		
+		var h1Obj = document.getElementById("date");
+		h1Obj.innerHTML = y + "." + (m+1);
+		
+		var divObj = document.getElementById("innerCalendar");
+		
+		// 첫번째 줄에서 table이 닫겨버려서 그 뒤의 태그는 table 안에 들어가지 못함
+		//divObj.innerHTML += "<table>";
+		//divObj.innerHTML += "<tr>";
+		
+		var makeTable = "<table>";
+		
+		makeTable += "<tr>";
+		for (var i = 0; i < 7; i++) {
+			
+			makeTable += "<th>" + weeks[i] + "</th>";
+		}
+		makeTable += "</tr>";
+		
+		var num = 1;
+		for (var i = 1; i <= row; i++) {
+			makeTable += "<tr>";
+			for (var j = 1; j <= 7; j++) {
+				if (j<=theDay && i==1 || num>lastDate) {
+					makeTable += "<td></td>";
+				} else {
+					makeTable += "<td>" + num + "</td>";
+					num++;
+				}
+			}
+			makeTable += "</tr>";
+		}
+		
+		divObj.innerHTML = makeTable;
+		
+	}
+	
+	function clickLeft(){
+		date.setMonth(date.getMonth() - 1);
+		displayCanlendar();
+	}
+	
+	function clickRight(){
+		date.setMonth(date.getMonth() + 1);
+		displayCanlendar();
+	}
+	
+	// html의 body안의 모든 태그까지 다 읽고 완료된 후에 호출됨
+	window.onload = function(){
+		displayCanlendar();
+	}
+</script>
+</head>
+<body>
+	<div id="container">
+		<div>
+			<img src="images/left_96.png" onclick="clickLeft()">
+			<h1 id="date"></h1>
+			<img src="images/right_96.png" onclick="clickRight()">
+			<div id="innerCalendar"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var imgArray = ["h.jpg", "t.jpg", "m.jpg", "l.jpg", "5.jpg"];
+		
+		$('#btn1').click(function(){
+			/* var str = "<img src='images/"+imgArray[0]+"'>";
+			str += "<img src='images/"+imgArray[1]+"'>";
+			str += "<img src='images/"+imgArray[2]+"'>";
+			str += "<img src='images/"+imgArray[3]+"'>";
+			str += "<img src='images/"+imgArray[4]+"'>"; */
+			
+			/* var str = "";
+			for(var i=0; i<5; i++){
+				str += "<img src='images/"+imgArray[i]+"'>";
+			} */
+			
+			//each : 모든 배열 사용 가능, i:index, obj: 배열이 들고 있는 값
+			var str = "";
+			$(imgArray).each(function(i, obj){
+				console.log(i + " : " + obj);
+				str += "<img src='images/"+ obj +"'>";
+			})
+			
+			$('#img_wrap').html(str);
+		})	
+		
+		$('#btn2').click(function(){
+			var pArray = ["사과", "귤", "딸기"];
+			// <p>+pArray[0]+</p>
+			var str = "";
+			$(pArray).each(function(i, obj) {
+				str += "<p>"+obj+"</p>";
+			})
+			
+			$('#p_wrap').html(str);
+		})
+		
+		$('#btn3').click(function() {
+			var liArray = ["짜장면", "짬뽕", "볶음밥", "탕수육"];
+			
+			var str = "";
+			$(liArray).each(function(i, obj) {
+				str += "<li>"+obj+"</li>";
+			})
+			$('#list').html(str);
+		})
+		
+		$('#btn4').click(function() {
+			var rank = {r:[
+				{"k":"HTML5"},
+				{"k":"CSS3"},
+				{"k":"jQuery"}
+			]}
+			
+			//rank.r[0].k - HTML 5
+			//rank.r[1].k - CSS3
+			
+			var str = "";
+			// 0, {"k":"HTML5"}
+			// 1, {"k":"CSS3"}
+			// 2, {"k":"jQuery"}
+			$(rank.r).each(function(i, obj) {
+				str += "<li>" + obj.k + "</li>";
+			})
+			
+			$('#list2').html(str);
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>each 사용</h1>
+	<button id="btn1">이미지 보기</button>
+	<div id="img_wrap"></div>
+	
+	<hr />
+	
+	<button id="btn2">p태그 만들기</button>
+	<div id="p_wrap"></div>
+	
+	<hr />
+	
+	<button id="btn3">li태그 만들기</button>
+	<ul id="list"></ul>
+	
+	<hr />
+	
+	<button id="btn4">json을 이용하여 li태그 만들기</button>
+	<ul id="list2"></ul>
+</body>
+</html>

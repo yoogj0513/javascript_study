@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		width: 2000px;
+		height: 2000px;
+	}
+
+	label {
+		width: 100px;	
+		float: left;
+	}
+	
+	#wrap {
+		position: fixed;
+		width: 80%;
+	}
+</style>
+<script>
+	window.onload = function(){
+		document.onmousemove = function(e){ // e: 이벤트 객체
+			var eventObj = e ? e : window.event; //하위 버전 호환성을 위해 작성
+			document.f1.client_x.value = eventObj.clientX;
+			document.f1.client_y.value = eventObj.clientY;
+			document.f1.page_x.value = eventObj.pageX;
+			document.f1.page_y.value = eventObj.pageY;
+		}
+		
+		document.f2.key.onkeydown = function(e){
+			var eventObj = e ? e : window.event; //하위 버전 호환성을 위해 작성
+			document.f2.unicode.value = eventObj.keyCode;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>마우스 이벤트 객체 속성</h1>
+		<form name="f1">
+			<fieldset>
+				<legend>커서 위치 추적</legend>
+				<p>
+					<label>client X</label>
+					<input type="text" name="client_x" />
+				</p>
+				<p>
+					<label>client Y</label>
+					<input type="text" name="client_y" />
+				</p>
+				<p>
+					<label>page x</label>
+					<input type="text" name="page_x" />
+				</p>
+				<p>
+					<label>page Y</label>
+					<input type="text" name="page_y" />
+				</p>
+			</fieldset>
+		</form>
+		
+		<h1>키보드 이벤트 객체 속성</h1>
+		<form name="f2">
+			<fieldset>
+				<legend>키 코드값</legend>
+				<p>
+					<label>입력 키보드: </label>
+					<input type="text" name="key">
+				</p>
+				<p>
+					<label>유니코드 값: </label>
+					<input type="text" name="unicode">
+				</p>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>

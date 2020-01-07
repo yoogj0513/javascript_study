@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 1+1결과
+		// 4+2
+		// 10 + 54
+		
+		function sum(n1, n2) {
+			var result = n1 + n2;
+			return result;
+		}
+		function sub(n1, n2) {
+			var result = n1 - n2;
+			return result;
+		}
+		
+		function mult(n1, n2){
+			var result = n1 * n2;
+			return result;
+		}
+		function divi(n1, n2){
+			var result = n1 / n2;
+			return result;
+		}
+		
+		
+		var r1 = sum(1, 1);
+		document.write("결과는 " + r1, "<br>");
+		
+		var r2 = sum(4, 2);
+		document.write("결과는 " + r2, "<br>");
+		
+		var r3 = sum(10, 54);
+		document.write("결과는 " + r3, "<br>");
+		
+		// 10-2
+		var r4 = sub(10, 2);
+		document.write("결과는 " + r4, "<br>");
+		
+		document.write("<hr>");
+		
+		var num1 = Number(prompt("숫자 1을 일력하세요."));
+		var num2 = Number(prompt("숫자 2를 입력하세요."));
+		
+		// 합, 차
+		var r5 = sum(num1, num2);
+		var r6 = sub(num1, num2);
+		document.write(num1 + "과 " + num2 + "의 합은 " + r5 + "이고, 차는 " + r6 + "입니다.<br>");
+		
+		// 곱하기 나누기
+		var r7 = mult(num1, num2);
+		var r8 = divi(num1, num2);
+		document.write(num1 + "과 " + num2 + "의 곱하기는 " + r7 + "이고, 나누기는 " + r8 + "입니다.<br>");
+		
+	</script>
+</body>
+</html>

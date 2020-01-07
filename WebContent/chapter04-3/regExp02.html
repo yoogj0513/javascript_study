@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var str = "901010-1787878";
+		var reg = /^[0-9]{6}-[1-4]{1}[0-9]{6}$/;
+		var result = reg.test(str);
+		
+		if(result == true){
+			document.write("유효한 주민 번호입니다.");
+		}else{
+			document.write("주민번호가 올바르지 않습니다.");
+		}
+		
+		document.write("<hr>");
+		
+		//휴대폰 번호
+		var phone = prompt("휴대폰 번호를 입력하세요.");
+		
+		var reg2 = /^(010|011|017|018|019)-?[0-9]{3,4}-?[0-9]{4}$/;
+		var result2 = reg2.test(phone);
+		if(result2 == true){
+			document.write("유효한 폰번호입니다.");
+		} else {
+			document.write("폰번호가 올바르지 않습니다.");
+		}
+	</script>
+</body>
+</html>

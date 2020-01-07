@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i = 1;
+	var timerId = -1;
+	
+	function changeText(){
+		var h1Obj = document.getElementById("text");
+		h1Obj.innerHTML = "글자를 바꿉니다." + i;
+		i++;
+	}
+
+	function startTimer(){
+		timerId = setInterval(changeText, 1000);
+	}
+	
+	function stopTimer(){
+		clearInterval(timerId);
+	}
+</script>
+</head>
+<body>
+	<h1 id="text">타이머 값이 나올 부분</h1>
+	<button onclick="startTimer()">start</button>
+	<button onclick="stopTimer()">stop</button>
+</body>
+</html>

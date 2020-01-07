@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		//$('.text3').prevAll().css("background-color", "red");
+		//$('.text3').prev().css("background-color", "red");
+		//$('.text3').prev().prev().css("background-color", "red");
+		
+		// $('선택자').prevUntil('지정선택자') : 선택한 요소부터 지정한 요소의 이전 요소까지 모두 선택
+		//$('.text3').prevUntil('.title').css("background-color", "red");
+		// 선택자 이전 형제중 p태그인 형제 선택
+		//$('.text3').prevAll('p').css("background-color", "red");
+		
+		// $('선택자').nextUntil('지정선택자') : 선택한 요소부터
+		//$('.text3').nextUntil('.text6').css("background-color", "yellow");
+		
+		//선택자의 모든 부모
+		//$('.text3').parents().css('border', '1px solid green');
+		
+		// 선택자를 기준으로 가장 가까운 지정 부모 태그 선택
+		//$('.text3').closest('section').css('border', '1px solid green');
+		
+		// 선택자의 모든 부모 중 지정태그를 가진 부모 모두 선택
+		// 단점 : 선택하고자 하는 부모태그가 두개일 경우 두개 모두를 선택함
+		$('.text3').parents('section').css('border', '1px solid green');
+	})
+</script>
+
+</head>
+<body>
+	<section>
+		<h1>본문 내용</h1>
+		<div id="wrap">
+			<h1 class="title">선택자</h1>
+			<p>내용 1</p>
+			<p>내용 2</p>
+			<p class="text3">내용 3</p>
+			<p>내용 4</p>
+			<p>내용 5</p>
+			<p class="text6">내용 6</p>
+		</div>
+	</section>
+</body>
+</html>

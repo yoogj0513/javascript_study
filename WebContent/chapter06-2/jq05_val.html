@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).click(function() {
+			var value = $('#input1').val(); //get
+			alert(value);
+		})
+		
+		$('button').eq(1).click(function() {
+			$('#input1').val('안녕'); //set	
+		})
+		
+		$('button').eq(2).click(function() {
+			var value = $('#input2').val();
+			$('#p1').text(value);
+		})
+		
+		$('button').eq(3).click(function() {
+			var password = $('#pass1').val();
+			var sel = $('#sel').val();
+			$('#p2').html("password: " + password + "<br> sel : " + sel);
+		})
+		
+		$('button').eq(4).click(function() {
+			var sel = $('#sel2').val();
+			$('#input3').val(sel);
+		})
+		
+		$('button').eq(5).click(function() {
+			var num1 = $('#num1').val();
+			var num2 = $('#num2').val();
+			$('#p3').html(Number(num1) + Number(num2));
+		})
+	})
+</script>
+</head>
+<body>
+	<input type="text" id="input1">
+	<button>get</button>
+	<button>set</button>
+	<hr />
+	
+	<input type="text" id="input2" />
+	<button>가져오기</button>
+	<p id="p1"></p>
+	<hr />
+	
+	<input type="password" id="pass1" />
+	<select id="sel">
+		<option>사과1</option>
+		<option>사과2</option>
+		<option>사과3</option>
+	</select>
+	<button>가져오기</button>
+	<p id="p2"></p>
+	<hr />
+	
+	<select id="sel2">
+		<option>오렌지</option>
+		<option>김치찌개</option>
+		<option>탕수육</option>
+		<option>없음</option>
+	</select>
+	<input type="text" id="input3" />
+	<button>변경</button>
+	<br>
+	<input type="text" id="num1" />
+	<input type="text" id="num2" />
+	<button>더하기</button>
+	<p id="p3"></p>
+</body>
+</html>

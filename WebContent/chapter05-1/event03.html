@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// inline 방식
+	function changeText(){
+		var h1Obj = document.getElementById("text");
+		h1Obj.innerHTML = "남들보다 더 잘하려고 고민하지 마라.<br> 지금의 나보다 잘하려고 애쓰는게 더 중요하다.";
+	}
+	
+	
+	window.onload = function(){		
+		var h1Obj = document.getElementById("text");
+		
+		// 방식 2
+		/* h1Obj.onclick = function(){
+			h1Obj.innerHTML = "남들보다 더 잘하려고 고민하지 마라.<br> 지금의 나보다 잘하려고 애쓰는게 더 중요하다.";
+		} */
+		
+		// 방식 3
+		h1Obj.addEventListener("click", function(e) {
+			h1Obj.innerHTML = "남들보다 더 잘하려고 고민하지 마라.<br> 지금의 나보다 잘하려고 애쓰는게 더 중요하다.";
+		}, false)
+	}
+</script>
+</head>
+<body>
+	<h1 id="text">하지 않는 것보다 늦었지만 하는 것이 낫다</h1>
+</body>
+</html>

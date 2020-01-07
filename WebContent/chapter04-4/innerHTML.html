@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 100px;
+	}
+	
+	table {
+		border-collapse: collapse;
+	}
+	
+	table td {
+		width: 100px;
+		border: 1px solid #000;
+	}
+</style>
+<script>
+	function clickNewP(){
+		var divObj = document.getElementById("box");
+		divObj.innerHTML += "<p>안녕하세요.</p>"; // =은 클릭시 한번만 생성됨, += 클릭시 계속 생성됨
+	}
+	
+	function clickNewImg(){
+		var divObj = document.getElementById("box");
+		divObj.innerHTML += "<img src='images/20.jpg'>";
+	}
+	
+	function clickNewA(){
+		var divObj = document.getElementById("box");
+		divObj.innerHTML += "<a href='http://www.naver.com'>네이버</a>";
+	}
+	
+	function clickTable(){
+		var tableObj = document.getElementById("table");
+		tableObj.innerHTML += "<tr><td>사과</td</tr>";
+	}
+	
+</script>
+</head>
+<body>
+	<div id="box"></div>
+	<table id="table">
+	</table>
+	<a href="#" onclick="clickNewP()">p태그 추가</a><br>
+	<a href="#" onclick="clickNewImg()">이미지태그 추가</a><br>
+	<a href="#" onclick="clickNewA()">a태그 추가</a><br>
+	<a href="#" onclick="clickTable()">tr태그 추가</a>
+</body>
+</html>

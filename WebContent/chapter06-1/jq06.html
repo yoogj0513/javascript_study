@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('button').eq(0).click(function(){
+			$('a[href]').css('background-color', 'pink');
+		})
+		
+		$('button').eq(1).click(function(){
+			$('a[target="_blank"]').css('background-color', 'skyblue');
+		})
+		
+		$('button').eq(2).click(function(){
+			$('a[href$="pdf"]').css('background-color', 'green');
+		})
+		
+		$('button').eq(3).click(function(){
+			$('a[href*="@"]').css('background-color', 'orange');
+		})
+	})
+</script>
+</head>
+<body>
+	<a id="top">top</a>
+	<div id="container">
+		<button>파일이나 문서 링크하는 요소</button><!-- href속성을 가진 요소 -->
+		<button>새 창으로 열리는 요소</button>
+		<button>PDF 문서를 링크하는 요소</button>
+		<button>메일 링크 요소</button>
+	</div>
+	<ul>
+		<li><a href="1st.html">1학년</a></li>
+		<li><a href="2nd.pdf">2학년</a></li>
+		<li><a href="http://www.domain.com/3rd.html" target="_blank">3학년</a></li>
+	</ul>
+	<div>
+		<p>여러 사람이 함께 움직입니다. 시간을 지켜주세요.</p>
+		<p>기타 궁금한 사항은 <a href="mailto:test@abc.co.kr">학과 사무실</a>로 문의바랍니다.</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function changeTime(){	
+		var now = new Date();
+		var h1Obj = document.getElementById("time"); 
+		h1Obj.innerHTML = now.toLocaleTimeString();
+	}
+</script>
+
+</head>
+<body>
+	<h1 id="time"></h1>
+	<script>
+		setInterval(changeTime, 1000);
+	</script>
+</body>
+</html>

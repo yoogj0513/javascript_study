@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var str = "HTML Css Jquery";
+		//var reg = new RegExp("css"); // 정식방법
+		var reg = /css/;
+		
+		// test() : true, false 를 반환해주는 함수
+		var result = reg.test(str);
+		document.write(result, "<br>"); // false
+		
+		var reg2 = /css/i;
+		result = reg2.test(str);
+		document.write(result, "<br>"); // true
+		
+		document.write("<hr>");
+		
+		str = "test S123 s- s-45 S-8m s67M s-123M s-1234TM s-superTM";
+		//reg = /s-/;
+		//reg = /s-[0-9]+/;  // s-45 
+		//reg = /[sS]-[0-9]m/; // S-8m 
+		//reg = /[sS]-[0-9]+TM/; //s-1234TM
+		reg = /[sS]-[a-z]+TM/; //s-superTM
+		result = reg.exec(str); // exec() : 단어를 뽑아서 return함
+		document.write(result, "<br>");
+		
+	</script>
+</body>
+</html>

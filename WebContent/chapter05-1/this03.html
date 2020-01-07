@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label {
+		display: inline-block;
+		width: 100px;
+	}
+</style>
+
+<script>
+	function submitCheck(formObj){ // formObj : this
+		var name = formObj.name.value;
+		var nameReg = /^[가-힣]{2,5}$/;
+		if(nameReg.test(name) == false){
+			alert("이름을 다시 입력하세요.");
+			formObj.name.focus(); // 강제로 이벤트를 실행
+			formObj.name.value = "";
+			return;
+		}
+		
+		var phone = formObj.phone.value;
+		var phoneReg = /^(010|011|016|017|019)-?[0-9]{3,4}-?[0-9]{4}$/;
+		if(phoneReg.test(phone) == false){
+			alert("전화번호를 다시 입력하세요.");
+			formObj.phone.focus();
+			formObj.phone.value = "";
+			return;
+		}
+	}
+</script>
+</head>
+<body>
+	<form onsubmit="submitCheck(this); return false;">
+		<fieldset>
+			<legend>회원로그인</legend>
+			<p>
+				<label for="name">이름</label>
+				<input type="text" name="name" id="name">
+			</p>
+			<p>
+				<label for="phone">전화번호</label>
+				<input type="text" name="phone" id="phone">
+			</p>
+			<p>
+				<input type="submit" value="로그인">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

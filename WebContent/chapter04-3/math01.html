@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 최고값과 최저값을 반환
+		// 활용도는 낮음
+		var max = Math.max(10, 55, 88, 2, 46, 100);
+		document.write(max, "<br>");
+		var min = Math.min(10, 55, 88, 2, 46, 100);
+		document.write(min, "<br>");
+		
+		// 반올림, 올림, 내림
+		var num = 2.1235;
+		// 반올림
+		var round = Math.round(num);
+		document.write(round, "<br>");
+		// 올림
+		var ceil = Math.ceil(num);
+		document.write(ceil, "<br>");
+		// 내림
+		var floor = Math.floor(num);
+		document.write(floor, "<br>");
+		
+		// 원주율 상수 반환
+		document.write(Math.PI, "<br>");
+		
+		// 랜덤
+		var random = Math.random();
+		document.write(random, "<br>");
+		
+		document.write("<hr>");
+		
+		// 0~9 사이의 랜덤값 -> 구할 범위값 + 1을 한 값을 곱해야함
+		var ran1 = Math.floor(Math.random() * 10); 
+		document.write(ran1, "<br>");
+		
+		// 1~10 사이의 랜던박 -> 0~9로 만들고 +1을 함
+		var ran2 = Math.floor(Math.random() * 10) + 1;
+		document.write(ran2, "<br>");
+		
+		// 5 ~ 50사이 랜덤값 -> ( 0 ~ 45 ) + 5
+		var ran3 = Math.floor(Math.random() * 46) + 5;
+		document.write(ran3, "<br>");
+		
+		// 1 ~ 45 : 로또
+		var ran4 = Math.floor(Math.random() * 45) + 1;
+		document.write(ran4, "<br>");
+		
+	</script>
+</body>
+</html>

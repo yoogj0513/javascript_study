@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 200px;
+		height: 100px;
+	}
+</style>
+<script>
+	window.onload = function(){		
+		var imgObj = document.getElementById("img1");
+		imgObj.onmouseover = function(){
+			imgObj.style.width = "500px";
+			imgObj.style.height = "400px";
+		}
+		imgObj.onmouseout = function(){
+			imgObj.style.width = "200px";
+			imgObj.style.height = "100px";
+		}
+	}
+</script>
+</head>
+<body>
+	<img src="images/bee.jpg" id="img1">
+</body>
+</html>

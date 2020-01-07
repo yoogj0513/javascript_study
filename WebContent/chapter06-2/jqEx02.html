@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#imgs {
+		text-align: right;
+	}
+	
+	img {
+		margin: 15px;
+		cursor: pointer;
+	}
+	
+	#box {
+		border: 2px solid #000;
+		border-radius: 5px;
+		padding: 20px;
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	#box > h2 {
+		display: none;
+	}
+	
+	#box h2 span {
+		font-size: 35px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var bgArr = ["orange", "yellow", "green", "skyblue"];
+		
+		$('#imgs img').click(function(){
+			var idx = $('#imgs img').index($(this));
+			$('#box').css('background-color', bgArr[idx]);
+			$('#box>h2').css('display', 'block');
+			$('#box h2 span').html(idx+1);
+		});
+	})
+</script>
+</head>
+<body>
+	<div id="imgs">
+		<img src="images/1.png">
+		<img src="images/2.png">
+		<img src="images/3.png">
+		<img src="images/4.png">
+	</div>
+	<h1>새내기들과 함께하는 학과 전체 MT</h1>
+	 <div id="box">
+	 	<h2><span></span>학년 공지사항</h2>
+	 	<p>안녕하십니까?</p>
+	 	<p>
+	 		벌써 한 학기가 시작되지 한 달이 되어갑니가.<br>
+	 		올해도 새내기들과 함께 하는 학과 전체 MT를 갑니다.<br>
+	 		새내기들이 재학생들과 교수님들과의 친목을 도모할 수 있는 자리를 마련하고자 합니다.
+	 	</p>
+	 	<p>해마다 있는 행사지만 꼭 참석하셔서 사제간에, 선후배간에 돈독한 정을 쌓을 수 있기를 바랍니다.</p>
+	 	<ul>
+	 		<li><strong>행사명 : </strong>컴퓨터공학과 전체 MT</li>
+	 		<li><strong>행사 목적 : </strong>선후배간, 사제간의 유대 관계 형성과 친목을 위함</li>
+	 		<li><strong>행사일 : </strong>3월 25일(금) ~ 3월 27일(일)</li>
+	 	</ul>
+	 </div>
+</body>
+</html>

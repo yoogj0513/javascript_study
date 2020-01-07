@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>	
+	#box1, #box2 {
+		width: 200px;
+		height: 100px;
+		border: 1px solid #000;
+		text-align: center;
+		line-height: 100px;
+		margin-top: 50px;
+	}
+	#box1 p, #box2 p {
+		margin: 0;
+		padding: 0;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	
+	#box2 {
+		width: 400px;
+	}
+</style>
+<script>
+	function click01(){
+		var pObj = document.getElementById("p1");
+		pObj.innerHTML = document.f1.ch1.value;
+	}
+	
+	function click02(){
+		var pObj = document.getElementById("p2");
+		var ch2 = document.f2.ch2;
+		var str;
+		
+		for(var i=0; i<ch2.length; i++){
+			if(ch2[i].checked == true){
+				if(str == undefined) {					
+					str = ch2[i].value;
+					continue;
+				}
+				str += ch2[i].value;
+			}
+		}
+		
+		pObj.innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<h1>당신이 좋아하는 것은?</h1>
+	<form name="f1">
+		<p>
+			<input type="radio" name="ch1" value="강아지" onclick="click01()"> 강아지 
+			<input type="radio" name="ch1" value="고양이" onclick="click01()"> 고양이 
+			<input type="radio" name="ch1" value="꽃" onclick="click01()"> 꽃 
+			<input type="radio" name="ch1" value="하늘" onclick="click01()"> 하늘 
+			<input type="radio" name="ch1" value="달" onclick="click01()"> 달 
+		</p>
+	</form>
+	<div id="box1">
+		<p id="p1">테스트</p>
+	</div>
+	
+	<hr />
+	
+	<h1>당신이 좋아하는 것은?</h1>
+	<form name="f2">
+		<p>
+			<input type="checkbox" name="ch2" value="강아지" onclick="click02()"> 강아지 
+			<input type="checkbox" name="ch2" value="고양이" onclick="click02()"> 고양이 
+			<input type="checkbox" name="ch2" value="꽃" onclick="click02()"> 꽃 
+			<input type="checkbox" name="ch2" value="하늘" onclick="click02()"> 하늘 
+			<input type="checkbox" name="ch2" value="달" onclick="click02()"> 달 
+		</p>
+	</form>
+	<div id="box2">
+		<p id="p2">테스트</p>
+	</div>
+</body>
+</html>

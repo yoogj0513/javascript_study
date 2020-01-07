@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		border: 1px solid #000;
+		border-radius: 10px;
+		margin: 10px;
+	}
+</style>
+<script>
+	function click1() {
+		var pObj = document.getElementById("sol");
+		alert(pObj.innerHTML);
+	}
+	
+	function click2(){
+		var pObj = document.getElementById("sol");
+		pObj.innerHTML += "+CSS3";
+	}
+	
+	function click3(){
+		var imgObj = document.getElementById("img");
+		if(imgObj.src.indexOf("two.jpg") > -1){
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<p>질문: <span id="quest">웹 표준 기술은? </span></p>
+	<p>해답: <span id="sol">HTML5</span></p>
+	<button onclick="click1()">값 보기</button>
+	<button onclick="click2()">답 바꾸기</button>
+	<hr>
+	
+	<img src="images/two.jpg" alt="2" id="img" onclick="click3()"/>
+</body>
+</html>

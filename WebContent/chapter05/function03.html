@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeImg(i, path){
+		var imgArr = document.getElementsByTagName("img");
+		imgArr[i].src = "images/" + path;
+	}
+</script>
+</head>
+<body>
+	<h1>웹 표준 기술은?</h1>
+	<p>아래 이미지를 클릭해보세요</p>
+	<img src="images/h.jpg" onclick="changeImg(0, 'h2.jpg')">
+	<img src="images/l.jpg" onclick="changeImg(1, 'l2.jpg')">
+	<img src="images/t.jpg" onclick="changeImg(2, 't2.jpg')">
+	<img src="images/m.jpg" onclick="changeImg(3, 'm2.jpg')">
+	<img src="images/5.jpg" onclick="changeImg(4, '5-2.jpg')">
+</body>
+</html>

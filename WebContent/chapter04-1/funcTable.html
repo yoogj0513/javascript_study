@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+		width: 200px;
+		height: 100px;
+		text-align: center;
+	}
+	
+	td {
+		border: 1px solid #000;
+	}
+</style>
+</head>
+<body>
+	<script>
+	function tabMake(row, col) {
+		var cnt = 0;
+		
+		document.write("<table>");
+		for(var i=0; i<row; i++){
+			document.write("<tr>");
+			for(var j=0; j<col; j++){
+				cnt++;
+				document.write("<td>"+ cnt +"</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	
+	// 2행 2열 table
+	tabMake(2, 2);
+	document.write("<br>");
+	
+	// 3행 3열 table
+	tabMake(3, 3);
+	document.write("<br>");
+	
+	// 4행 6월 table
+	tabMake(4, 6);
+	
+	</script>
+</body>
+</html>

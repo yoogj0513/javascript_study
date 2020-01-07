@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 적정체중을 알아봄
+		// 체중 = (키 - 100) * 0.9
+		var height = prompt("키를 입력하세요.");
+		var normal = (height - 100) * 0.9;
+		var weight = prompt("몸무게를 입력하세요.");
+		
+		var result = (normal < weight) ? "비만" : "적정체중입니다.";
+		document.write("적정몸무게는 " + normal + "입니다.", "<br>");
+		document.write("당신의 결과: " + result);
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		document.write('<h3>Q1</h3>');
+	
+		var price1 = 3000;
+		var price2 = 6000;
+		var price3 = 3000;
+		var sum = price1 + price2 + price3;
+		
+		var result = (sum > 10000) ? (sum - 10000) + "원 초과!!" : "돈 관리 잘했어요!";
+		document.write(result);
+		
+		document.write('<hr>')
+		document.write('<h3>Q2</h3>');
+		
+		var q1 = 1200;
+		var q2 = 1300;
+		var q3 = 1000;
+		var avg = (q1 + q2 + q3) / 3;
+		var q4 = prompt("4분기 판매량을 입력하세요.");
+		
+		var result = (q4 >= avg) ? "이상" : "미달";
+		document.write("판매량이 평균 " + result + "입니다.");
+		
+	</script>
+</body>
+</html>

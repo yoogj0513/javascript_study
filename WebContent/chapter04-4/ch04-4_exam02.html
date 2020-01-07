@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i = 1;
+	var timerId = -1;
+	
+	function changeImg(){
+		var imgObj = document.getElementById("img");
+		var imgArr = ["math_img_1.jpg", "math_img_2.jpg", "math_img_3.jpg"];
+		
+		imgObj.src = "images/" + imgArr[i % imgArr.length]; 
+		i++;
+	}
+	
+	function startTimer(){
+		timerId = setInterval(changeImg, 1000);
+	}
+	
+	function stopTimer(){
+		clearInterval(timerId);
+	}
+	
+	
+</script>
+</head>
+<body>
+	<button onclick="startTimer()">시작버튼</button>
+	<button onclick="stopTimer()">정지버튼</button>
+	<br />
+	<img src="images/math_img_1.jpg" alt="가위바위보" id="img"/>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		//$('ul li:first').css('background-color', 'yellow');
+		//$('ul li:last').css('background-color', 'pink');
+		
+		// index로 선택 / 홀수번째(짝수 인덱스)
+		//$('ul li:even').css('background-color', 'yellow');
+		
+		// index로 선택 / 짝수번째(홀수 인덱스)
+		//$('ul li:odd').css('background-color', 'pink');
+		
+		// 그룹들 중에서 첫번째
+		//$('ul li:first-of-type').css('background-color', 'yellow');
+		// 그룹들 중에서 마지막
+		//$('ul li:last-of-type').css('background-color', 'pink');
+		
+		//$('#list1 li:nth-child(2)').css('background-color', 'yellow');
+		
+		// 인덱스 접근
+		// li요소 중 인덱스가 1가 참조하는 요소를 불러옴
+		//$('#list1 li:eq(1)').css('background-color', 'pink');
+		$('#list1 li').eq(2).css('background-color', 'pink');
+		
+		// 2인덱스 이전 모든 li
+		$('#list1 li:lt(2)').css('background-color', 'yellow');
+		// 2인덱스 이후 모든 li
+		$('#list1 li:gt(2)').css('background-color', 'skyblue');
+		
+		// 부모 요소 내에 자식이 유일하게 하나인 태그 선택
+		$('li:only-child').css('background-color', 'red');
+	})
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="list1">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+		<li>내용5</li>
+		<li>내용6</li>
+	</ul>
+	
+	<ul>
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+	
+	<ul>
+		<li>외동:유일한 자식</li>
+	</ul>
+</body>
+</html>

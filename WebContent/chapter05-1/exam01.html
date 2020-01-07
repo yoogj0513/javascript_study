@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container {
+		width: 800px;
+		margin: 0 auto;
+	}
+	
+	#container > div {
+		text-align: center;
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 10px;
+	}
+	
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	
+	li{
+		list-style: none;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 20px;
+	}
+	
+	span {
+		margin-right: 15px;
+	}
+</style>
+<script>	
+	function add(){
+		var ulObj = document.getElementById("ul");
+		var textareaObj = document.getElementsByTagName("textarea");
+		ulObj.innerHTML += "<li>" + textareaObj[0].value 
+						 + " <button onclick='removes(this)' class='removes'>삭제</button></li>";
+						 
+		// 새로 추가되는 태그에는 생성된 기능 및에 삭제 기능을 붙임;
+		/*
+		var btnObjs = document.getElementsByClassName("remove");
+		//3번 방식
+		for(var i = 0; i < btnObjs.length; i++){
+			btnObjs[i].addEventListener("click", function(e) {
+				//this : btnObjs[i]
+				var target = this.parentNode;//<li>
+				var parent = target.parentNode;//<ol>
+				parent.removeChild(target);
+				
+			}, false);
+		}
+		*/
+	}
+	
+	function removes(obj){
+		var target = obj.parentNode;
+		var parent = target.parentNode;
+		parent.removeChild(target);
+	}
+</script>
+</head>
+<body>
+	<div id="container">
+		<div>
+			<h1>댓글추가 및 삭제</h1>
+			<textarea rows="3" cols="50" placeholder="여기에 댓글을 넣어주세요."></textarea>
+			<button onclick="add()">댓글 달기</button>
+		</div>
+		<ul id="ul">
+		</ul>
+	</div>
+</body>
+</html>

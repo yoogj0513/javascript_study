@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//사이트(구글, 네이버, 다음)을 입력받아, 주소가 이동이 되도록 처리
+		var site = prompt("구글, 네이버, 다음 중 사이트이름을 입력하세요.");
+		switch(site){
+		case "구글":
+			location.href = "https://www.google.com/";
+			break;
+		case "네이버":
+			location.href= "https://www.naver.com/";
+			break;
+		case "다음":
+			location.href= "https://www.daum.net/";
+			break;
+		default:
+			location.reload(); // 새로고침
+			break;
+		}
+	</script>
+</body>
+</html>

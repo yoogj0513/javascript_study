@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i = 1;
+	var timerId = -1;
+	
+	function changeTime(){
+		console.log(i);
+		i++;
+	}
+
+	function startTimer(){
+		//(실행될 함수[괄호는 넣으면 안됨. 괄호는 실행하라는 의미로 타이머 상관없이 시작되어버림], 실행될 시간ms)
+		// 타이머를 멈춤 버튼에 넘겨주기 위해 변수 지정
+		timerId = setInterval(changeTime, 1000);//ms
+	}
+	
+	function stopTimer(){
+		//멈추고 싶은 타이머 변수를 괄호에 넣어서 실행.
+		clearInterval(timerId);
+	}
+</script>
+</head>
+<body>
+	<h1>타이머를 시작할 수 있습니다.</h1>
+	<button onclick="startTimer()">시작</button>
+	<button onclick="stopTimer()">멈춤</button>
+</body>
+</html>

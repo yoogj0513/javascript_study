@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 사각형 면적 구하기
+		function Rectangle(w, h){
+			this.width = w;
+			this.height = h;
+		}
+		
+		Rectangle.prototype.showArea = function(){
+			var result = this.width * this.height;
+			document.write(result, "<br>");
+		}	
+		
+		var r1 = new Rectangle(5, 5);
+		r1.showArea();
+		
+		var r2 = new Rectangle(10, 5);
+		r2.showArea();
+		
+		document.write("<hr>");
+		
+		function Person(name, money){
+			this.name = name,
+			this.money = money
+		}
+		
+		Person.prototype.setPlusMoney = function(m){
+			this.money += m;
+		}
+		Person.prototype.setMinuMoney = function(m){
+			this.money -= m;
+		}
+		
+		var p1 = new Person("홍길동", 20000);
+		p1.setPlusMoney(10000);
+		document.write(p1.money, "<br>");
+		
+		p1.setMinuMoney(5000);
+		document.write(p1.money, "<br>");
+		
+	</script>
+</body>
+</html>

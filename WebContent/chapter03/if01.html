@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	
+
+	<script>
+		//입력받은 숫자가 짝수일까? 홀수일까?
+		/* var num = prompt("숫자를 입력하세요.");
+		
+		if(num % 2 == 0) {
+			document.write(num + "는 짝수입니다.");
+		} else {
+			document.write(num + "는 홀수입니다.");
+		} */
+		
+		// 입력한 값이 신호등색(초록색, 주황색, 빨간색)이 아니면 신호등 색이 아니다고 나타나게 하자.
+		// 입력한 값이 신호등 색이면 신호등색으로 맞게 입력하였습니다.
+		var color = prompt("신호등색을 입력하세요.");
+		if(color == "초록색" || color == "주황색" || color == "빨간색") {
+			document.write("신호등색으로 맞게 입력하였습니다.");
+		} else {
+			document.write("신호등 색이 아닙니다.");
+		}
+		
+		document.write("<hr>");
+		
+		// 입력한 수가 11 ~ 20 수면 숫자를 맞게 입력하였습니다.
+		// 아닐 경우 잘못입력하였습니다.
+		var num = prompt("숫자를 입력하세요.");
+		if(num >= 11 && num <= 20) {
+			document.write("숫자를 맞게 입력하였습니다.");
+		} else {
+			document.write("잘못입력하였습니다.")
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeStyle01(){
+		var h1Arr = document.getElementsByTagName("h1");
+		var h2Obj = document.getElementById("title");
+		var foodArr = document.getElementsByClassName("food");
+		var itemArr = document.getElementsByClassName("item");
+		
+		h1Arr[0].style.color = "orange";
+		h2Obj.style.color = "red";
+		itemArr[0].innerHTML = "<a href='#'>김치</a>";
+		itemArr[1].style.backgroundColor = "pink";
+	}
+</script>
+</head>
+<body>
+	<h1>선호하는 음식</h1>
+	<h2 id="title">한식</h2>
+	<ol>
+		<li class="item">김치</li>
+		<li class="item">불고기</li>
+		<li class="item">비빔밥</li>
+	</ol>
+	<h2 class="food">양식</h2>
+	<ol>
+		<li>돈까스</li>
+		<li>피자</li>
+		<li>파스타</li>
+	</ol>
+	<button onclick="changeStyle01()">스타일 적용</button>
+</body>
+</html>

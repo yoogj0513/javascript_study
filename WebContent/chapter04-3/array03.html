@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var array1 = ["사당", "교대", "방배", "강남"];
+		var array2 = ["미금", "정자", "모란", "수서"];
+		document.write(array1, "<br>");
+		
+		array1.splice(2, 1, "서초");
+		document.write(array1, "<br>");
+		array1.splice(2, 1, "서초", "역삼", "남산");
+		document.write(array1, "<br>");
+		
+		document.write(array2.slice(1, 3), "<br>");
+		
+		document.write("<hr>");
+		
+		var array3 = ["사당", "교대", "방배", "강남"];
+		var array4 = ["미금", "정자", "모란", "수서"];
+		
+		var two = array3.concat(array4); // 두 배열을 합침
+		document.write(two, "<br>");
+		
+	</script>
+</body>
+</html>

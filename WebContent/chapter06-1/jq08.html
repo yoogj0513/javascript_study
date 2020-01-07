@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('button').eq(0).click(function(){
+			$('#jQuery').css('background-color', 'pink');
+		})
+		
+		$('button').eq(1).click(function(){			
+			$('ol > li:first').css('background-color', 'pink');
+		})
+		
+		$('button').eq(2).click(function(){
+			$('ol > li:even').css('background-color', 'blue');
+		})
+		
+		$('button').eq(3).click(function(){
+			$('ol > li').eq(3).css('background-color', 'orange');
+		})
+		
+		$('button').eq(4).click(function(){
+			$('a[href*="nate"]').css('background-color', 'green');	
+		})
+		
+		$('button').eq(5).click(function(){
+			$('a[href$=".net"]').css('background-color', 'skyblue');
+		})
+		
+		$('button').eq(6).click(function(){
+			$('a[title]').css('background-color', 'pink');
+		})
+		
+		$('button').eq(7).click(function(){
+			$('a[href^="mailto"]').css('background-color', 'grey');
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h1>jQuery 선택자</h1>
+	<button>id선택자</button>
+	<button>ol의 첫번째 li태그 선택자</button>
+	<button>ol의 홀수번째 li태그</button>
+	<button>ol의 4번째 li태그</button>
+	<button>a태그 중 nate를 포함하는 선택자</button>
+	<button>a태그 중 .net으로 끝나는 선택자</button>
+	<button>a태그 중 title속성을 가진 선택자</button>
+	<button>a태그 중 mailto로 시작하는 선택자</button>
+	
+	<hr />
+	
+	<p>HTML5</p>
+	<p>CSS#</p>
+	<p>Javascript</p>
+	<p id="jQuery">jQuery</p>
+	<ol>
+		<li>아이템 1</li>
+		<li>아이템 2</li>
+		<li>아이템 3</li>
+		<li>아이템 4</li>
+		<li>아이템 5</li>
+		<li>아이템 6</li>
+	</ol>
+	<ul>
+		<li><a href="http://www.naver.com" title="네이버 이동">네이버</a></li>
+		<li><a href="mailto:ciycc@naver.com">관리자에게</a></li>
+		<li><a href="http://www.nate.com">네이트</a></li>
+		<li><a href="http://www.daum.net">다음</a></li>
+		<li><a href="http://www.google.com">구글</a></li>
+	</ul>
+</body>
+</html>

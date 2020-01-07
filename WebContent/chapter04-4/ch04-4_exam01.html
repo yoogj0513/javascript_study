@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	button {
+		margin: 15px;
+	}
+</style>
+<script>
+	function clickBt(str){
+		var imgObj = document.getElementById("img");
+		
+		switch(str){
+		case "on":
+			imgObj.src = "images/on.jpg";
+			break;
+		case "off":
+			imgObj.src = "images/off.jpg";
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<button onclick="clickBt('on')">ON</button>
+	<button onclick="clickBt('off')">OFF</button>
+	<br><br>
+	<img src="images/off.jpg" alt="off" id="img"/>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//한글이름: 2~5
+		var user = prompt("당신의 이름은?");
+		var reg = /^[가-힣]{2,5}$/;
+		var result = reg.test(user);
+		document.write(result, "<br>");
+		if(result == true){
+			document.write("이름 형식에 맞습니다.");
+		}else{
+			document.write("이름 형식이 올바르지 않습니다.");
+		}
+		
+		document.write("<hr>");
+		
+		var email = prompt("이메일을 입력하세요");
+		var reg2 = /^\w{5,12}@[0-9a-zA-Z]{2,10}[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/;
+		var result2 = reg2.test(email);
+		if(result2 == true){
+			document.write("형식에 맞습니다. email : " + email);
+		}else{
+			document.write("형식이 올바르지 않습니다.");
+		}
+		
+		document.write("<hr>");
+		
+		// 아이디 입력
+		// 규칙 : 영어, 숫자, _만 가능
+		//      7~15자리
+		var id = prompt("아이디를 입력하세요.");
+		var idReg = /^\w{7,15}$/;
+		var idResult = idReg.test(id);
+		if(idResult == true){
+			document.write("형식에 맞습니다. id : " + id);
+		}else{
+			document.write("형식이 올바르지 않습니다.");
+		}
+		
+		document.write("<hr>");
+		
+		// 비밀번호 입력
+		// 규칙 : 첫 글자는 영어 입력
+		//      영어, 숫자, 특수문자(!@#%) 가능
+		//      8~16자리
+		var pw = prompt("비밀번호를 입력해주세요.");
+		var pwReg = /^[a-zA-Z]{1}[a-zA-Z0-9!@#%]{7,15}$/;
+		var pwResult = pwReg.test(pw);
+		if(pwResult == true){
+			document.write("형식에 맞습니다. pw : " + pw);
+		}else{
+			document.write("형식이 올바르지 않습니다.");
+		}
+		
+	</script>
+</body>
+</html>

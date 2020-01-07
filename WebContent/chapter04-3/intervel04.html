@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i = 1;
+	var timerId = -1;
+	
+	function changeImage(){
+		var imgObj = document.getElementById("img");
+		var array = ["math_img_1.jpg", 
+					 "math_img_2.jpg", 
+					 "math_img_3.jpg", 
+					 "book1.jpg", 
+					 "book2.jpg", 
+					 "book3.jpg"];
+		// innerHTML : HTML을 바꾼다는 것
+		// i % array.length -> 규칙이 생김. i가 배열 수보다 넘쳐지면 다시 0이 됨.
+		imgObj.src = "images/" + array[i % array.length];
+		i++;
+		
+		
+		/* if(i>array.length-1){
+			i=0;
+		} */
+	}
+
+	function startTimer(){
+		timerId = setInterval(changeImage, 1000);
+	}
+	
+	function stopTimer(){
+		clearInterval(timerId);
+	}
+</script>
+</head>
+<body>
+	<button onclick="startTimer()">start</button>
+	<button onclick="stopTimer()">stop</button>
+	<br>
+	<img src="images/math_img_1.jpg" id="img">
+</body>
+</html>

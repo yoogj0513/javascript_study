@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	var weeks = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		var t = new Date(); //현재 시간
+		// t가 가진 날로부터 3일 전
+		t.setDate(t.getDate()-3);
+		document.write(t.getFullYear() + "/"
+					 + (t.getMonth()+1) + "/"
+					 + t.getDate() + " "
+					 + weeks[t.getDay()]);
+		
+		document.write("<hr>");
+		
+		//t가 가진 날로부터 7일 전
+		t.setDate(t.getDate()-7);
+		document.write(t.getFullYear() + "/"
+				 + (t.getMonth()+1) + "/"
+				 + t.getDate() + " "
+				 + weeks[t.getDay()]);
+		
+		document.write("<hr>");
+		
+		// 오늘 날짜를 기준으로 7이 후의 날은 몇일인가요?
+		var t2 = new Date();
+		t2.setDate(t2.getDate() + 7);
+		document.write(t2.getFullYear() + "/"
+					 + (t2.getMonth()+1) + "/"
+					 + t2.getDate() + " "
+					 + weeks[t2.getDay()]);
+		
+		document.write("<hr>");
+		
+		// 오늘 날짜를 기준으로 한달 후
+		var t3 = new Date();
+		t3.setMonth(t3.getMonth()+1);
+		document.write(t3.getFullYear() + "/"
+				 + (t3.getMonth()+1) + "/"
+				 + t3.getDate() + " "
+				 + weeks[t3.getDay()]);
+	</script>
+</body>
+</html>

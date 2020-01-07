@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	margin: 30px;
+}
+
+img {
+	width: 43px;
+	height: 43px;
+	float: left;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+#title {
+	float: left;
+	margin-bottom: 20px;
+}
+
+table {
+	clear: both;
+	border-collapse: collapse;
+	width: 230px;
+	height: 200px;
+	text-align: center;
+}
+
+td, tr, th {
+	border: 1px solid #aaa;
+}
+
+tr>th:first-child, tr>td:first-child {
+	color: red;
+}
+
+tr>th:last-child, tr>td:last-child {
+	color: blue;
+}
+</style>
+
+</head>
+<body>
+	<div id="container">
+		<img src="images/left_96.png" onclick="pre()">
+		<h1 id="title"></h1>
+		<img src="images/right_96.png" onclick="next()">
+		<div id="table"></div>
+	</div>
+	<script>
+		var date = new Date();
+		
+		function tableMake(){
+			var y = date.getFullYear();
+			var m = date.getMonth();
+			var d = date.getDate();
+			var weeks = ["일", "월" ,"화", "수", "목", "금", "토"];
+			
+			var date2 = new Date(y, m, 1);
+			var theDay = date2.getDay();
+			var lastArr = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+			if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+				lastArr[1] = 29;
+			}
+			var lastDate = lastArr[m];
+			var row = Math.ceil((theDay + lastDate) / 7);
+	
+			var titleObj = document.getElementById("title");
+			titleObj.innerHTML = y + "." + (m + 1);
+			var makeTable = "<table>";
+			
+			makeTable += "<tr>";
+			for (var i = 0; i < 7; i++) {
+				
+				makeTable += "<th>" + weeks[i] + "</th>";
+			}
+			makeTable += "</tr>";
+			
+			var num = 1;
+			for (var i = 1; i <= row; i++) {
+				makeTable += "<tr>";
+				for (var j = 1; j <= 7; j++) {
+					if (j<=theDay && i==1 || num>lastDate) {
+						makeTable += "<td></td>";
+					} else {
+						makeTable += "<td>" + num + "</td>";
+						num++;
+					}
+				}
+				makeTable += "</tr>";
+			}
+			
+			var divObj = document.getElementById("table");
+			divObj.innerHTML = makeTable;
+		}
+		
+		tableMake();
+		
+		function pre(){
+			date.setMonth(date.getMonth() - 1);
+			tableMake();
+		}
+		
+		function next(){
+			date.setMonth(date.getMonth() + 1);
+			tableMake();
+		}
+	</script>
+</body>
+
+</html>

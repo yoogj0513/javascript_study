@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').click(function(){
+			var html = $('h1').html(); // 매개 값이 없다면 get함수로 동작함
+			alert(html);
+		})
+		$('#btn2').click(function() {
+			$('h1').html('<sapn>변경</span>');
+		})
+		
+		$('#btn3').click(function() {
+			alert($('h2').html());
+		})
+		$('#btn4').click(function() {
+			$('h2').html('css()');
+		})		
+		
+		$('#btn5').click(function() {
+			alert($('h1').css("color")); //css():get
+		})
+		$('#btn6').click(function() {
+			$('h1').css('color', 'red');
+		})
+	})
+</script>
+</head>
+<body>
+	<h1 style="color:blue;"><strong>객체 조작 및 생성</strong></h1>
+	<h2><em>html()</em></h2>
+	<button id="btn1">h1태그 내용을 가져오기</button>
+	<button id="btn2">h1태그 내용 변경</button>
+	<button id="btn3">h2태그 내용 가져오기</button>
+	<button id="btn4">h2태그 내용 변경</button>
+	<button id="btn5">css값 가져오기</button>
+	<button id="btn6">css값 변경하기</button>
+</body>
+</html>

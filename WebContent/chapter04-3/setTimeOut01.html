@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeText(){
+		var h1Obj = document.getElementById("text");
+		h1Obj.innerHTML = "글자가 변경되었습니다.";
+	}
+	
+	function changeImg(){
+		var imgObj = document.getElementById("img");
+		imgObj.src = "images/book2.jpg";
+	}
+
+	function startTimer(){
+		setTimeout(changeText, 1000); // 한번만 Time을 호출하고 멈춤
+	}
+	function startTimer02(){
+		setTimeout(changeImg, 3000);
+	}
+</script>
+</head>
+<body>
+	<h1 id="text">글자가 바뀝니다.</h1>
+	<img src="images/book1.jpg" id="img"><br>
+	<button onclick="startTimer()">글자 변경</button>
+	<button onclick="startTimer02()">이미지 변경</button>
+</body>
+</html>

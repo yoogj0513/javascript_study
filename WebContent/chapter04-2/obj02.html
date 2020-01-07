@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	
+	// 객체 안의 변수는 지역 변수
+	// 객체 안 함수에 객체 안 변수를 사용하고 싶을때는 객체명.변수명 으로 지정해야 변수를 알아봄
+	var student = {
+			name : "이름",
+			kor : 90,
+			math : 80,
+			eng : 70,
+			total : function(){
+				var sum = student.kor + student.math + student.eng;
+				//document.write(sum);
+				return sum;
+			},
+			avg : function(){
+				var avg = student.total() / 3
+				document.write(avg);
+			}
+	}
+	
+	document.write(student.total());
+	document.write("<br>");
+	student.avg();
+
+	document.write("<hr>");
+	
+	var person = {
+			name : "올라프",
+			age : "31",
+			title : "사원",
+			cash : 1000000,
+			getSalary : function(pay){
+				var pay = pay - person.setTax(pay);
+				person.cash += pay;
+			},
+			
+			// 내가 가진 돈에서 세금을 제함, 세금은 월급에서 세금(15%)임
+			// 매개변수 : 월급
+			setTax : function(pay){
+				return pay * 0.15;
+			}
+	}
+	
+	person.getSalary(2000000);
+	document.write("이름 : "+person.name+"<br>"+"나이 : "+person.age+"<br>"+
+					"직위 : "+person.title+"<br>"+"잔고 : "+person.cash+"원");
+	
+	document.write("<hr>");
+	
+	/*
+	var person2 = {
+			name : "철수",
+			age : 35,
+			title : "과장", 
+			money : 1000000,
+			getSalary : function(pay) {
+				person2.money += pay;
+			}
+	}
+	document.write(person2.money, "<br>");
+	person2.getSalary(2000000);
+	document.write(2000000, "<br>");
+	document.write(person2.money);
+	*/
+	
+	</script>
+</body>
+</html>

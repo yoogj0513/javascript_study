@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	#box {
+		border: 5px solid purple;
+		padding: 50px;
+		margin: 10px;
+		text-align: center;
+		font-size: 2em;
+		font-weight: bold;
+	}
+	
+	button {
+		padding: 5px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+</style>
+<script>
+	function changeStyle(style, i) {
+		var divObj = document.getElementById("box");
+		var colorArr = ["red", "green", "blue"];
+		
+		switch(style){
+		case 'font':
+			divObj.style.color = colorArr[i];
+			break;
+		case 'bg' :
+			divObj.style.backgroundColor = colorArr[i];
+			break;
+		case 'w50':
+			divObj.style.width = '50%';
+			divObj.style.margin ='10px auto';
+			break;
+		case 'wAuto' :
+			divObj.style.width = 'auto';
+			break;
+		case 'sol':
+			divObj.style.border = '10px solid pink';
+			break;
+		case 'dott':
+			divObj.style.border = '20px dotted orange';
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="box">
+		테스트 영역입니다.
+	</div>
+	<!-- 컬러 red(0), green(1), blue(2) -->
+	<button onclick="changeStyle('font', 0)">(폰트)red</button>
+	<button onclick="changeStyle('font', 1)">(폰트)green</button>
+	<button onclick="changeStyle('font', 2)">(폰트)blue</button>
+	<button onclick="changeStyle('bg', 0)">(배경)red</button>
+	<button onclick="changeStyle('bg', 1)">(배경)green</button>
+	<button onclick="changeStyle('bg', 2)">(배경)blue</button>
+	<button onclick="changeStyle('w50')">width = 50%</button>
+	<button onclick="changeStyle('wAuto')">width = auto</button>
+	<button onclick="changeStyle('sol')">border 10px solid pink</button>
+	<button onclick="changeStyle('dott')">border 20px dotted orange</button>
+</body>
+</html>

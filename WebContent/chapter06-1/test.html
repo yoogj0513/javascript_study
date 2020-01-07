@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	function hideImg(){
+		/* var imgObj = document.getElementsByTagName("img")[0];
+		imgObj.style.display = "none"; */
+		// display = "none" == .hide()
+		$("img").hide();
+	}
+	
+	function showImg(){
+		/* var imgObj = document.getElementsByTagName("img")[0];
+		imgObj.style.display = "inline"; */
+		// display = "inline" == .show()
+		$("img").show();
+	}
+</script>
+</head>
+<body>
+	<h1>javascript 테스트</h1>
+	<button onclick="showImg()">나타나기</button>
+	<button onclick="hideImg()">숨기기</button>
+	<br /><br />
+	<img src="images/logo.png" alt="logo" />
+</body>
+</html>

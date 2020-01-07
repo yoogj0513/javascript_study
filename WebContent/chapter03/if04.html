@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 사용자로 부터 숫자를 입력 받아서 아래 조건에 맞게 작성하시오.
+		// 1 : "짜장면을 선택하셨습니다."
+		// 2 : "짬뽕을 선택하셨습니다."
+		// 3 : "탕수육을 선택하셨습니다."
+		// 이외 : "잘못입력하였습니다."
+		
+		var num = prompt("숫자를 입력하세요.");
+		var sent = "을 선택하셨습니다."
+		if(num == 1) {
+			document.write("짜장면" + sent);
+		} else if(num == 2) {
+			document.write("짬뽕" + sent);
+		} else if(num == 3) {
+			document.write("탕수육" + sent);
+		} else {
+			document.write("잘못입력하였습니다.");
+		}
+	</script>
+</body>
+</html>

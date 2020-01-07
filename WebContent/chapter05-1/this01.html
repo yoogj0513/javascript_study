@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//mouse over
+	function changeColor(obj){ //obj : this
+		obj.style.color = "red";
+		obj.innerHTML = "마우스 오버";
+	}
+	
+	//mouse out
+	function changeColor2(obj){ //obj : this
+		obj.style.color = "black";
+		obj.innerHTML = "마우스 아웃";
+	}
+</script>
+</head>
+<body>
+	<button onmouseover="changeColor(this)" onmouseout="changeColor2(this)">마우스 오버</button>
+	<!-- this : <button>객체 -->
+	<h1 onmouseover="changeColor(this)" onmouseout="changeColor2(this)">마우스 오버</h1>
+	<a href="#" onmouseover="changeColor(this)" onmouseout="changeColor2(this)">마우스 오버</a>
+</body>
+</html>

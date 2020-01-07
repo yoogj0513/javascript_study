@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="box"></div>
+	<ul id="list"></ul>
+	<script>
+		var json = {
+				nation : ["대한민국", "미국", "영국", "덴마크"]
+		}
+		var fruits = {f:["귤", "감", "딸기", "한라봉"]}
+		var ulObj = document.getElementById("list");
+		for(var i=0; i<fruits.f.length; i++){
+			ulObj.innerHTML += "<li>"+fruits.f[i]+"</li>";
+		}
+		
+		var divObj = document.getElementById("box");
+		for(var i=0; i<json.nation.length; i++){
+			divObj.innerHTML += "<p>" +json.nation[i]+ "</p>";
+		}
+		/* divObj.innerHTML += "<p>" +json.nation[0]+ "</p>";
+		divObj.innerHTML += "<p>" +json.nation[1]+ "</p>";
+		divObj.innerHTML += "<p>" +json.nation[2]+ "</p>";
+		divObj.innerHTML += "<p>" +json.nation[3]+ "</p>"; */
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function click1(){
+		var h1Obj = document.getElementById("test");
+		var str = h1Obj.innerHTML;
+		alert(str);
+	}
+	
+	function click2(){
+		var h1Obj = document.getElementById("test");
+		h1Obj.innerHTML = "변경한 글자입니다";
+	}
+	
+	function click3(){
+		var imgObj = document.getElementById("img");
+		var str = imgObj.src; // 절대경로가 나타남
+		alert(str);
+	}
+	
+	function click4(){
+		var imgObj = document.getElementById("img");
+		imgObj.src = "images/h.jpg";
+	}
+	
+	function click5(){
+		var pObj = document.getElementById("p1");
+		var imgObj = document.getElementById("img");
+		pObj.innerHTML = imgObj.src;
+	}
+	
+	function click6(){
+		var aObj = document.getElementById("a1");
+		aObj.href = "http://www.naver.com";
+		var str = aObj.href;
+		alert(str);
+	}
+	
+	function click7(){
+		var aObj = document.getElementById("a1");
+		aObj.innerHTML = "네이버로 이동";
+	}
+	
+	function click8(){
+		var liObj = document.getElementById("li1");
+		liObj.innerHTML = "딸기";
+	}
+	
+	function click9(){
+		var liObj = document.getElementById("li2");
+		liObj.innerHTML = "탕수육";
+	}
+</script>
+</head>
+<body>
+	<h1 id="test">스터디 회원 모집</h1>
+	<img src="images/logo.png" id="img" alt="html5 공식 로고">
+	<p id="p1">이미지 경로가 나타남</p>
+	<a href="#" id="a1">네이버</a><br>
+	<button onclick="click1()">h1의 글자 보기</button>
+	<button onclick="click2()">h1의 글자 변경</button>
+	<button onclick="click3()">이미지 경로 보기</button>
+	<button onclick="click4()">이미지 경로 변경</button>
+	<button onclick="click5()">p태그에 이미지 경로가 나타나게 하자.</button>
+	<button onclick="click6()">a태그의 경로를 naver 사이트로 변경</button>
+	<button onclick="click7()">a대그의 글자를 naver로 이동으로 변경</button>
+	
+	<hr>
+	
+	<ul>
+		<li id="li1" onclick="click8()">나를 클릭하세요 1</li><!-- 과일 이름으로 변경 -->
+		<li id="li2" onclick="click9()">나를 클릭하세요 2</li><!-- 중화요리로 변경 -->
+	</ul>
+</body>
+</html>

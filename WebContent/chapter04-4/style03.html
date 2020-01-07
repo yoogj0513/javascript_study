@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function imgHidden(){
+		var imgObj = document.getElementById("img");
+		imgObj.style.visibility = "hidden";
+	}
+	
+	function imgShow(){
+		var imgObj = document.getElementById("img");
+		imgObj.style.visibility = "visible";
+	}
+	
+</script>
+</head>
+<body>
+	<img src="images/big2.jpg" alt="사진" id="img"/>
+	<br>
+	<button onclick="imgHidden()">감추기</button>
+	<button onclick="imgShow()">보여주기</button>
+</body>
+</html>

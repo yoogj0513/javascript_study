@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container{
+		text-align: center;
+		width: 300px;
+	}
+
+	button {
+		padding: 10px 20px;
+		font-size: 1.3em;
+		border: 2px solid #000;
+		background-color: skyblue;
+		margin: 20px;
+	}
+	
+	img {
+		margin-top: 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#on').click(function() {
+			$('#img').attr('src', 'images/on.jpg');
+		})
+		
+		$('#off').click(function() {
+			$('#img').attr('src', 'images/off.jpg');
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="container">
+		<button id="on">on</button>
+		<button id="off">off</button>
+		<br>
+		<img src="images/off.jpg" id="img">
+	</div>
+</body>
+</html>

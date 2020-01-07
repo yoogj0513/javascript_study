@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#wrapper {
+		width: 300px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	#img1 {
+		width: 150px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+	
+	.btn_wrap a{
+		font-size: 2em;
+	}
+</style>
+<script>
+	var index = 0;
+	function clickLeftButton(){
+		var imgObj = document.getElementById("img1");
+		index -= 100;
+		imgObj.style.marginLeft = index + "px";
+	}
+	
+	function clickRightButton(){
+		var imgObj = document.getElementById("img1");
+		index += 100;
+		imgObj.style.marginLeft = index + "px";
+	}
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<img src="images/pic_t1.jpg" id="img1">
+		<p class="btn_wrap">
+			<a href="#" onclick="clickLeftButton()">&lt;</a>
+			<a href="#" onclick="clickRightButton()">&gt;</a>
+		</p>
+	</div>
+</body>
+</html>

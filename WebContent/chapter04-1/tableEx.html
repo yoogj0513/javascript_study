@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	
+	td {
+		border: 1px solid #000;
+	}
+</style>
+</head>
+<body>
+	<script>
+		var stNum = Number(prompt("총 수강생은 몇 명입니까?"));
+		var colNum = Number(prompt("한 줄에 몇 명씩 앉습니까?"));
+		var row = 0;
+		
+		if(stNum % colNum == 0) {
+			row = stNum / colNum;
+		} else {
+			row = stNum / colNum + 1;
+		}
+		document.write("<table>");
+		
+		var count = 1;
+		for(var i=0; i<row; i++){
+			document.write("<tr>");
+			for(var j=1; j<=colNum; j++){
+				if(count > stNum) {
+					break;
+				}
+				document.write("<td>컴공 "+count+"</td>")
+				count++;
+			}
+			document.write("</tr>");			
+		}
+		document.write("</table>");
+		
+		
+		
+	</script>
+</body>
+</html>

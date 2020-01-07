@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{
+		position: fixed;
+	}
+</style>
+<script>
+	window.onload = function (){
+		document.onmousemove = function(e){
+			var eventObj = e ? e : window.event;
+			var imgObj = document.getElementById("img");
+			img.style.left = eventObj.clientX+"px";
+			img.style.top = eventObj.clientY+"px";
+		}
+	}
+</script>
+</head>
+<body>
+	<img src="images/icon_72_1.png" id="img">
+</body>
+</html>

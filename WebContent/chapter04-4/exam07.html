@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#container{
+		overflow: hidden;
+	}
+
+	.box{
+		float: left;
+		width: 200px;
+		text-align: center;
+		margin-left: 30px;
+		margin-top: 30px;
+		border: 1px solid #aaa;
+	}
+	
+	img {
+		width: 100%;
+		height: 200px;
+	}
+	
+	.title {
+		color: green;
+		font-size: 14px;
+	}
+	
+	.price {
+		color: red;
+		font-weight: bold;
+	}
+</style>
+<script>
+	var j = 1;	
+	var imgArr = document.getElementsByTagName("img");
+	var imgFile = ["new_01", "new_02", "new_03", 
+				   "new_04", "new_05", "new_06"];
+	var pArr = document.getElementsByClassName("title");
+	var spanArr = document.getElementsByClassName("won");
+	var priceArr = ["20,000", "18,000", "25,000",
+					"32,000", "11,000", "18,800"];
+	
+	function changeImg(){
+		for(var i=0; i<imgArr.length; i++){
+			imgArr[i].src = "images/" + imgFile[j] + ".jpg";
+			pArr[i].innerHTML = imgFile[j];
+			spanArr[i].innerHTML = priceArr[j];
+			j += 2;
+		} 
+		
+		if(j%2 != 0){
+			j = 0;
+		} else {			
+			j = 1;
+		}
+	}
+	
+	function startTimer(){
+		setInterval(changeImg, 2000);
+	}
+</script>
+</head>
+<body>
+	<div id="container">
+		<div class="box">
+			<img src="images/new_01.jpg">
+			<p class="title">new_01</p>
+			<p class="price"><span class="won">20,000</span>원</p>
+		</div>
+		<div class="box">
+			<img src="images/new_03.jpg">
+			<p class="title">new_03</p>
+			<p class="price"><span class="won">25,000</span>원</p>
+		</div>
+		<div class="box">
+			<img src="images/new_05.jpg">
+			<p class="title">new_05</p>
+			<p class="price"><span class="won">11,000</span>원</p>
+		</div>
+	</div>
+	
+	<script>
+		startTimer();
+	</script>
+</body>
+</html>

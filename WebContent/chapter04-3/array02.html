@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var array = [];  //new Array();
+		array[0] = "사과";
+		array[1] = "바나나";
+		array.push("귤"); //제일 마지막에 추가
+		array.push("딸기");
+		array.unshift("탕수육"); // 제일 처음에 추가
+		document.write(array, "<br>");
+		
+		array.pop(); // 제일 마지막 인덱스 제거
+		document.write(array, "<br>");
+		
+		array.shift(); // 제일 처음 인덱스 제거
+		document.write(array, "<br>");
+		
+		document.write("<hr>");
+		
+		var array2 = ["사당", "교대", "방배", "강남"];
+		var join = array2.join("-"); // 사당-교대-방배-강남
+		document.write(join, "<br>");
+		document.write(array2.reverse(), "<br>"); // 순서를 거꾸로 바꾼 후 반환
+		document.write(array2.sort(), "<br>");    // 정렬 오름차순
+		
+	</script>
+</body>
+</html>

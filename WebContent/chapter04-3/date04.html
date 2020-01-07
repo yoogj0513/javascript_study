@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var weeks = ["일요일", "월요일", "화요일", "수요일", "목요일","금요일", "토요일"];
+		//1. 1년 전의 오늘은?
+		var t1 = new Date();
+		t1.setFullYear(t1.getFullYear() - 1);
+		document.write("1년전의 오늘은? <br>");
+		document.write(t1.getFullYear() + "/"
+				     + (t1.getMonth()+1) + "/"
+				     + t1.getDate() + " "
+				     + weeks[t1.getDay()] );
+		
+		document.write("<hr>")
+				
+		//2. 오늘로부터 100일 후는?
+		var t2 = new Date();
+		t2.setDate(t2.getDate()+100);
+		document.write("오늘로부터 100일 후는? <br>");
+		document.write(t2.getFullYear() + "/"
+			     + (t2.getMonth()+1) + "/"
+			     + t2.getDate() + " "
+			     + weeks[t2.getDay()] ); 
+		
+		document.write("<hr>")
+				
+		//3. prompt을 통해 일(date)를 입력 받아, 오늘로부터 몇일 후의 년/월/일/요일은?
+		var t3 = new Date();
+		var inDate = Number(prompt("날짜 일수를 입력하세요."));
+		t3.setDate(t3.getDate() + inDate);
+		document.write("오늘로부터 " + inDate + "일 후는? <br>");
+		document.write(t3.getFullYear() + "/"
+			     + (t3.getMonth()+1) + "/"
+			     + t3.getDate() + " "
+			     + weeks[t3.getDay()] ); 
+		
+		document.write("<hr>")
+		
+		// 2017년 12월 24일은 영희와 철수가 만난 날입니다.
+		// 4. 오늘은 영희와 철수가 만난지 몇일이 되는 날인가요?
+		var t4 = new Date();
+		var first = new Date(2017, 11, 24);
+		var Dday = t4.getTime() - first.getTime();
+		var diff = Math.ceil(Dday/(24*60*60*1000));
+		document.write("영희와 철수가 만난지 " + diff + "일 되었습니다.<br>");
+		// 5. 만난지 1000일이 되는 날은 언제일까요?
+		first.setDate(first.getDate() + 999);
+		document.write("영희와 철수가 만난지 1000일이 되는 날 ");
+		document.write(first.getFullYear() + "/"
+			     + (first.getMonth()+1) + "/"
+			     + first.getDate() + " "
+			     + weeks[first.getDay()] ); 
+	</script>
+</body>
+</html>

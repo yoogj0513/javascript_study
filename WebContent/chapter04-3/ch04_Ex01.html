@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		
+		/* 
+		document.write("과제 1 *****************<br>");
+		var toDay = new Date();
+		var xMay = new Date(2019, 11, 25);
+		var res = xMay.getTime()-toDay.getTime();
+		var Dday = Math.ceil(res / (24*60*60*1000));
+		document.write("크리스마스까지 " + Dday +"일 남았습니다.");
+		
+		document.write("<br><br>");
+		document.write("과제 2 *****************<br>");
+		var random = Math.floor(Math.random() * 10);
+		document.write("0 ~ 9 사이의 난수 : "+ random, "<br>");
+		document.write("인증번호:");
+		for(var i=0; i<5; i++){
+			random = Math.floor(Math.random() * 10);
+			document.write(random);
+		}
+		
+		
+		document.write("<br><br>");
+		document.write("과제 3 *****************<br>");
+		var scoreArr = [];
+		for(var i=1; i<=5; i++){
+			var score = Number(prompt("[점수"+i+"] 점수를 입력하세요."));
+			scoreArr[i-1] = score;
+		}
+		scoreArr.sort();
+		var min = scoreArr[0];
+		var max = scoreArr[scoreArr.length-1];
+		
+		var sum = 0;
+		for(var i=0; i<scoreArr.length; i++){
+			sum += scoreArr[i];
+		}
+		
+		var avg = sum / scoreArr.length;
+		
+		document.write("총 합: " + sum + "<br>"
+						+ "평균값 : " + avg + "<br>"
+						+ "최고 점수 : " + max + "<br>"
+						+ "최저 점수 : " + min);
+		
+		document.write("<br><br>");
+		document.write("과제 4 *****************<br>");
+		var i = 0;
+		var sum = 0;
+		var num2 = prompt("숫자를 입력하세요.");
+		var reg = /^[0-9]+$/;
+		while(true){			
+			var result = reg.test(num2);
+			if(result == true){
+				break;
+			} else if(result == false){
+				num2 = prompt("잘못 입력했습니다. 숫자만 입력해주세요.");
+			}
+		}  
+		
+		document.write("입력값 : " + num2, "<br>");
+		var res;
+		var sum2 = 0;
+		for(var i=0; i<num2.length; i++){
+			document.write(num2[i] + (i<num2.length-1? "+" : "="));
+			sum2 += Number(num2[i]);
+		}
+		document.write(sum2);
+		
+		
+		document.write("<br><br>");
+		document.write("과제 5 *****************<br>");
+		var userPw = prompt("비밀 번호를 입력하세요.");
+		var pwReg = /^[a-zA-Z]{1}[a-zA-Z0-9!@#$%^&*_-]{7,19}$/;
+		var resPw = pwReg.test(userPw);
+		if(resPw == true){
+			document.write("유효한 비밀번호 입니다.");
+		} else if(resPw == false){
+			document.write("유효하지 않은 비밀번호입니다.");
+		}
+		
+		document.write("<br><br>");
+		document.write("과제 6 *****************<br>");
+		var imgReg = /^.+[\.](bmp|jpg|jpeg|gif|png)$/;
+		var inImg = prompt("이미지 파일명을 입력하세요.");
+		var resImg = imgReg.test(inImg);
+		if(resImg == true){
+			document.write("이미지 파일명 ["+inImg + "]은 유효합니다.");
+		} else {
+			document.write("이미지 파일명 ["+inImg + "]은 유효하지 않습니다.");
+		} 
+		
+		
+		document.write("<br><br>");
+		document.write("과제 7 *****************<br>");
+		var urlReg = /^(http:\/\/|https:\/\/)[a-z]*[\.]?[0-9a-zA-Z]+[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/;
+		var inUrl = prompt("url 주소를 입력하세요.");
+		var resUrl = urlReg.test(inUrl);
+		if(resUrl == true){
+			document.write("입력된 url["+inUrl+"]은 유효합니다.");
+		} else {
+			document.write("입력된 url["+inUrl+"]은 유효하지 않습니다.");
+		} 
+		 */
+		
+		document.write("<br><br>");
+		document.write("과제 8 *****************<br>");
+		var weeks = ["일요일", "월요일", "화요일", "수요일", "목요일" ,"금요일", "토요일"];
+		
+		var inYear = prompt("년도를 입력하세요.");
+		var inMonth = prompt("월을 입력하세요.")-1;
+		var date = new Date(inYear, inMonth);
+		var y = date.getFullYear();
+		var m = date.getMonth();
+		
+		var date2 = new Date(y, m, 1);
+		var theDay = date2.getDay();
+		
+		var lastArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		// 윤년 (4년 주기이고 100년 주기는 제외 또는 400년 주기포함) / 2월의 29일
+		if(y%4==0 && y%100!=0 || y%400==0) {
+			lastArr[1] = 29;
+		}
+		var lastDate = lastArr[m];
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>

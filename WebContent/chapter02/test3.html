@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var number = 10;
+		number++;
+		document.write(number);
+		
+		document.write('<hr>');
+		
+		var number = 10;
+		document.write(number++, '<br>');
+		document.write(number++, '<br>');
+		document.write(number++, '<br>');
+		
+		document.write('<hr>');
+		
+		var number = 10;
+		document.write(++number, '<br>');
+		document.write(++number, '<br>');
+		document.write(++number, '<br>');
+		
+		document.write('<hr>');
+		
+		var number = 10;
+		document.write(number++, '<br>');
+		document.write(++number, '<br>');
+		document.write(number--, '<br>');
+		document.write(--number, '<br>');
+		
+		document.write('<hr>');
+		
+		var a = 2;
+		var b = a++;
+		document.write('a = ' + a + ', b= ' + b +'<br>');
+		
+		var a = 2;
+		var b = ++a;
+		document.write('a = ' + a  + ', b= ' + b +'<br>');
+		
+		document.write('<hr>');
+		
+		var a = 3;
+		var b = 10;
+		document.write('a = ' + a + ', b = ' + b + '<br>');
+		document.write('a = ' + (++a) + ', b = ' + b + '<br>');
+		document.write('a = ' + (a++) + ', b = ' + b + '<br>');
+		document.write('a = ' + a + ', b = ' + (--b) + '<br>');
+		document.write('a = ' + a + ', b = ' + (b--) + '<br>');
+		document.write('a = ' + a + ', b = ' + b + '<br>');
+		
+		document.write('<hr>');
+		
+		// 짝수, 홀수
+		var num = prompt("1개의 숫자를 입력하세요.");
+		
+		var result = (num%2 == 0) ? '짝수' : '홀수';
+		document.write(num + '는 ' + result+'입니다.');
+		
+	</script>
+</body>
+</html>

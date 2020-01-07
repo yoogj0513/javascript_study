@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img { 
+		width: 100px;
+	}
+	table{
+		border-collapse: collapse;
+	}
+	
+	table td {
+		border: 1px solid #000;
+		width: 100px;
+		text-align: center;
+	}
+</style>
+<script>
+	function clickNewP(){
+		var newP = document.createElement("p"); //<p></p> 빈 P태그
+		var textNode = document.createTextNode("오늘은 금요일이예요!!");
+		
+		newP.appendChild(textNode); // 내 안에 자식으로 넣는다. <p>textNode내용</p> 
+		
+		 var divObj = document.getElementById("box"); 
+		 divObj.appendChild(newP); // 위에서 만든 객체를 추가해야함
+	}
+	
+	function clickNewH1(){
+		var newH1 = document.createElement("h1");
+		var textNode = document.createTextNode("h1태그 생성됨");
+		
+		newH1.appendChild(textNode);
+		
+		var divObj = document.getElementById("box");
+		divObj.appendChild(newH1);
+	}
+	
+	function clickNewImg(){
+		var newImg = document.createElement("img");//<img>
+		var srcNode = document.createAttribute("src");//src="images/20.jpg"
+		srcNode.value = "images/20.jpg";
+		
+		newImg.setAttributeNode(srcNode); //<img src="images/20.jpg">
+		var divObj = document.getElementById("box");
+		divObj.appendChild(newImg);
+	}
+	
+	function clickNewA(){
+		var newA = document.createElement("a");
+		var hrefNode = document.createAttribute("href");
+		var textNode = document.createTextNode("네이버");
+		hrefNode.value = "http://www.naver.com";
+		newA.setAttributeNode(hrefNode);
+		newA.appendChild(textNode);
+		
+		var divObj = document.getElementById("box");
+		divObj.appendChild(newA);
+	}
+	
+	function clickNewTable(){
+		var tableObj = document.getElementById("table");
+		
+		var newTr = document.createElement("tr");
+		var newTd = document.createElement("td");
+		var textNode = document.createTextNode("사과");
+		newTd.appendChild(textNode);
+		newTr.appendChild(newTd);
+		tableObj.appendChild(newTr);
+	}
+</script>
+</head>
+<body>
+	<div id="box"></div>
+	<table id="table">
+		<tr>
+			<td>귤</td>
+		</tr>
+		<!-- 
+		<tr>
+			<td>사과</td>
+		<tr>
+		 -->
+	</table>
+	<a href="#" onclick="clickNewP()">더보기</a><br>
+	<a href="#" onclick="clickNewH1()">h3태그 추가</a><br>
+	<a href="#" onclick="clickNewImg()">이미지 추가</a><br>
+	<a href="#" onclick="clickNewA()">a태그 추가</a><br><!-- <a href="http://www.naver.com">Naver</a> -->
+	<a href="#" onclick="clickNewTable()">사과추가</a>
+</body>
+</html>

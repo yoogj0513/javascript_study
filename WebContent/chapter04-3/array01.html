@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var array = ["안녕", "나는", "Javascript야"];
+		document.write(array[0], "<br>");
+		document.write(array[1], "<br>");
+		document.write(array[2], "<br>");
+		
+		// 배열 추가
+		array[3] = "반가워";
+		document.write(array, "<br>");
+		
+		array[4] = "CSS도 배웠지";
+		//array[5] = "HTML5도 배웠는데";
+		for(var i=0; i<array.length; i++){
+			document.write(array[i], "<br>");
+		}
+		
+		document.write("<hr>");
+		
+		// var은 자바처럼 타입이 정해진 것이 아니기 때문에 여러 타입을 같이 넣을 수 있음
+		var array2 = ["안녕", 5, new Date(), true];
+		for(var i=0; i<array2.length; i++){
+			document.write(array2[i], "<br>");
+		}
+		
+		document.write("<hr>");
+		
+		var array3 = ["밥", "국", "반찬", "고기", "김치"];
+		for(var i=0; i<array3.length; i++){
+			document.write(array3[i], "<br>");
+		}
+		
+	</script>
+</body>
+</html>

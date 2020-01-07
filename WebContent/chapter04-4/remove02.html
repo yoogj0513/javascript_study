@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul {
+		border: 1px solid #000;
+		padding: 10px;
+		padding-left: 40px;
+		margin: 10px;
+		width: 200px;
+	}
+</style>
+<script>
+    var cnt = 2;
+	function liAdd(){
+		var ulObj = document.getElementById("listUl");
+		ulObj.innerHTML += "<li>찐교스" +cnt+ "</li>";
+		cnt++;
+	}
+	
+	function liRemove(){
+		var parent = document.getElementById("listUl");
+		var liArr = document.getElementsByTagName("li");
+		var indexNum = liArr.length-1;
+		if(indexNum > -1){			
+			parent.removeChild(liArr[indexNum]);
+		}
+	}
+</script>
+</head>
+<body>
+	<ul id="listUl">
+		<li>짜장면</li>
+		<li>탕수육</li>
+		<li>팔보채</li>
+		<li>짬뽕</li>
+		<li>우육탕</li>
+		<li>찐교스</li>
+	</ul>
+	<button onclick="liRemove()">remove</button>
+	<button onclick="liAdd()">add</button>
+</body>
+</html>

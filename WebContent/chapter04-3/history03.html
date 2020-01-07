@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function clickPrev2Page(){
+		history.go(-2); //back:-1과 같음	
+	}
+	function clickPrevPage(){
+		history.back();
+	}
+</script>
+</head>
+<body>
+	<h1>3번 페이지</h1>
+	<button onclick="clickPrev2Page()">1번(전전) 페이지로 이동</button>
+	<button onclick="clickPrevPage()">이전 페이지로 이동</button>
+</body>
+</html>

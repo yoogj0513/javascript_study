@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	img {
+		border: 2px solid #333;
+		box-shadow: 2px 2px 3px #000;
+		margin-right: 20px;
+		margin-top: 30px;
+	}
+</style>
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$(".img").hide();
+		})
+		$("#btn2").click(function(){
+			$(".img").show();
+		})
+		
+		$("#btn3").click(function(){
+			$(".text").hide();
+		})
+		$("#btn4").click(function(){
+			$(".text").show();
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">그림을 감추려면 클릭!</button>
+	<button id="btn2">그림을 보려면 클릭!</button>
+	<button id="btn3">글자 모두 숨기기</button>
+	<button id="btn4">글자 모두 나타나게</button>
+	<br><br>
+	<img src="images/sun.jpg" class="img">
+	<img src="images/moon.jpg" class="img">
+	<div>
+		<p class="text">탕수육</p>
+		<p class="text">짜장면</p>
+		<p class="text">짬뽕</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul {
+		border: 1px solid #ccc;
+		width: 300px;
+		margin: 10px;
+		padding: 10px;
+		padding-left: 40px;
+		list-style: none;
+	}
+	
+	ul:last-child {
+		list-style: disc;
+	}
+	
+	img {
+		width: 150px;
+	}
+</style>
+<script>
+	function clickAdd(){
+		var ulObj = document.getElementById("ul");
+		var food = document.f1.food.value;
+		var imgObj = ulObj.getElementsByTagName("img");
+		
+		for(var i=0; i<imgObj.length; i++){
+			if(imgObj[i].src.indexOf(food) > -1){
+				alert("이미 선택되었습니다.")
+				return;
+			}
+		}
+		ulObj.innerHTML += "<li><img src='images/"+food+"'></li>";
+	}
+	
+	function clickAdd02(){
+		var ulObj = document.getElementById("ul2");
+		var food = document.f2.food2.value;
+		var foodList = document.getElementsByClassName("list");
+		
+		for(var i=0; i<foodList.length; i++){
+			if(foodList[i].innerHTML == food){
+				alert("이미 선택되었습니다.");
+				return;
+			}
+		}
+		ulObj.innerHTML += "<li class='list'>"+food+"</li>";	
+		
+		
+		//풀이
+	/*	
+		// ul 아래에 있는 li를 다져오고 싶을 때 -> 부모태그.getElementsByTagName(자식태그)
+		var liObj = ulObj.getElementsByTagName("li");
+	*/
+	}
+</script>
+</head>
+<body>
+	<form name="f1">
+		<select name="food">
+			<option value="bibimbam.png">비빔밥</option>
+			<option value="dongas.png">돈까스</option>
+			<option value="gimbam.png">김밥</option>
+			<option value="ramun.png">라면</option>
+		</select>
+	</form>
+	<button onclick="clickAdd()">이미지추가</button>
+	<hr>
+	<ul id="ul">
+	</ul>
+	
+	<br><br><br>
+	<form name="f2">
+		<select name="food2">
+			<option>비빔밥</option>
+			<option>돈까스</option>
+			<option>김밥</option>
+			<option>라면</option>
+		</select>
+	</form>
+	<button onclick="clickAdd02()">텍스트추가</button>
+	<hr>
+	<ul id="ul2">
+	</ul>
+	
+	
+</body>
+</html>

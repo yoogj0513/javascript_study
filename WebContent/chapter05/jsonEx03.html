@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="title">빈곳</h1>
+	<ul id="schedule"></ul>
+	<script>
+		var bbs = {
+				title : "TV 시간표",
+				date : "2016-11-10",
+				schedule : [
+					{title : "공항가는 길", episode : "16회", channel : "KBS"},
+					{title : "쇼핑왕 루이", episode : "15회", channel : "MBC"},
+					{title : "질투의 화진", episode : "24회", channel : "SBS"}
+				]
+		};
+		
+		var h1Obj = document.getElementById("title");
+		var ulObj = document.getElementById("schedule");
+		
+		h1Obj.innerHTML = bbs.title + "(" + bbs.date + ")";
+		
+		for(var i=0; i<bbs.schedule.length; i++){
+			ulObj.innerHTML += "<li>" + bbs.schedule[i].title + "(" + bbs.schedule[i].episode +", " + bbs.schedule[i].channel + ")" + "</li>";
+		}
+	</script>
+</body>
+</html>

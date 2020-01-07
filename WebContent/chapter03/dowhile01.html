@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//do-while
+		// 10 ~ 1 까지 나타내세요.
+		var i = 10;
+		do {
+			document.write(i, " ");
+			i--;
+		}while(i > 0);
+		
+		document.write("<hr>");
+		
+		// 1 ~ 100 사이의 수 중 5의 배수만 화면에 나타나게
+		i = 1;
+		var sum = 0;
+		var cnt = 0;
+		do{
+			if(i%5 == 0) {
+				document.write(i+" ");
+				sum += i;
+				cnt++;
+			}
+			i++;
+		}while(i <= 100);
+		document.write("<br>");
+		document.write("5의 배수 합 : " + sum + " / 개수 : " + cnt);
+		
+		document.write("<hr>");
+		
+		// 두 수를 입력받아 작은 수에서 큰 수까지의 합을 화면에 표시하세요. do-while
+		var num1 = Number(prompt("숫자1을 입력하세요."));
+		var num2 = Number(prompt("숫자2를 입력하세요."));
+		var sum = 0;
+		
+		if(num1 > num2) {
+			var dummy = num1;
+			num1 = num2;
+			num2 = dummy;
+		}
+		
+		do {
+			document.write(num1, " ");
+			sum += num1;
+			num1++;
+		}while(num1 < num2);
+			
+		document.write("합 : "+sum);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	</script>
+</body>
+</html>

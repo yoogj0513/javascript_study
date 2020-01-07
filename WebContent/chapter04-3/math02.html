@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+		
+		// 사용자 선택
+		var user = prompt("가위, 바위, 보 중 선택하세요.");
+		var userNum = 0;
+		switch(user){
+		case "가위" :
+			userNum = 1;
+			break;
+		case "바위" :
+			userNum = 2;
+			break;
+		case "보" :
+			userNum = 3;
+			break;
+		}
+		
+		// 컴퓨터 선택 (1 ~ 3) -> (0~2)+1
+		var computer = Math.floor(Math.random() * 3) + 1;
+		if(userNum == computer){
+			document.write("<h3>맞췄습니다!! 축하합니다.</h3>");
+		} else {
+			document.write("<h3>틀렸네요. 다음 기회 또 도전하세요!!</h3>");
+		}
+		
+		// 컴퓨터가 선택한 번호 이미지
+		document.write("<img src='images/math_img_"+ computer +".jpg'>");
+		
+		/* if(computer == 1){
+			document.write("<img src='images/math_img_1.jpg'>");
+		} else if(computer == 2){
+			document.write("<img src='images/math_img_2.jpg'>");
+		} else if(computer == 3){
+			document.write("<img src='images/math_img_3.jpg'>");
+		} */
+	</script>
+</body>
+</html>

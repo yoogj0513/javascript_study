@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//1번 방식
+	function removeTest(obj){//obj:this-button
+		var target = obj.parentNode; //<li>
+		var parent = terget.parentNode // <ul>
+		
+		parent.removeChild(target);
+	}
+	
+	window.onload = function(){
+		var btnObjs = document.getElementsByTagName("button");
+		for(var i=0; i<btnObjs.length; i++){
+			// 2번 방식
+			/* btnObjs[i].onclick = function(){
+				// this : btnObjs[i]
+				var target = this.parentNode; // <li>
+				var parent = this.parentNode.parentNode; //<ul>
+				parent.removeChild(target);
+			} */
+			
+			
+			// 3번 방식
+			btnObjs[i].addEventListener("click", function(e) {
+				//this : btnObjs[i]
+				var target = this.parentNode;
+				var parent = target.parentNode;
+				parent.removeChild(target);
+			}, false)
+		}
+	}
+</script>
+</head>
+<body>
+	<ul>
+		<!-- 1번 방식일때는   onclick="removeTest(this)"를 태그에 붙이넣기 -->
+		<li>빨강색 <button>삭제</button></li>
+		<li>파랑색 <button>삭제</button></li>
+		<li>노랑색 <button>삭제</button></li>
+		<li>주황색 <button>삭제</button></li>
+		<li>초록색 <button>삭제</button></li>
+	</ul>
+</body>
+</html>

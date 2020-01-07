@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function click1(){
+		var arr = document.getElementsByClassName("test"); // 배열형태 리턴됨, [h1Obj];
+		alert(arr.length);
+		alert(arr[0].innerHTML);
+	}
+	
+	function click2(){
+		var arr = document.getElementsByClassName("accent");
+		alert(arr.length);
+	}
+	
+	function click3(){
+		var arr = document.getElementsByClassName("accent");
+		alert(arr[0].innerHTML);
+	}
+	
+	function click4(){
+		var arr = document.getElementsByClassName("accent");
+		arr[1].innerHTML = "javascript 기술";
+	}
+	
+	function click5(){
+		var arr = document.getElementsByClassName("test");
+		arr[0].innerHTML = "코딩 스터디";
+	}
+	
+	function click6(){
+		var arr = document.getElementsByClassName("item");
+		var arr2 = ["딸기", "바나나", "사과"];
+		for(var i=0; i<arr.length; i++){
+			arr[i].innerHTML = arr2[i];
+		}
+	}
+	
+	function click7(){
+		var arr = document.getElementsByClassName("test2");
+		var pObj = document.getElementById("p1");
+		for(var i=0; i<arr.length; i++){			
+			pObj.innerHTML += (arr[i].innerHTML + " ");
+		}
+	}
+	
+	function click8(){
+		var arr = document.getElementsByClassName("test3");
+		var divObj = document.getElementById("result");
+		divObj.innerHTML = Number(arr[0].innerHTML) + Number(arr[1].innerHTML);
+	}
+	
+</script>
+</head>
+<body>
+	<h1 class="test">스터디 회원 모집</h1>
+	<p class="accent">신입생 대상</p>
+	<p><span class="accent">웹 표준 기술</span>에 대해 같이 공부할 스터디 회원을 모집합니다.</p>
+	<button onclick="click1()">test 클래스의 갯수</button>
+	<button onclick="click2()">accent 클래스의 갯수</button>
+	<button onclick="click3()">accent 클래스 중 0번째 내용을 보기</button>
+	<button onclick="click4()">accent 클래스 중 1번째 내용 변경</button>
+	<button onclick="click5()">test 클래스 내용 변경</button>
+	
+	<hr>
+	
+	<ul>
+		<li class="item">test 1</li>
+		<li class="item">test 2</li>
+		<li class="item">test 3</li>
+	</ul>
+	<button onclick="click6()">과일 이름으로 변경</button>
+	
+	<hr />
+	
+	<div class="test2" >3교시입니다.</div>
+	<h5 class="test2">자바스크립트 수업입니다.</h5>
+	<p id="p1"></p>
+	<button onclick="click7()">p태그 변경</button>
+	
+	<hr />
+	<p class="test3">10</p>
+	<p class="test3">21</p>
+	<div id="result">결과보기</div>
+	<button onclick="click8()">p태그 값 더하기</button>
+	
+</body>
+</html>

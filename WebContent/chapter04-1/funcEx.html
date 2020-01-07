@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	// 구구단
+	function gugudan(dan) {
+		for(var num=0; num<10; num++){
+			document.write(dan + " * " + num + " = " + (dan*num) + "<br>");
+		}
+	}
+	var dan = prompt("숫자를 입력하세요.")
+	gugudan(dan);
+	
+	document.write("<hr>");
+	
+	//팁값 계산
+	function tip() {
+		var result = price * 0.15;
+		return result;
+	}
+	
+	var price = Number(prompt("총 가격을 입력하세요."));
+	var tip = tip();
+	document.write("총 가격은 "+ price + "원이고 팁 값은 "+ tip + "원 입니다.");
+	
+	document.write("<hr>");
+	
+	// 단위 변환 (cm -> inch)
+	var cm = Number(prompt("센치 값을 입력하세요."));
+	var inch = inch();
+	document.write(cm +"cm은 "+ inch + "인치(inch) 이다.");
+	
+	function inch() {
+		var result = 0.393701 * cm;
+		return result;
+	}
+	
+	document.write("<hr>");
+	
+	// 최고값과 최저값 구하기
+	var num1 = Number(prompt("1) 숫자를 입력하세요."));
+	var num2 = Number(prompt("2) 다른 숫자를 입력하세요."));
+	var num3 = Number(prompt("3) 다른 숫자를 입력하세요."));
+	var maxNum = getMax(num1, num2, num3);
+	var minNum = getMin(num1, num2, num3);
+	document.write("입력된 수(" + num1 + "," + num2 + "," + num3 + ")의 최소값은 " + maxNum + " 최고값은 " + minNum);
+	
+	function getMax(num1, num2, num3) {
+		if(num1 > num2 && num1 > num3) {
+			return num1;
+		} else if (num2 > num1 && num2 > num3) {
+			return num2;
+		} else if (num3 > num1 && num3 > num1) {
+			return num3;
+		}
+	}
+	
+	function getMin(num1, num2, num3) {
+		if(num1 < num2 && num1 < num3) {
+			return num1;
+		} else if (num2 < num1 && num2 < num3) {
+			return num2;
+		} else if (num3 < num1 && num3 < num1) {
+			return num3;
+		}
+	}
+	
+	document.write("<hr>");
+	
+	// 하나의 4칙연산 함수
+	var num1 = 10;
+	var num2 = 5;
+	var sum = calcul(num1, num2, sum);
+	var sub = calcul(num1, num2, sub);
+	var mult = calcul(num1, num2, mult);
+	var divi = calcul(num1, num2, divi);
+	document.write("숫자 " + num1 + ", " + num2 + "의 사칙연산<br>");
+	document.write("더하기 : " + sum + "<br>");
+	document.write("빼기 : " + sub + "<br>");
+	document.write("곱하기 : " + mult + "<br>");
+	document.write("나누기 : " + divi + "<br>");
+	
+	function calcul(num1, num2, cal) {
+		switch(cal){
+		case sum:
+			return num1 + num2;
+			break;
+		case sub:
+			return num1 - num2;
+			break;
+		case mult:
+			return num1 * num2;
+			break;
+		case divi:
+			return num1 / num2;
+			break;
+		}
+	}
+	
+	// 사칙연산
+	function cal(n1, n2, giho) {
+		if(giho == "+") {
+			return n1 + n2;			
+		} else if (giho == "-") {
+			return n1 - n2;
+		} else if (giho == "*") {
+			return n1 * n2;
+		} else if (giho == "/") {
+			return n1 / n2;
+		} else {
+			return null;
+		}		
+	}
+	
+	var r1 = cal(10, 5, "+");
+	document.write(r1);
+	
+	</script>
+</body>
+</html>

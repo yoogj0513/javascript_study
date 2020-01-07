@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		// 선택자 "", ''는 같음 / 자바스크립트는 "", ''를 같은 것 구분하지 않음.
+		// 전체 선택자 / css(속성이름, 값)
+		//$("*").css("border", "1px solid blue");
+		
+		//그룹 선택자
+		//$('h1, h3').css("border", "1px solid blue");
+		
+		//class 선택자 / 자식요소에서 부모요소 선택
+		//$(".second").parent().css("border", "1px solid blue");
+		
+		// 하위 요소 모두 선택
+		//$('ul li').css("border", "1px solid blue");
+		
+		// 바로 아래 하위요소(자식) 선택
+		//$('#wrap > li').css("border", "1px solid blue");
+		
+		// 부모요소의 바로 아래 모든 자식
+		//$('body').children().css("border", "1px solid blue");
+		
+		
+		/* 형제  */
+		// 선택자를 기준으로 이전 형제 하나
+		//$('.second').prev().css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 다음 형제 하나
+		//$('.second').next().css("border", "1px solid blue");
+		//$('.second+li').css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 이전 모든 형제
+		//$('.second').prevAll().css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 다음 모든 형제
+		//$('.second').nextAll().css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 전전 형제 찾아가는 방법 / 전전형제
+		//$('.second').prev().prev().css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 다다다음 형제를 찾아가는 방법
+		//$(".second").next().next().next().css("border", "1px solid blue");
+		
+		// 선택자를 기준으로 나의 모든 형제들만 / 나는 선택 안됨
+		$('.second').siblings().css("border", "1px solid blue");
+	})
+</script>
+</head>
+<body>
+	<h1>제이쿼리</h1>
+	<h2>직접 선택자 및 관계 선택자</h2>
+	<h3>직접 선택자</h3>
+	<h3>관계 선택자</h3>
+	<h4>인접 관계 선택자</h4>
+	<ul id="wrap">
+		<li>내용 1
+			<ul>
+				<li>서브 내용1</li>
+				<li>서브 내용 1-1</li>
+				<li>서브 내용 1-2</li>
+				<li class="second">서브내용 2</li>
+				<li>서브 내용 3</li>
+				<li>서브 내용 3-1</li>
+				<li>서브 내용 3-2</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

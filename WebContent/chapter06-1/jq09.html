@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		//#menu 자손인 li태그 중 '내용3'을 포함하는 li태그 선택자 : 테두리 -1px dashed 빨강
+		$('#menu li:contains("내용3")').css("border", "1px dashed red");
+		
+		//#menu 자손인 li태그 중 strong태그를 포함하는 li태그선택자: 테두리 -2px 실선 파랑
+		$("#menu li:has('strong')").css("border", "2px solid blue");
+	
+		//#menu 자손인 li태그 중 첫번째 뺀 나머지 li태그 선택: 배경 노랑
+		$('#menu li').not('li:first').css('background-color', 'yellow');
+	
+		//#menu 자손인 li(인덱스 1)태그 하위 요소인 strong태그 선택자 : 글자 크기 25px
+		$('#menu li:eq(1)').find('strong').css('font-size', '25px');
+		
+		//#menu 조상중 가장 가까운 div 태그 선택자 : 테두리 5px double 초록
+		$('#menu').closest('div').css('border', '5px double green');
+		
+		
+		// end 사용법 : 한 줄로 두 스타일을 적용할 수 있음. end를 사용하면 앞에 선택이 취소가 되고 다시 설정 가능
+		// .을 기준으로 줄바꿈 가능
+		$('#menu2').children('li:eq(1)').css('border', '1px dashed red')
+				   .end().css('border', '5px double blue');
+	})
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<div id="wrap">
+		<div id="inner_wrap">
+			<ul id="menu">
+				<li>내용1</li>
+				<li>
+					<span>내용<strong>2</strong></span>
+				</li>
+				<li><a href="#">내용3</a></li>
+				<li>내용4</li>
+				<li>내용5</li>
+			</ul>
+		</div>
+	</div>
+	
+	<ul id="menu2">
+		<li>아이템 1</li>
+		<li>아이템 2</li>
+		<li>아이템 3</li>
+	</ul>
+</body>
+</html>

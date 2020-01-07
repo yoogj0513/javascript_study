@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#box1 {
+		width: 200px;
+		height: 100px;
+		border: 1px solid purple;
+	}
+	
+	#box2 input {
+		padding: 10px 5px;
+	}
+	
+	#box2 button {
+		padding: 10px;
+		border: 2px solid pink;
+		background-color: red;
+		color: #fff;
+		font-weight: bold;
+	}
+	
+	#box2 p{
+		font-size: 20px;
+		color: red;
+		font-weight: bold;
+	}
+	
+	#box3 select {
+		padding: 8px;
+	}
+	
+	#box3 button {
+		padding: 5px;
+	}
+	
+	#box4 button {
+		margin: 10px 0;
+	}
+	
+	#box4 p {
+		font-weight: bold;
+	}
+</style>
+<script>
+	function changeColor(){
+		var chVal = document.f1.color.value;
+		var box01Obj = document.getElementById("box1");
+		box1.style.backgroundColor = chVal;
+		box1.style.border = "none";
+	}
+	
+	function draw(){
+		var inputVal = document.getElementById("inNum").value;
+		var ranNum = Math.floor(Math.random() * inputVal) + 1;
+		document.getElementById("num").innerHTML = ranNum + "번";
+	}
+	
+	function siteGo(){
+		var site = document.f2.site.value;
+		location.href = site;
+	}
+	
+	function res01(){
+		var heightVal = document.f3.height.value;
+		var weightVal = document.f3.weight.value;
+		var avgW = (Number(heightVal) - 100) * 0.9;
+		var span01 = document.getElementById("span1");
+		var span02 = document.getElementById("span2");
+		
+		if(avgW < weightVal) {
+			span01.innerHTML = "평균 몸무게 : " + avgW.toFixed(1) + "kg<br>";
+			span02.innerHTML = "당신의 몸무게는 평균 몸무게 보다 " + (Number(weightVal) - avgW).toFixed(2) + "kg 초과 입니다.";
+		} else {
+			span01.innerHTML = "평균 몸무게 : " + avgW.toFixed(1) + "kg<br>";
+			span02.innerHTML = "당신의 몸무게는 평균 몸무게 보다 " + (avgW - Number(weightVal)).toFixed(2) + "kg 미달입니다." ;
+		}
+	}
+	
+	function plusNum(){
+		var numVal = document.f4.num.value;
+		var numReg = /^[1-9]+$/;
+		var spanObj = document.getElementById("span03");
+		var sum = 0;
+		
+		if(numReg.test(numVal) == false){
+			alert("숫자만 입력해주세요.");
+			return;
+		}
+		
+		for(var i=0; i<numVal.length; i++){
+			spanObj.innerHTML += numVal[i] + (i < numVal.length-1 ? "+" : " = ");
+			sum += Number(numVal[i]);
+		}
+		spanObj.innerHTML += sum;
+	}
+</script>
+</head>
+<body>
+	<div id="box1">
+		<form name="f1">
+			<input type="radio" name="color" value="skyblue" onclick="changeColor()"> 파랑색 
+			<input type="radio" name="color" value="green" onclick="changeColor()"> 녹색
+		</form>
+	</div>
+	
+	<hr />
+	
+	<div id="box2">
+		<img src="images/dice.jpg" alt="주사위" /><br>
+		<input type="text" placeholder="전체 응모자 수" id="inNum">
+		<button onclick="draw()">추첨 시작</button>
+		<p>당첨번호 : <span id="num"></span></p>
+	</div>
+	
+	<hr />
+	
+	<div id="box3">
+		<form name="f2">
+			<select name="site">
+				<option value="https://naver.com">네이버</option>
+				<option value="https://www.daum.net">다음</option>
+				<option value="https://www.google.co.kr">구글</option>
+				<option value="메뉴선택해주세요." selected="selected">메뉴선택해주세요</option>
+			</select>
+			<button type="button" onclick="siteGo()">open</button>
+		</form>
+	</div>
+	
+	<hr />
+	
+	<div id="box4">
+		<form name="f3">
+			<input type="text" placeholder="키" name="height"/>cm <br>
+			<input type="text" placeholder="몸무게" name="weight" />kg
+		</form>
+		<button onclick="res01()">계산</button>
+		<p><span id="span1">평균의 몸무게와 본인 몸무게의 차이를 알 수 있다.</span><span id="span2"></span></p>
+	</div>
+	
+	<hr />
+	
+	<div id="box5">
+		<form name="f4">
+			<label>입력</label>
+			<input type="text" name="num">
+			<button type="button" onclick="plusNum()">결과</button>
+		</form>
+		<p>결과 : <span id="span03"></span></p>
+	</div>
+</body>
+</html>

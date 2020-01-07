@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//010-4444-7777 -> 010-4444-****
+		//010-222-3333일 경우를 보완하기 위해 phone.length-4로 처리
+		var phone = prompt("폰 번호를 입력하세요.");
+		var result = phone.substring(0, phone.length-4) + "****";
+		document.write(result);
+		
+		document.write("<hr>");
+		
+		// 999999-9999999 -> 999999-9*******
+		var jumin = prompt("주민번호를 입력하세요.")
+		var result2 = jumin.substring(0, jumin.length-6) + "******";
+		document.write(result2);
+	</script>
+</body>
+</html>

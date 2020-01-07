@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	#container{
+		width: 1000px;
+		margin: 0 auto;
+	}
+
+	h1{
+		text-align: center;
+	}
+	
+	ul {
+		border-top: 2px solid green;
+		list-style: none;
+		padding: 0;
+	}
+	
+	li {
+		border-bottom: 1px solid green;
+		padding: 5px 0;
+		font-weight: bold;
+	}
+	
+	input[type="checkbox"]{
+		margin-right: 10px;
+	}
+	
+	span {
+		font-weight: normal;
+		font-size: 14px;
+		color: #aaa;
+		margin: 10px;
+	}
+</style>
+<script>
+	function musicDown(){
+		var ulObj = document.getElementById("list");
+		var singerArr = ["<span>악동 뮤지션</span>", "<span>TWICE(트와이스)</span>", "<span>정은지</span>", "<span>10cm</span>", 
+						 "<span>아이오아이(I.O.I)</span>", "<span>블락비(Block B)</span>"];
+		var musicList = ["BE-BYE"+singerArr[0], "CHEER UP"+singerArr[1], "사람들이 움직이는게"+singerArr[0], "하늘바라기(Feat. 하림)"+singerArr[2], 
+			 			 "새삼스럽게 왜"+singerArr[0], "봄이 좋냐??"+singerArr[3], "Dream Girls"+singerArr[4], "Toy"+singerArr[5], "초록창가"+singerArr[0]];
+		for(var i=0; i<musicList.length; i++){
+			ulObj.innerHTML += "<li><input type='checkbox' name='ch'>"+ musicList[i] + "</li>";
+		}
+	}
+	
+	function allCheck(){
+		var btObj = document.getElementById("checked");
+		var ch = document.f1.ch;
+		
+		if(btObj.innerHTML.indexOf("전체 선택") > -1){
+			for(var i=0; i<ch.length; i++){
+				if(ch[i].checked == false){
+					ch[i].checked = true;
+				}
+			}
+			btObj.innerHTML = "전체 해제";
+			return;
+		} 
+		
+		for(var i=0; i<ch.length; i++){
+			if(ch[i].checked == true){
+				ch[i].checked = false;
+			}
+		}
+		btObj.innerHTML = "전체 선택";
+	}
+	
+	var cnt = 0;
+	
+	function deleteBt(){
+		var ch = document.f1.ch;
+		var parent = document.getElementById("list");
+		var btObj = document.getElementById("checked");
+		
+		
+		for(var i=ch.length-1; i>=0; i--){
+			if(ch[i].checked == true){
+				parent.removeChild(ch[i].parentNode);
+				cnt++;
+			}
+		}
+		
+		if(document.querySelector("li") == null) {
+			btObj.innerHTML = "전체 선택";
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<div id="container">
+		<h1>멜론 Top 10</h1>
+		<button onclick="allCheck()" id="checked">전체 선택</button>
+		<button onclick="deleteBt()">삭제</button>
+		<button onclick="musicDown()">10곡 다운로드</button>
+		<form name="f1">
+			<ul id="list">
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

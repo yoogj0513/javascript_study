@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeImg(num){
+		var imgObj = document.getElementById("img");
+		var ch = document.f1.ch;
+		var imgArr = ["dog.jpg", "cat.png", "flower.png", "sky.png", "moon.jpg"];
+		var altArr = ["강아지", "고양이", "꽃", "하늘", "달"];
+		
+		if(ch[num].checked == true){
+			imgObj.src = "images/" + imgArr[num];
+			imgObj.alt = altArr[num];
+		}
+	}
+	
+	// 풀이
+	// input의 radio value에 img파일을 작성
+	function clickLike(){
+		var path = document.f1.ch.value;
+		var imgObj = document.getElementById("img");
+		imgObj.src = "images/" + path;
+	}
+</script>
+</head>
+<body>
+	<h1>당신이 좋아하는 것은?</h1>
+	<form name="f1">
+		<input type="radio" name="ch" onclick="changeImg(0)"> 강아지 
+		<input type="radio" name="ch" onclick="changeImg(1)"> 고양이 
+		<input type="radio" name="ch" onclick="changeImg(2)"> 꽃 
+		<input type="radio" name="ch" onclick="changeImg(3)"> 하늘 
+		<input type="radio" name="ch" onclick="changeImg(4)"> 달 
+	</form>
+	<br>
+	<img src="images/question.png" alt="이미지" id="img">
+</body>
+</html>

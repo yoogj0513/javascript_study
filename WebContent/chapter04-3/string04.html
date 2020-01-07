@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		document.write("1. '1234567890' 값을 가지는 변수를 선언하여 '789'만 나타나게 하자<br>");
+		var num = "1234567890";
+		document.write(num.substring(6, 9), "<br>");
+		
+		document.write("<hr>");
+		
+		document.write("2. 'This is Sunny.' 값을 가지는 변수를 선언하여 S의 index는 몇번째 인지 찾아보자<br>");
+		var str = "This is Sunny.";
+		document.write(str.indexOf("S"), "<br>");
+		
+		document.write("<hr>");
+		
+		document.write("3. 2번 문제에서 찾은 index부터 끝까지 글자가 나타나게 하자<br>");
+		document.write(str.substring(str.indexOf("S"), str.length), "<br>");
+		
+		document.write("<hr>");
+		
+		document.write("4. 'mmmc/app/index.html'문장에서 파일명만 나타나게 하자<br>");
+		var s = "c:/aapp1/mmc/app/index.html";
+		var fileArr = s.split("/");
+		var fileName = fileArr[fileArr.length-1].split(".");
+		document.write(fileName[0]);
+		
+		document.write("<br><br>풀이<br>");
+		
+		// 풀이
+		// 1
+		var start = s.lastIndexOf("/")+1;
+		var end = s.lastIndexOf(".");
+		var str = s.substring(start, end);
+		document.write(str, "<br>");
+		
+		// 2
+		var array = s.split("/"); // ["c:", "aapp1", "mmc", "app", "index.html"];
+		var str2 = array[array.length - 1];
+		str2 = str2.substring(0, str2.lastIndexOf("."));
+		document.write(str2, "<br>");
+		
+		
+	</script>
+</body>
+</html>

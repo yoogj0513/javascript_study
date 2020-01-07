@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul id="list"></ul>
+	<script>
+		var keyword_rank = {
+				r: [
+					{ k: "HTML5", s: "+", v: 178 },
+					{ k: "CSS3", s: "new", v: 150},
+					{ k: "jQuery", s: "+", v: 135}
+				]
+		};
+		
+		var ulObj = document.getElementById("list");
+		for(var i=0; i<keyword_rank.r.length; i++){			
+			ulObj.innerHTML += "<li>" + keyword_rank.r[i].k + "(" + keyword_rank.r[i].s + keyword_rank.r[i].v +")" + "</li>";
+		}
+	</script>
+</body>
+</html>

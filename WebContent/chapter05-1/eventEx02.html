@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function changeImg(){
+		var imgObj = document.getElementById("img");
+		imgObj.src = "images/4.jpg";
+	}
+	function changeImg2(){
+		var imgObj = document.getElementById("img");
+		imgObj.src = "images/2.jpg";
+	}
+	
+	window.onload = function(){
+		var imgObj = document.getElementById("img2");
+		imgObj.onmouseover = function(){
+			imgObj.src = "images/4.jpg";
+		}
+		imgObj.onmouseout = function(){
+			imgObj.src = "images/2.jpg";
+		}
+		
+		var imgObj2 = document.getElementById("img3");
+		imgObj2.addEventListener("mouseover", function(e) {
+			imgObj2.src = "images/4.jpg";
+		}, false);
+		imgObj2.addEventListener("mouseout", function(e) {
+			imgObj2.src = "images/2.jpg";
+		}, false);
+	}
+	
+</script>
+</head>
+<body>
+	<img src="images/2.jpg" id="img" onmouseover="changeImg()" onmouseout="changeImg2()">
+	<hr />
+	<img src="images/2.jpg" id="img2">
+	<hr />
+	<img src="images/2.jpg" id="img3">
+</body>
+</html>

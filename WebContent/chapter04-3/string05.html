@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var str = "http://www.itpager.co.kr/index.php";
+		var domain = str.split("//");
+		domain = domain[1].substring(0, domain[1].lastIndexOf("/"));
+		document.write("도메인 : " + domain, "<br>");
+		
+		var strArr = str.split("/");
+		var fileName = strArr[strArr.length - 1];
+		document.write("파일명 : " + fileName, "<br>");
+		
+		var ext = fileName.split(".");
+		document.write("확장자 : " + ext[ext.length-1]);
+		
+		
+		
+		// 풀이
+		//var domain2 = str.substring(str.indexOf("//") + 2, str.lastIndexOf("/"));
+		//var fileName2 = str.substring(str.lastIndexOf("/")+1, str.lastIndexOf("."));
+		//var ext2 = str.substring(str.lastIndexOf(".") + 1, str.length);
+		
+		//document.write("문자열: " + str, "<br>");
+		//document.write("도메인: " + domain, "<br>");
+		//document.write("파일명: " + fileName, "<br>");
+		//document.write("확장자: " + ext2, "<br>");
+		
+	</script>
+</body>
+</html>

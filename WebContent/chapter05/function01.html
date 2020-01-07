@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	var i = 0;
+	var colorArr = [ "white", "yellow", "aqua", "purple" ];
+	
+	function changeBc() {
+		var random = Math.floor(Math.random() * colorArr.length);
+		var bodyObj = document.getElementsByTagName("body"); // 항상 배열
+		//i++;
+		/* if (i >= colorArr.length) {
+			i = 0;
+		} */
+		//bodyObj[0].style.backgroundColor = colorArr[i % colorArr.length];
+		bodyObj[0].style.backgroundColor = colorArr[random];
+		
+		var p1Obj = document.getElementById("p1");
+		p1Obj.innerHTML = random;
+	}
+</script>
+
+</head>
+<body>
+	<button onclick="changeBc()">배경색 바꾸기</button>
+	<p id="p1"></p>
+</body>
+</html>

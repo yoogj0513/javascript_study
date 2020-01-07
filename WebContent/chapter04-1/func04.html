@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.red {
+		color: red;
+	}
+	
+	.blue {
+		color: blue;
+	}
+	
+	.orange {
+		color: orange;
+	}
+</style>
+</head>
+<body>
+	<script>
+		function showImage(file) {
+			document.write("<img src='images/" + file + "'>");
+		}
+		
+		showImage("new_01.jpg");
+		showImage("new_02.jpg");
+		showImage("new_03.jpg"); 
+		showImage("new_05.jpg");
+		
+		document.write("<hr>");
+		
+		/* document.write("<a href='http://www.naver.com'>네이버</a><br>");
+		document.write("<a href='http://www.daum.net'>다음</a><br>");
+		document.write("<a href='http://www.google.com'>구글</a><br>"); */
+		
+		function showA(site, text){
+			document.write("<a href='" + site + "'>" + text + "</a><br>");	
+		}
+		showA("http://www.naver.com", "네이버");
+		showA("http://www.daum.net", "다음");
+		showA("http://www.google.com", "구글");
+		
+		document.write("<hr>");
+		
+		function showP(color, text) {
+			document.write("<p class='" + color + "'>" + text + "</p>");
+		}
+		
+		showP("red", "안녕하세요.");
+		showP("blue", "반갑습니다.");
+		showP("orange", "즐거운 하루 되세요.");
+		
+	</script>
+</body>
+</html>

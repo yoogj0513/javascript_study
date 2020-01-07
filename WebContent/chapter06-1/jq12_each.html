@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	var bbs = {
+			"title" : "TV 시간표",
+			"date" : "2016-11-10",
+			"schedule" : [
+				{"title" : "공항가는 길", "episode" : "16회", "channel" : "KBC"},
+				{"title" : "쇼핑왕 루이", "episode" : "15회", "channel" : "MBC"},
+				{"title" : "질투의 화신", "episode" : "24회", "channel" : "SBS"}
+			]
+	}
+
+	$(document).ready(function() {
+		$('#btn1').click(function() {
+			var title = bbs.title + "(" + bbs.date + ")";
+			$('#title').html(title);
+			
+			var list = "";
+			$(bbs.schedule).each(function(i, obj) {
+				list += "<li>" + obj.title + "(" + obj.episode + ", " + obj.channel + ")</li>";
+			})
+			
+			$('#content').html(list);
+		})
+	})
+</script>
+</head>
+<body>
+	<h1 id="title">빈곳</h1>
+	<ul id="content"></ul>
+	<button id="btn1">json보기</button>
+</body>
+</html>

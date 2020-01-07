@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#img1').click(function(){
+			var path = $('#img1').attr('src');
+			alert(path);
+			
+			var id = $('#img1').attr('id');
+			alert(id);
+		})
+		
+		$('#btn1').click(function(){
+			$('#img1').attr('src', 'images/22.jpg');
+		})
+		
+		$('#btn2').click(function() {
+			$('#naver').attr('href', 'http://naver.com');
+		})
+		
+		$('#btn3').click(function() {
+			$('#img1').removeAttr('width');
+		})
+	})
+</script>
+</head>
+<body>
+	<img src="images/20.jpg" id="img1" width="100px">
+	<button id="btn1">이미지 변경</button>
+	<button id="btn3">width제거</button>
+	<br />
+	<hr />
+	<a href="" id="naver">네이버</a>
+	<button id="btn2">네이버 경로 넣기</button>
+</body>
+</html>

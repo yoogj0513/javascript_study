@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.aqua {
+		background-color: aqua;
+	}
+	.red {
+		background-color: red;
+	}
+	.green {
+		background-color: green;
+	}
+	.yellow {
+		background-color: yellow;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#p1').addClass('aqua');
+		$('#p2').removeClass('red');
+		$('#p3').toggleClass('green');
+		$('#p4').toggleClass('green');
+		
+		var has = $('#p5').hasClass('yellow');
+		$('#p6').html(has);
+	})
+</script>
+</head>
+<body>
+	<p id="p1">내용 1</p>
+	<p id="p2" class="red">내용 2</p>
+	<p id="p3">내용 3</p>
+	<p id="p4" class="green">내용 4</p>
+	<p id="p5" class="yellow">내용 5</p>
+	<p id="p6"></p>
+</body>
+</html>

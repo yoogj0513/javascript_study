@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 매개변수 앞에 var를 붙이지 않음
+		function hello(name){
+			document.write(name + "님 안녕하세요.", "<br>");
+		}
+		
+		hello("홍길동");
+		hello("김영희");
+		hello("이부장");
+		
+		document.write("<hr>");
+		
+		function showNum(num){
+			for(var i=1; i<=num; i++){
+				document.write(i + " ");
+			}
+		}
+		
+		showNum(10);
+		document.write("<br>");
+		showNum(20);
+		document.write("<br>");
+		showNum(30);
+		
+		document.write("<hr>");
+		
+		function sum(num){
+			var sum = 0;
+			for(var i=1; i<=num; i++){
+				sum += i;
+			}
+			document.write("1부터 " + num + "까지의 합은 " + sum + "입니다.");
+		}
+		
+		var num1 = Number(prompt("숫자를 입력하세요."));
+		sum(num1);
+		/* var num2 = Number(prompt("숫자를 입력하세요.")); */
+		/* document.write("<br>");
+		sum(num2); */
+		
+		document.write("<hr>");
+		
+		function sumAndCount(num1, num2){
+			var sum = 0;
+			var cnt = 0;
+			for(var i=1; i<=num1; i++){
+				sum += i;
+				if(i%num2 == 0) {
+					cnt++;
+				}
+			}
+			document.write("합: " + sum);
+			document.write(", 갯수: " + cnt + "<br>");
+			//document.write("1부터 20까지의 합은 " + sum + ", 짝수 갯수는 " + cnt);
+		}
+		
+		sumAndCount(20, 2);
+		sumAndCount(100, 5);
+		sumAndCount(50, 3);
+
+		
+		
+		
+	</script>
+</body>
+</html>

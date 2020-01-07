@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		/*
+			[자바스크립트 객체 문법]
+			var 객체명 = {
+				관련되는 변수를 묶음
+				변수명1 : "변수값",
+				변수명2 : "변수값",
+				.....
+			}
+		
+			[호출 방법] 
+			객체명.변수명1;
+		*/
+		
+		var mango = {
+				name : "망고",
+				product : "망고 건조 젤리",
+				native : "필리핀",
+				in : "망고, 설탕, 치자황색소",
+				type : "절임"
+		};
+		
+		document.write( mango.product + ", " + mango.name);
+		
+		document.write("<hr>");
+		
+		// 객체 안 기능을 넣을 수 있음
+		// function을 사용
+		var tv = {
+			inch : 65,
+			brand : "samsung",
+			color : "pink",
+			onoff : function(on){
+				if(on == true){
+					document.write("전원이 켜졌습니다. ");
+				} else {
+					document.write("전원이 꺼졌습니다. ");
+				}
+			},
+			changeChannel : function(num){
+				document.write(num + "번로 채널을 돌립니다. ");
+			},
+			changeMode : function(mode) {
+				document.write(mode + "로 바뀝니다. ");
+			}
+		}
+		
+		document.write(tv.inch + ", " + tv.brand + ", " + tv.color + ". ");
+		tv.onoff(true);
+		tv.onoff(false);
+		tv.changeChannel(3);
+		tv.changeChannel(5);
+		tv.changeMode("영화");
+		tv.changeMode("일반");
+	</script>
+</body>
+</html>

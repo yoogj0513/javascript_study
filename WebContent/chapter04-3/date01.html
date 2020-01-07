@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var t = new Date(); // 디바이스의 시간
+		var nowYear = t.getFullYear();
+		var nowMonth = t.getMonth() + 1;
+		var nowDate = t.getDate();
+		var nowDay = t.getDay(); // 0 ~ 6 으로 숫자로 리턴함
+		var weeks = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		var hours = t.getHours();
+		var min = t.getMinutes();
+		
+		document.write(nowYear + "년 " +  nowMonth + "월 " + nowDate + "일 " + weeks[nowDay] 
+					   + " " + hours + " : " + min + " ");
+		
+		document.write("<hr>");
+		
+		// 2019.12.31
+		var t2 = new Date(2019, 11, 31);//달의 값을 넣을때는 -1한 값
+		document.write(t2.getFullYear() + ", "
+					 + (t2.getMonth()+1) + ", "  //달을 출력할 때는 값에 +1
+					 + t2.getDate() + ", "
+					 + weeks[t2.getDay()]);
+		
+		document.write("<hr>");
+		
+		// 2020. 5. 12
+		var t3 = new Date(2020, 4, 12);
+		document.write(t3.getFullYear() + "년 "
+				 	 + (t3.getMonth()+1) + "월 "
+				 	 + t3.getDate() + "일 "
+				 	 + weeks[t3.getDay()]);
+	</script>
+</body>
+</html>

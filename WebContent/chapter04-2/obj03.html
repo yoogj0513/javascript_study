@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 변수 : 이름, 잔고 (10000000)
+		// 기능 : 적금받는 함수 (매개변수 : 고객적금액) - 고객이 돈을 적금하면 잔고에 추가됨
+		//      대출해주는 함수(매개변수 : 고객이 대출하는 금액) - 고객이 대출을 해가면 잔고에서 금액이 빠져야함
+		var bank = {
+			name : "국민은행",
+			money : 10000000,
+			saving : function(m) {
+				bank.money += m;
+			},
+			loans : function(m) {
+				bank.money -= m;
+			}
+		}
+		
+		document.write(bank.money, "<br>");
+		bank.saving(2000000);
+		document.write(bank.money+" (2000000원 적금 후 금액)", "<br>");
+		bank.loans(8000000);
+		document.write(bank.money+" (8000000원 대출 후 금액)", "<br>");
+		document.write("남은 금액 : "+bank.money, "<br>");
+		
+		document.write("<hr>");
+		
+		// 햄버거 가게 매출이 얼마일까요?
+		// 변수 : 음식점 이름, 치즈버거(2000), 불고기버거(3000), 치킨버거(2700), 돈(매상:0),
+		// 기능 : putOrder() : 주문이 들어오면 매출이 증가됩니다. (매개변수: 버거종류, 갯수)
+		var hambeger = {
+			name : "맥도날드",
+			cheeB : 2000,
+			bulB : 3000,
+			chicB : 2700,
+			sales : 0,
+			putOrder : function(order, num) {
+				switch(order){
+				case "치즈":
+					hambeger.sales += (hambeger.cheeB * num);
+					break;
+				case "불고기":
+					hambeger.sales += (hambeger.bulB * num);
+					break;
+				case "치킨":
+					hambeger.sales += (hambeger.chicB * num);
+					break;
+				}
+			},
+			showMoney: function(){
+				document.write("오늘의 총 매출액은 "+hambeger.sales+"원 입니다.");
+			}
+		}
+		
+		// 치즈버거, 2개 주문
+		hambeger.putOrder("치즈", 2);
+		document.write(hambeger.sales, "<br>");
+		// 불고기 버거, 3개 주문
+		hambeger.putOrder("불고기", 3);
+		document.write(hambeger.sales, "<br>");
+		// 치킨버거, 3개 주문
+		hambeger.putOrder("치킨", 3);
+		document.write(hambeger.sales, "<br>");
+		// 오늘 매출은 얼마일까요?
+		hambeger.showMoney();
+		
+		document.write("<hr>");
+		// 커피집
+		// 변수 : 이름, 아메리카노 : 1500, 바닐라라떼: 2500, 카페라떼: 2200, 카푸치노: 2500, 돈(매출:0)
+		//      아메리가노 재고(10), 바닐라라떼 재고(5), 카페라떼(5), 카푸치노(5)
+		// 기능 : putOrder(매개변수 : 상품 이름, 상품 갯수) - 고객이 주문하면 매충이 올라갑니다, 재고 계산
+		//      showMoney : 매출 금액을 나타나게 하세요.(document.write)
+		//      showStock: 남은 재고 출력
+		var coffee = {
+				name: "빽다방",
+				ame: 1500,
+				vanillaL: 2500,
+				cafeL: 2200,
+				cappu: 2500,
+				sales: 0,
+				ameStock: 10,
+				vaniStock: 5,
+				cafeLStock: 5,
+				cappuStock: 5,
+				putOrder: function(menu, num) {
+					switch(menu){
+					case "아메리카노":
+						coffee.sales += (coffee.ame * num);
+						coffee.ameStock -= num;
+						break;
+					case "바닐라라떼":
+						coffee.sales += (coffee.vanillaL * num);
+						coffee.vaniStock -= num;
+						break;
+					case "카페라떼":
+						coffee.sales += (coffee.cafeL * num);
+						coffee.cafeLStock -= num;
+						break;
+					case "카푸치노":
+						coffee.sales += (coffee.cappu * num);
+						coffee.cappuStock -= num;
+						break;
+					}
+				},
+				showMoney: function(){
+					document.write("오늘의 매출 금액은 "+coffee.sales+"원", "<br>");
+					document.write("남은 재고는 아메리카노 : "+ coffee.ameStock +"개 / 바닐라라떼 : "+ coffee.vaniStock 
+							       +"개 / 카페라떼 : "+ coffee.cafeLStock +"개 / 카푸치노 : "+ coffee.cappuStock +"개");
+							   
+				}
+		}
+		
+		coffee.putOrder("아메리카노", 5); 
+		coffee.putOrder("바닐라라떼", 2); 
+		coffee.putOrder("카페라떼", 4);  
+		coffee.putOrder("카푸치노", 3);  
+		coffee.showMoney();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>

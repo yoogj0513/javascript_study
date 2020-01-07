@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table {
+		border-collapse: collapse;
+	}
+	
+	tr, td {
+		border: 1px solid #000;
+		padding: 5px;
+	}
+</style>
+</head>
+<body>
+	<script>
+		var date = new Date(2020, 1, 15); // 오늘 날짜 : 2019년 8월 15일
+		var y = date.getFullYear();
+		var m = date.getMonth();
+		var d = date.getDate();
+		
+		var date2 = new Date(y, m, 1); // 해당 달의 1일
+		var theDay = date2.getDay(); // 요일값, 1일 앞의 빈칸 갯수를 위해 가져옴
+		
+		var lastArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // 각 달의 마지막 날짜 
+		
+		// 윤년 (4년 주기이고 100년 주기는 제외 또는 400년 주기포함) / 2월의 29일
+		if(y%4==0 && y%100!=0 || y%400==0) {
+			lastArr[1] = 29;
+		}
+		
+		var lastDate = lastArr[m];
+		var row = Math.ceil((theDay + lastDate) / 7); // 행의 갯수
+		
+		document.write("<h1>"+ y + "년" + (m+1) + "월</h1>");
+		
+		document.write("<table>");
+		document.write("<tr>");
+		document.write("<th>일</th>");
+		document.write("<th>월</th>");
+		document.write("<th>화</th>");
+		document.write("<th>수</th>");
+		document.write("<th>목</th>");
+		document.write("<th>금</th>");
+		document.write("<th>토</th>");
+		document.write("</tr>");
+		
+		var num = 1;
+		for(var i=1; i<=row; i++){ 	// 행 <tr>
+			document.write("<tr>");
+			for(var j=1; j<=7; j++){// 열<tr>
+				if(j <= theDay && i == 1 || num > lastDate){ // 첫번째 줄
+					document.write("<td></td>");
+				} else {					
+					document.write("<td>"+ num +"</td>");
+					num++;
+				}
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+		
+		
+	</script>
+</body>
+</html>

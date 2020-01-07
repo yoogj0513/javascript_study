@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+		background-color: #0c3268;
+	}
+	
+	p {
+		text-align: center;
+		color: #fff;
+		font-size: 3em;
+		margin-top: 150px;
+	}
+	
+	p big {
+		color: yellow;
+		font-weight: 700;
+	}
+</style>
+</head>
+<body>
+	<script>
+		var num = prompt("학과 선택(1:전기전자, 2:건축공, 3:컴퓨터공, 4:신소재공)");
+		var dept = 0;
+		var room = 0;
+		
+		switch(num) {
+		case "1": 
+			dept = "전기전자";
+			room = "2011";
+			break;
+		case "2":
+			dept= "건축공학";
+			room = "2014";
+			break;
+		case "3":
+			dept = "컴퓨터공학";
+			room = "2012";
+			break;
+		case "4":
+			dept = "신소재공학";
+			room = "2013";
+			break;
+		default:
+			document.write("<p>잘못 입력했습니다.</p>");
+			break;
+		}
+		if(dept != 0) {			
+			document.write("<p>"+ dept + "학과 실습실은 " + "<big>" + room + "호</big>입니다.</p>");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showInput(){
+		var inputObj = document.getElementById("test");
+		alert(inputObj.value);
+	}
+	
+	function changeInput(){
+		var inputObj = document.getElementById("test");
+		inputObj.value = "이쁘니";
+	}
+	
+	function getInput(){
+		var inputObj1 = document.getElementById("input1");
+		var inputObj2 = document.getElementById("input2");
+		var pObj = document.getElementById("result");
+		
+		pObj.innerHTML = inputObj1.value + inputObj2.value;
+	}
+	
+	function add(){
+		var inputObj1 = document.getElementById("num1");
+		var inputObj2 = document.getElementById("num2");
+		var pObj = document.getElementById("res");
+		
+		pObj.innerHTML = Number(inputObj1.value) + Number(inputObj2.value);
+	}
+	
+	function sub(){
+		var inputObj1 = document.getElementById("num1");
+		var inputObj2 = document.getElementById("num2");
+		var pObj = document.getElementById("res");
+		
+		pObj.innerHTML = Number(inputObj1.value) - Number(inputObj2.value);
+	}
+	
+	function mul(){
+		var inputObj1 = document.getElementById("num1");
+		var inputObj2 = document.getElementById("num2");
+		var pObj = document.getElementById("res");
+		
+		pObj.innerHTML = Number(inputObj1.value) * Number(inputObj2.value);
+	}
+	
+	function divi(){
+		var inputObj1 = document.getElementById("num1");
+		var inputObj2 = document.getElementById("num2");
+		var pObj = document.getElementById("res");
+		
+		pObj.innerHTML = Number(inputObj1.value) / Number(inputObj2.value);
+	}
+	
+	function cal(a){
+		var inputObj1 = document.getElementById("num1");
+		var inputObj2 = document.getElementById("num2");
+		var pObj = document.getElementById("res");
+		
+		switch(a){
+		case "+":
+			pObj.innerHTML = Number(inputObj1.value) + Number(inputObj2.value);
+			break;
+		case "-":
+			pObj.innerHTML = Number(inputObj1.value) - Number(inputObj2.value);
+			break;
+		case "*":
+			pObj.innerHTML = Number(inputObj1.value) * Number(inputObj2.value);
+			break;
+		case "/":
+			pObj.innerHTML = Number(inputObj1.value) / Number(inputObj2.value);
+			break;
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="test" value="홍길동">
+	<button onclick="showInput()">보여주기</button>
+	<button onclick="changeInput()">변경하기</button>
+	
+	<hr /><br />
+	<input type="text" id="input1" />
+	<input type="text" id="input2" />
+	<br /><br />
+	<button onclick="getInput()">가져오기</button>
+	<p id="result"></p>
+	
+	<hr /><br />
+	
+	<input type="text" id="num1" />
+	<input type="text" id="num2" />
+	<br /><br />
+	<button onclick="cal('+')">더하기</button>
+	<button onclick="cal('-')">빼기</button>
+	<button onclick="cal('*')">곱하기</button>
+	<button onclick="cal('/')">나누기</button>
+	<p id="res">결과가 나오는 곳</p>
+	
+</body>
+</html>

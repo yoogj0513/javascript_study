@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+		text-align: center;
+	}
+	
+	tr, th, td {
+		border: 1px solid #aaa;
+	}
+	
+	/* box1 */
+	#box1 tr {
+		height: 50px;
+	}
+	
+	#box1 tr th:first-child {
+		width: 400px;
+	}
+	
+	#box1 tr th:last-child {
+		width: 80px;
+	}
+	
+	
+	/* box2 */
+	#box2 img {
+		width: 100px;
+	}
+	
+	#box2 tr:first-child {
+		background-color: pink;
+	}
+	
+	#box2 th {
+		padding: 10px;
+	}
+	
+	#box2 th:nth-of-type(1) {
+		width: 600px;
+	}
+	
+	#box2 th:nth-of-type(2),
+	#box2 th:nth-of-type(3) {
+		width: 80px;
+	}
+	#box2 th:nth-of-type(4){
+		width: 50px;
+	}
+	#box2 th:nth-of-type(5){
+		width: 150px;
+	}
+</style>
+<script>
+	var sum = 0;
+	function addPrice(price, num){
+		var totalObj = document.getElementById("total");
+		sum += price;
+		total.innerHTML = sum;	
+		
+		var tdObj = document.getElementById("num"+num);
+		var tdnum = tdObj.innerHTML;
+		tdObj.innerHTML = Number(tdnum) + 1;
+	}
+	
+	function box2Add(price, index){
+		var totalObj = document.getElementById("box2Total");
+		sum += price;
+		totalObj.innerHTML = sum;
+		
+		var tdObj = document.getElementById("box2num" + index);
+		var tdnum = tdObj.innerHTML;
+		tdObj.innerHTML = Number(tdnum) + 1;
+	}
+	
+	function box2Del(price, index){
+		var totalObj = document.getElementById("box2Total");
+		var totalP = totalObj.innerHTML;
+		
+		var tdObj = document.getElementById("box2num" + index);
+		var tdnum = tdObj.innerHTML;
+		
+	}
+	
+</script>
+</head>
+<body>
+	<h1>과제 1</h1>
+	<div id="box1">
+		<h3>주문 목록</h3>
+		<table>
+			<tr>
+				<th>상품</th>
+				<th>수량</th>
+			</tr>
+			<tr>
+				<td>삼시세끼(15000원) <button onclick="addPrice(15000, 1)">추가</button></td>
+				<td id="num1">0</td>
+			</tr>
+			<tr>
+				<td>냉장고를 부탁해(25000원) <button onclick="addPrice(25000, 2)">추가</button></td>
+				<td id="num2">0</td>
+			</tr>
+			<tr>
+				<td>무한도전(30000원) <button onclick="addPrice(30000, 3)">추가</button></td>
+				<td id="num3">0</td>
+			</tr>
+		</table>
+		<h1 id="h1">총 금액: <span id="total">0</span>원</h1>
+	</div>
+	<hr />
+	
+	<div id="box2">
+		<table>
+			<tr>
+				<th colspan="2">상품</th>
+				<th>가격</th>
+				<th>선택</th>
+				<th>갯수</th>
+				<th>총 가격</th>
+			</tr>
+			<tr>
+				<td><img src="images/book1.jpg"></td>
+				<td>뭐 먹고 살지? 제주 라이프 길라잡이</td>
+				<td>14,400원</td>
+				<td><p><button onclick="box2Add(14400, 1)">추가</button></p><p><button onclick="box2Del(144000, 1)">삭제</button></p></td>
+				<td id="box2num1">0</td>
+				<td rowspan="3"><span id="box2Total">0</span>원</td>
+			</tr>
+			<tr>
+				<td><img src="images/book2.jpg"></td>
+				<td>내 남편의 아내가 되어 줄래요</td>
+				<td>13,500원</td>
+				<td><p><button onclick="box2Add(13500, 2)">추가</button></p><p><button onclick="box2Del(13500, 2)">삭제</button></p></td>
+				<td id="box2num2">0</td>
+			</tr>
+			<tr>
+				<td><img src="images/book3.jpg"></td>
+				<td>부부가 끝까지 행복하게 사는 방법</td>
+				<td>14,000원</td>
+				<td><p><button onclick="box2Add(14000, 3)">추가</button></p><p><button onclick="box2Del(14000, 3)">삭제</button></p></td>
+				<td id="box2num3">0</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

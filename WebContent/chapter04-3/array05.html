@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+		width: 550px;
+		height: 300px;
+		text-align: center;
+	}
+	
+	td {
+		border: 1px solid red;
+		width: 200px;
+		padding: 5px;
+	}
+	
+	p {
+		color: green;
+		font-size: 14px;
+	}
+	
+</style>
+</head>
+<body>
+	<script>
+		var books = [ "book1.jpg", "book2.jpg", "book3.jpg"	];
+		var title = [ "안드로이드 프로그래밍 정복",
+					  "그림으로 쉽게 설명하는 안드로이드 프로그래밍",
+					  "Do it! 안드로이드 앱 프로그래밍"];
+		
+		
+		document.write("<table>");
+		document.write("<tr>")
+		for(var i=0; i<3; i++){
+			document.write("<td><img src='images/"+ books[i] +"'><p>"
+							+ title[i] +"</p></td>");
+		}
+		document.write("</tr>")
+		document.write("</table>");
+	</script>
+</body>
+</html>

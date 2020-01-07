@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	function two(){
+		var imgObj = document.getElementById("img")
+		imgObj.src = "images/2.jpg";
+	}
+	
+	function four(){
+		var imgObj = document.getElementById("img")
+		imgObj.src = "images/4.jpg";
+	}
+	
+	function changeImg(path){
+		var imgObj = document.getElementById("img")
+		imgObj.src = "images/" + path;
+	}
+</script>
+<body>
+	<button onclick="changeImg('4.jpg')">4로 바꾸기</button>
+	<button onclick="changeImg('2.jpg')">2로 바꾸기</button>
+	<br>
+	<img src="images/2.jpg" id="img">
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		width: 300px;
+		height: 150px;
+		border: 1px solid #000;
+		border-collapse: collapse;
+	}
+	
+	td {
+		border: 1px solid #000;
+	}
+</style>
+</head>
+<body>
+	<!-- 2행 2열 -->
+	<!-- 
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	 -->
+	 
+	<script>
+		var trCnt = prompt("행수를 입력해주세요.");
+		var tdCnt = prompt("열수를 입력해주세요.");
+	
+		document.write("<table>");
+		for(var i=0; i<trCnt; i++){ 	// 행
+			document.write("<tr>");
+			for(var j=0; j<tdCnt; j++){ // 열
+				document.write("<td></td>");
+			}
+			document.write("</tr>");		
+		}
+		document.write("</table>");
+	</script>
+	
+</body>
+</html>

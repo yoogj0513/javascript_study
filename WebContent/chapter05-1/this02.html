@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function clickImg(obj){//obj : this
+		obj.src = "images/grape.jpg";
+	}
+	
+	window.onload = function(){
+		var img2Obj = document.getElementById("img2");
+		img2Obj.onclick = function(){
+			this.src = "images/grape.jpg";
+		}
+		
+		var img3Obj = document.getElementById("img3");
+		img3Obj.addEventListener("click", function(e) {
+			this.src = "images/grape.jpg";
+		}, false);
+	}
+</script>
+</head>
+<body>
+	<p>방식 1. 인라인 - body태그 안에 이벤트 연결</p>
+	<img src="images/orange.png" onclick="clickImg(this)"><br>
+	<hr />
+	
+	<p>방식2. 스트립트 - 스크립트에서 이벤트 연결</p>
+	<img src="images/orange.png" id="img2"><br>
+	<hr />
+	
+	<p>방식3. addEventListener</p>
+	<img src="images/orange.png" id="img3">
+</body>
+</html>

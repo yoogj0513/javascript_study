@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 비밀번호를 입력 받음. (8자리 이상, 영어와 숫자가 1개 이상 반드시 포함되어야 함)
+		var str = prompt("비밀번호를 입력하세요. 8자리 이상, 영어숫자 1개 이상 포함");
+		var passEnable = true; //통과할 것이다.
+		var eng1 = false;
+		var num1 = false;
+		
+		if(str.length >= 8){
+			for(var i=0; i<str.length; i++){
+				var ch = str.charAt(i).toLowerCase();//무조건 소문자로 바꿈
+				// 특수문자 검사
+				if((ch >= 'a' && ch <='z') == false && (ch >= '0' && ch <= '9') == false){ //영어, 숫자가 아닐 경우
+					passEnable = false;	
+					break;
+				}
+				if(ch>='a' && ch<='z') { // 영어가 1개 이상 있다.
+					eng1 = true;
+				}
+				
+				if(ch>=0 && ch<=9){ // 숫자가 1개 이상 있다.
+					num1 = true;
+				}
+			}
+		} else {
+			passEnable = false;
+		}
+		
+		if(passEnable == true && eng1 == true && num1 == true){
+			document.write("비밀번호로 적합합니다.");
+		} else {
+			document.write("비밀번호를 잘못 입력하였습니다.");
+		}
+		
+		/* 
+		if(passEnable == false) {
+			document.write("잘못입력하셨습니다.");
+		} else {
+			document.write("비밀번호로 적합합니다.");
+		}
+		 */
+		
+		
+	</script>
+</body>
+</html>

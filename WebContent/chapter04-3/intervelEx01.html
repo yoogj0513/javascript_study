@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i = 1;
+	var timerId = -1;
+
+	function changeText(){
+		var array = ["apple", "banana", "orange", "strawberry", "blueberry"];
+		var h1Obj = document.getElementById("title");
+		h1Obj.innerHTML = array[i % array.length];
+		i++;
+	}
+
+	function startTimer(){
+		timerId = setInterval(changeText, 1000);
+	}
+	
+	function stopTimer(){
+		clearInterval(timerId);
+	}
+</script>
+</head>
+<body>
+	<h1 id="title">apple</h1>
+	<button onclick="startTimer()">Start</button>
+	<button onclick="stopTimer()">Stop</button>
+</body>
+</html>

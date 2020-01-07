@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var jsonData =[
+		{
+			color: "red",
+			value: "#f00"
+		},
+		{
+			color: "green",
+			value: "#0f0"
+		},
+		{
+			color: "blue",
+			value: "#00f"
+		},
+		{
+			color: "cyan",
+			value: "#0ff"
+		},
+		{
+			color: "magenta",
+			value: "#f0f"
+		},
+		{
+			color: "yellow",
+			value: "#ff0"
+		},
+		{
+			color: "black",
+			value: "#000"
+		}
+	];
+	
+	window.onload = function(){
+		var bodyObj = document.getElementsByTagName('body')[0];
+		for(var i=0; i<jsonData.length; i++){			
+			bodyObj.innerHTML += "<input type='radio' name='color' value='"+jsonData[i].color+"'>" + jsonData[i].color +"("+jsonData[i].value+")";
+		}
+		
+		var inputObj = document.getElementsByTagName('input');
+		// addEventListener
+		for(var i=0; i<inputObj.length; i++){
+			inputObj[i].addEventListener('click', function(e) {
+				//배경색이 바껴야 함
+				//this
+				var color = this.value;
+				bodyObj.style.backgroundColor = color;
+			}, false)
+		}
+	}
+</script>
+</head>
+<body>
+	
+</body>
+</html>
