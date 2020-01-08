@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		background-color: aqua;
+	}
+	
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		//$('p').replaceWith('<h1>replace with</h1>');
+		
+		$('.ct1 strong').unwrap(); // 부모 태그 제거
+		$('.ct2').wrap('<div>'); // 각각 감쌈
+		$('.ct3').wrapAll('<div>'); // 한꺼번에 감쌈
+		$('ul li').wrapInner("<h3>");
+		
+	})
+</script>
+</head>
+<body>
+	<h1>교체</h1>
+	<p>내용1</p>
+	<p>내용2</p>
+	
+	<hr />
+	
+	<h1>덮어 쓰거나 부모 삭제</h1>
+	<h1 class="ct1"><strong>내용</strong></h1>
+	<p class="ct2">내용2</p>
+	<p class="ct2">내용3</p>
+	<p class="ct3">내용4</p>
+	<p class="ct3">내용5</p>
+	<ul>
+		<li>내용6</li>
+		<li>내용7</li>
+	</ul>
+</body>
+</html>

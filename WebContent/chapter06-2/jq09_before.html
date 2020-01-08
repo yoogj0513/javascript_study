@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		// list를 기준으로 첫번째 자식
+		$("#list").prepend("<li>첫번째 자식</li>");
+		
+		// list를 기준으로 마지막 자식
+		$('#list').append('<li>마지막 자식</li>')
+		
+		//item을 기준으로 바로 앞 형 추가
+		$('#item').before('<li>형</li>');
+		
+		//item을 기준으로 바로 뒤 동행 추가
+		$('#item').after('<li>동생</li>');
+	})
+</script>
+</head>
+<body>
+	<ul id="list">
+		<li id="item">아이템</li>
+	</ul>
+</body>
+</html>

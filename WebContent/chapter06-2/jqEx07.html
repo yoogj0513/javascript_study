@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		background-color: yellow;
+	}
+	
+	.tit {
+		background-color: orange;
+	}
+	
+	h1 {
+		text-align: center;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){		
+		$('h1').css('text-align', 'left');
+		
+		$('li:first').html('첫번째 리스트');
+		
+		$('h2 > strong').css('color', 'red');
+		
+		$('#two').prev().css('color', 'blue');
+		$('#two').next().css('color', 'purple');
+		$('#two').parent().css('border', '2px dashed navy');
+		
+		$('.myList').prepend('<li>Front</li>');
+		$('.myList').append('<li>back</li>');
+		
+		$('.three').before('<li>앞에 삽입</li>');
+		$('.three').after('<li>뒤에 삽입</li>');
+		
+		$('h2').eq(1).wrap('<div>');
+		$('h2:has("strong")').addClass('tit');
+		$('h2:last').removeClass('tit');
+		
+		$('button').click(function(){
+			$('ol').remove();
+			$('body').append('<ol></ol>');
+			for(var i=1; i<=10; i++){
+				$('ol').append('<li>리스트 ' + i + '</li>');
+			}
+			$('ol li:odd').css('background-color', 'aqua');
+			
+			//풀이
+			/* var str = "<ol>";
+			for(var i=1; i<=10; i++){
+				str += "<li>리스트 " + i + "</li>";
+			}
+			str += "</ol>";
+			$('body').append(str); */
+		})
+	})
+</script>
+</head>
+<body>
+	<h1><strong>내용1</strong></h1>
+	<h2><strong>내용2</strong></h2>
+	<h2>내용3</h2>
+	<h2 class="tit">내용4</h2>
+	<ul class="myList">
+		<li>리스트1</li>
+		<li id="two">리스트2</li>
+		<li class="three">리스트3</li>
+		<li>리스트4</li>
+	</ul>
+	<button id="btnAdd">추가</button>
+</body>
+</html>

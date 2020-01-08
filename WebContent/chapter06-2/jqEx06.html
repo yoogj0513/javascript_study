@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul {
+		border: 1px solid #000;
+		width: 150px;
+		height: 150px;
+		padding: 20px 50px;
+	}
+	
+	button {
+		padding: 10px;
+		font-size: 16px;
+		margin-right: 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var i=1;
+		$('button').eq(0).click(function(){
+			$('li:last').remove();
+		}) 
+		
+		$('button').eq(1).click(function(){
+			$('ul').append('<li>찐교스'+i+'</li>');
+			i++;
+		})
+	})
+</script>
+</head>
+<body>
+	<ul>
+		<li>짜장면</li>
+		<li>탕수육</li>
+		<li>팔보채</li>
+		<li>짬뽕</li>
+		<li>우육탕</li>
+		<li>찐교스</li>
+	</ul>
+	<button>remove</button>
+	<button>add</button>
+</body>
+</html>
