@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').click(function(){
+			$('input[name="ch"]').prop('checked', true);
+		})
+		
+		$('#btn2').click(function(){
+			$('input[name="ch"]').prop('checked', false);
+		})
+		
+		$('input[name="allCheck"]').click(function(){
+			if($('input[name="allCheck"]').is(':checked') == true){			
+				$('input[name="ch2"]').prop('checked', true);
+			} else {
+				$('input[name="ch2"]').prop('checked', false);
+			}
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<input type="checkbox" name="ch"> 수박 <br>
+	<input type="checkbox" name="ch"> 참외<br>
+	<input type="checkbox" name="ch"> 오렌지 <br>
+	<input type="checkbox" name="ch"> 바나나<br>
+	<br>
+	<button id="btn1">전체선택</button>
+	<button id="btn2">전체해제</button>
+	
+	<hr />
+	
+	<fieldset>
+		<legend>check 테스트</legend>
+		<input type="checkbox" name="allCheck"> 전체선택<br>
+		<input type="checkbox" name="ch2" id="c1" value="1000"> 1000<br>
+		<input type="checkbox" name="ch2" id="c2" value="2000"> 2000<br>
+		<input type="checkbox" name="ch2" id="c3" vlaue="3000"> 3000<br>
+	</fieldset>
+	<p>결과값 확인: <span></span></p>
+</body>
+</html>

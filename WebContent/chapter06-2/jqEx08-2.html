@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h3{
+		border-top: 2px solid #aaa;
+		padding-top: 10px;
+	}
+
+	.container{
+		width: 600px;
+		text-align: center;
+		margin: 10px auto;
+	}
+	
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	tr, th, td {
+		border: 1px solid #000;
+	}
+	
+	th, td {
+		height: 30px;
+	}
+	
+	th {
+		background-color: skyblue;
+	}
+	
+	th[colspan="2"] {
+		background-color: #fff;
+	}
+	
+	.container2 {
+		width: 600px;
+		margin: 10px auto;
+	}
+	
+	#list table {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('input[name="ch"]').click(function(){
+			var sum = 0;
+			$('input[name="ch"]:checked').each(function(i, obj){				
+				sum += Number($(obj).val());
+			})
+			$('th span').html(sum);
+		})
+		
+		$('#addBtn').click(function(){
+			var imgs = ["watermelon.png", "peach.png", "grape.jpg", "orange.png"];
+			var imgName = $('#sel').val();
+			var imgSrc;
+			switch(imgName){
+			case "수박" :
+				imgSrc = imgs[0];
+				break;
+			case "복숭아":
+				imgSrc = imgs[1];
+				break;
+			case "포도":
+				imgSrc = imgs[2];
+				break;
+			case "오렌지":
+				imgSrc = imgs[3];
+				break;
+			}
+			
+			var str = "<tr><td><img src='images/" + imgSrc + "'></td><td>"
+					+ imgName +"</td><td><input type='checkbox' name='ch2'></td>";
+			
+			$('#shopList').append(str);
+		})
+		
+		$('#removeBtn').click(function(){
+			var chTr = $('input[name="ch2"]:checked').closest('tr');
+			chTr.remove();
+		})
+	})
+</script>
+</head>
+<body>
+	<h3>과제 3</h3>
+	<div class="container">	
+		<h1>자동차 견적</h1>
+		<img src="images/car1.jpg">
+		<table>
+			<tr>
+				<th>옵션</th>
+				<th>추가 가격</th>
+				<th>선택</th>
+			</tr>
+			<tr>
+				<td>인조가죽시트</td>
+				<td>250000</td>
+				<td><input type="checkbox" name="ch" value="250000"></td>
+			</tr>
+			<tr>
+				<td>내비게이션</td>
+				<td>250000</td>
+				<td><input type="checkbox" name="ch" value="250000"></td>
+			</tr>
+			<tr>
+				<td>선루프</td>
+				<td>440000</td>
+				<td><input type="checkbox" name="ch" value="440000"></td>
+			</tr>
+			<tr>
+				<th>(기본)차량가격</th>
+				<th colspan="2"><span>0</span></th>
+			</tr>
+		</table>
+	</div>
+	<h3>과제 4</h3>
+	<div class="container2">
+		<div id="inputWrap">
+			<label>구매 상품을 선택해 주세요.</label>
+			<select name="sel" id="sel">
+				<option value="수박">수박</option>
+				<option value="복숭아">복숭아</option>
+				<option value="포도">포도</option>
+				<option value="오렌지">오렌지</option>
+			</select>
+			<button id="addBtn">추가</button>
+		</div>
+		<div id="list">
+			<table id="shopList">
+				<tr>
+					<td colspan="3">추가한 상품</td>
+				</tr>
+			</table>
+		</div>
+		<button id="removeBtn">check상품 삭제</button>
+	</div>
+</body>
+</html>

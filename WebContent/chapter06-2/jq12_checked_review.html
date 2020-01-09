@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	function calCheck() {
+		var sum = 0;
+		
+		// each() 사용
+		// obj : check된 input박스
+		$('input[name="check"]:checked').each(function(i, obj) {
+			sum = sum + Number($(obj).val());
+		})
+
+		$('p span').html(sum);
+		
+		// if문 사용
+		/* if($('#c1').prop('checked') == true){
+		sum = sum + Number($('#c1').val());
+		}
+		
+		if($('#c2').prop('checked') == true){
+		sum = sum + Number($('#c2').val());
+		}
+		
+		if($('#c3').prop('checked') == true){
+		sum = sum + Number($('#c3').val());
+		} */
+		
+		// for문 사용
+		/* for(var i=0; i<3; i++){
+			if($("input[name='check']").eq(i).prop('checked') == true) {
+				sum = sum + Number($('input[name="check"]').eq(i).val());
+			}
+		} */
+	}
+
+	$(function() {
+		$('#cAll').click(function() {
+			if ($('#cAll').prop('checked') == true) {
+				$('input[name="check"]').prop('checked', true);
+			} else {
+				$('input[name="check"]').prop('checked', false);
+			}
+			calCheck();
+		})
+
+		$('input[name="check"]').click(function() {
+			calCheck();
+		})
+	})
+</script>
+</head>
+<body>
+	<fieldset>
+		<legend>check 테스트</legend>
+		<input type="checkbox" name="allCheck" id="cAll"> 전체선택<br>
+		<input type="checkbox" name="check" id="c1" value="1000"> 1000<br>
+		<input type="checkbox" name="check" id="c2" value="2000"> 2000<br>
+		<input type="checkbox" name="check" id="c3" value="3000"> 3000<br>
+	</fieldset>
+	<p>
+		결과값 확인: <span></span>
+	</p>
+</body>
+</html>
