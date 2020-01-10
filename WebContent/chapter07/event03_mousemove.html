@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		position: fixed;
+	} 
+	body{
+		height: 4000px;
+	}
+	
+	p {
+		position: fixed;
+	}
+	
+	div {
+		position: fixed;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		//mousemeve의 e값 : 좌표값
+		$(document).mousemove(function(e){
+			var x = e.pageX;
+			var y = e.pageY;
+			
+			$('p').html("x = " + x + ", y = " + y);
+			
+			$('#img1').css('left', x).css('top', y);
+		})
+		
+		//scroll
+		$(window).scroll(function(){
+			$('div').text($(this).scrollTop());
+		})
+	})
+</script>
+</head>
+<body>
+	<p></p>
+	<img src="images/icon_72_1.png" id="img1">
+	<div></div>
+</body>
+</html>

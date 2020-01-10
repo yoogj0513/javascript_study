@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var imgArr1 = ["h.jpg", "t.jpg", "m.jpg", "l.jpg", "5.jpg"];
+		var imgArr2 = ["h2.jpg", "t2.jpg", "m2.jpg", "l2.jpg", "5-2.jpg"];
+		$('img').click(function(){
+			var index = $('img').index($(this));
+			var src = $(this).attr('src');
+			
+			if(src.indexOf('2') >= 0){
+				$(this).attr('src', 'images/' + imgArr1[index]);
+			} else {
+				$(this).attr('src', 'images/' + imgArr2[index]);
+			}
+			
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>index()를 이용하여 이미지를 변경해보자.</h1>
+	<img src="images/h.jpg">
+	<img src="images/t.jpg">
+	<img src="images/m.jpg">
+	<img src="images/l.jpg">
+	<img src="images/5.jpg">
+</body>
+</html>
