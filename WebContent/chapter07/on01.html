@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 방법 1 : json방식 (많이 사용되는 방법은 아님)
+		// 동일한 기능을하는 이벤트는 중첩 가능
+		/* $("h1 a").on({
+			"mouseover focus":function(){
+				$(this).css("background-color", "red");
+			},
+			"mouseout blur":function(){
+				$(this).css("background-color", "white");
+			}
+		}) */
+		
+		// 방법 2 (많이 사용되는 방법)
+		$("h1 a").on("mouseover focus", function(){
+			$(this).css("background-color", "red");
+		})
+		
+		$("h1 a").on("mouseout blur", function(){
+			$(this).css("background-color", "white");
+		})
+		
+		//동적추가 (html or css 코드 추가)
+		$("h1 a").on("click", function(e){
+			e.preventDefault();
+			$("h2").append("<a href='#'>naver</a><br>");
+		})
+		
+		// 동적으로 추가된 코드에는 방법 1, 2 으로는 이벤트가 적용되지 않는다.
+		//(동적으로 추가된 a태그에 mouseover, focus이젠트가 달리지 않는다.)
+		/* $("h2 a").on("mouseover focus", function(){
+			$(this).css("background-color", "yellow");
+		}) */
+		
+		// 방법 3(동적으로 추가된 코드 이벤트 적용) -> $(document).on(이벤트, 선택자, 콜백함수)
+		$(document).on("mouseover focus", "h2 a", function(){
+			$(this).css("background-color", "yellow");
+		})
+		
+		$(document).on("mouseout blur", "h2 a", function(){
+			$(this).css("background-color", "white");
+		})
+		
+		/*-------------------------------------------------------------------*/
+		$("#btn1").on("click", function(){
+			$("#wrap").append("<img src='images/bee.jpg' width='100px'>");
+		})
+		
+		$(document).on('mouseover', '#wrap img', function(){
+			$(this).css('border', '5px solid red');
+		})
+		
+		$(document).on('mouseout', '#wrap img', function(){
+			$(this).css('border', 'none');
+		})
+	})
+</script>
+</head>
+<body>
+	<h1><a href="https://naver.com">버튼</a></h1>
+	<h2></h2>
+	<button id="btn1">이미지추가</button>
+	<div id="wrap">이곳에 동적으로 추가됨<br></div>
+</body>
+</html>
