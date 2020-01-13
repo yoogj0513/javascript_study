@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		// bind는 on과 같으나 동적추가된 코드에 이벤트 적용이 안됨
+		$('h1 a').bind('mouseover focus', function(){
+			$(this).css('background-color', 'red');
+		})
+		
+		$('h1 a').bind('mouseout blur', function(){
+			$(this).css('background-color', 'white');
+		})
+	})
+</script>
+</head>
+<body>
+	<h1><a href="#">내용</a></h1>
+</body>
+</html>

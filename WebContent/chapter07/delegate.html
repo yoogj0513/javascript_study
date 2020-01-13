@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('h1').append('<a href="#">추가된 a태그</a>');
+		
+		$('h1').delegate('a', 'mouseover focus', function(){
+			$(this).css('background-color', 'red');
+		})
+		
+		$('h1').delegate('a', 'mouseout blur', function(){
+			$(this).css('background-color', 'white');
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h1></h1>
+</body>
+</html>
