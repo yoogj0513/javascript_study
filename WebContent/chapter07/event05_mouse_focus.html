@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	 
+	$(function(){
+		// mouseover/mouseout이벤트와 focus이벤트를 둘다 같이 달아야 함
+		// 사용자의 사용성을 위해서 둘다를 달아야 함.
+		
+		// 같은 선택자에게 이벤트를 여러개 동시에 달아야 될때
+		// on('이벤트 이벤트', function(){실행문})
+		$('button').on('mouseover focus', function(){
+			$(this).css('background-color', 'red');
+		})
+		
+		$('button').on('mouseout blur', function(){
+			$(this).css('background-color', '#fff');
+		})
+		
+		/* 
+		$('button').mouseover(function() {
+			$(this).css('background-color', 'red');
+		})
+		
+		$('button').focus(function() {
+			$(this).css('background-color', 'red');
+		})
+		 */
+		
+		/* 
+		$('button').mouseout(function() {
+			$(this).css('background-color', '#fff');
+		})
+		
+		$('button').blur(function() {
+			$(this).css('background-color', '#fff');
+		})
+		 */
+		
+	})
+</script>
+</head>
+<body>
+	<button>버튼 1</button>
+	<button>버튼 2</button>
+	<button>버튼 3</button>
+</body>
+</html>

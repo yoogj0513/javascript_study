@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').mouseover(function(){
+			$('p').css('background-color', 'yellow');
+		})
+		
+		$('#btn1').mouseout(function(){
+			$('p').css('background-color', 'pink');
+		})
+		
+		// hover에는 mouseover, mouseout 기능을 동시에 작성 가능. 
+		// 첫번째 function은 mouseover, 두번째 function은 mouseout
+		$('#btn2').hover(function(){
+			$('p').css('background-color', 'yellow');
+		}, function(){
+			$('p').css('background-color', 'pink');
+		})
+		
+		$('#img1').hover(function(){
+			$('#img1').css('width', '300px');
+		}, function(){
+			$('#img1').css('width', '500px');
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">mouseover/mouseout</button>
+	<button id="btn2">hover</button>
+	<p>내용-----------------------------------</p>
+	<img src="images/bee.jpg" id="img1">
+</body>
+</html>
