@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('a').click(function(){
+			var aHref = $(this).attr('href');
+			$('#wrap').html('<img src="'+aHref+'">');
+			return false;
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>과제 1</h1>
+	<a href="images/pic_1.jpg"><img src="images/pic_t1.jpg" alt="사진1" /></a>
+	<a href="images/pic_2.jpg"><img src="images/pic_t2.jpg" alt="사진2" /></a>
+	<a href="images/pic_3.jpg"><img src="images/pic_t3.jpg" alt="사진3" /></a>
+	<a href="images/pic_4.jpg"><img src="images/pic_t4.jpg" alt="사진4" /></a>
+	<div id="wrap"></div>	
+</body>
+</html>

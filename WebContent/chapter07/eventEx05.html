@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+		padding: 20px;
+	}
+
+	h3 {
+		padding: 10px 0;
+		padding-left: 10px;
+		border-bottom: 1px solid green;
+		border-left: 10px solid green;
+		margin-bottom: 20px;
+	}
+	
+	label {
+		width: 80px;
+		display: block;
+		float: left;
+	}
+	
+	#wrap1 p {
+		margin-bottom: 15px;
+	}
+	
+	#wrap1 p:last-child label {
+		line-height: 97px;
+	}
+	
+	#wrap1 textarea {
+		padding: 10px;
+	}
+	
+	#wrap1 {
+		border-bottom: 1px solid green;
+		padding-left: 20px;
+		margin-bottom: 15px;
+	}
+	
+	.writer {
+		font-weight: bold;
+	}
+	
+	.date {
+		font-size: 14px;
+		color: gray;
+	}
+	
+	.commebt p:first-child {
+		margin-bottom: 10px;
+		margin-right: 10px;
+		float: left;
+	}
+	
+	.commebt {
+		padding: 15px 20px;
+		border-bottom: 1px solid lightgreen;
+	}
+	
+	.commebt .btnCancel {
+		float: left;
+	}
+	
+	.commebt p:last-child {
+		clear: both;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = today.getMonth()+1;
+		var date = today.getDate();
+		var hour = today.getHours();
+		var minute = today.getMinutes();
+		
+		$('#btnSave').click(function(){
+			var inputVal = $('input').val();
+			var commentDate = year+"-"+month+"-"+date+" "+hour+":"+minute;
+			var textVal = $('textarea').val();
+			
+			$('#wrap2').append('<div class="commebt"><p><span class="writer">'+ inputVal
+							  +' </span><span class="date">/ '+ commentDate
+							  +'</span></p><button class="btnCancel">삭제하다</button><p class="text">'+textVal
+							  +'</p></div>');
+		})
+		
+		
+		$(document).on('click', '.btnCancel', function(){
+			$(this).parent().remove();
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h3>jQuery Comment</h3>
+	<div id="wrap1">
+		<p>
+			<label>작성자</label>
+			<input type="text">
+			<button id="btnSave">저장하기</button>
+		</p>
+		<p>
+			<label>덧글 내용</label>
+			<textarea cols="60" rows="5"></textarea>
+		</p>
+	</div>
+	<div id="wrap2">
+		<!-- <div class="commebt">
+			<p><span class="writer">작성자 </span><span class="date">/ 날짜 시간 </span></p>
+			<button class="btnCancel">삭제하다</button>
+			<p class="text">덧글 내용</p>
+		</div>
+		<div class="commebt">
+			<p><span class="writer">작성자 </span><span class="date">/ 날짜 시간 </span></p>
+			<button class="btnCancel">삭제하다</button>
+			<p class="text">덧글 내용</p>
+		</div> -->
+	</div>
+</body>
+</html>
