@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('h1 a').on('mouseover focus', function(){
+			$(this).css('background-color', 'lightgreen');
+		})
+		
+		$('h1 a').on('mouseout blur', function(){
+			$(this).css('background-color', 'white');
+		})
+		
+		// off : 모든 이벤트 삭제
+		$('button').click(function(){
+			$('h1 a').off();
+		})
+	})
+</script>
+</head>
+<body>
+	<h1><a href="#">내용</a></h1>
+	<button>이벤트 삭제</button>
+</body>
+</html>
