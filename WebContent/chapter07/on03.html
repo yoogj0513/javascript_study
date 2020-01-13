@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.box {
+		position: relative;
+		width: 200px;
+		height: 150px;
+		margin: 5px;
+		float: left;
+	}
+
+	.box img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.btClose {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#btn1').on('click', function(){
+			$('#wrap').append('<div class="box"><img src="images/bee.jpg"><button class="btClose">X</button></div>');
+		})	
+		
+		$(document).on('click', '.btClose', function(){
+			$(this).parent().remove();
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">이미지 추가</button>
+	<hr />
+	<div id="wrap"></div>
+</body>
+</html>

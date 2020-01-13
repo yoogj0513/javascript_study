@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var i = 1;
+		
+		$('#btn1').on('click', function(){
+			$('#wrap').append('<img src="images/bee.jpg" width="200px">');
+		})
+		
+		$('#btn2').on('click', function(){
+			$('#wrap').append('<p>p태그'+i+'</p>');
+			i++;
+		})
+		
+		// 선택자 여러개 선택 가능
+		$(document).on('click', '#wrap img, #wrap p', function(){
+			$(this).remove();
+		})
+		
+		/* 
+		$(document).on('click', '#wrap p', function(){
+			$(this).remove();
+		})
+		 */
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">이미지추가</button>
+	<button id="btn2">p태그 추가</button>
+	<div id="wrap">동적 추가될 공간<br></div>
+</body>
+</html>

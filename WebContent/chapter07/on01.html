@@ -59,6 +59,18 @@
 		$(document).on('mouseout', '#wrap img', function(){
 			$(this).css('border', 'none');
 		})
+		
+		$('#btn2').on('click', function(){
+			$('#wrap').append('<textarea>안녕하세요</textarea>');
+		})
+		
+		$(document).on('mouseover', '#wrap textarea', function(){
+			$(this).css('background-color', 'aqua');
+		})
+		
+		$(document).on('mouseout', '#wrap textarea', function(){
+			$(this).css('background-color', 'white');
+		})
 	})
 </script>
 </head>
@@ -66,6 +78,7 @@
 	<h1><a href="https://naver.com">버튼</a></h1>
 	<h2></h2>
 	<button id="btn1">이미지추가</button>
+	<button id="btn2">textarea 추가</button>
 	<div id="wrap">이곳에 동적으로 추가됨<br></div>
 </body>
 </html>
