@@ -41,15 +41,25 @@
 <script>
 	$(function(){
 		var sum = 0;
+		var num = 0;
 		
 		$('button').click(function(){
-			if($(this).text().indexOf("추가") >= 0){				
-				sum += Number($(this).val());
+			var amount = Number($(this).parent().next().text());
+			console.log(amount);
+			if($(this).text().indexOf("추가") >= 0){
+				if(amount < 10){					
+					sum += Number($(this).val());
+					num = amount + 1;
+				}
 			}
 			if($(this).text().indexOf("삭제") >= 0){
-				sum -= Number($(this).val());
+				if(amount > 0){					
+					sum -= Number($(this).val());
+					num = amount - 1;
+				}
+				
 			}
-			
+			$(this).parent().next().text(num);
 			$('#total').html(sum);
 		})
 	})

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	div {
+		padding: 20px;
+	}
+	
+	.item {
+		padding: 0;
+		position: relative;
+		width: 200px;
+		height: 140px;
+		float: left;
+		margin: 10px;
+	}
+	
+	img {
+		width: 100%;
+		height: 100%;
+	}	
+	
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#add').on('click', function(){
+			var selVal = $('#sel').val();
+			var selText = $(':selected').text();
+			var addStd = "<div class='item'><img src='images/" + selVal
+			   + "' alt='"+ selText
+			   +"'><button class='close'>X</button>";
+			var condition = true;
+			
+			if(selText.indexOf("메뉴를 선택해주세요.") > -1) {
+				alert("메뉴를 선택해주세요.");
+				return false;
+			}
+			
+			$('img').each(function(i, obj) {	
+				if($('.item:eq('+i+') img').attr('alt').indexOf(selText) > -1){
+					condition = false
+					alert("이미 추가되어 있습니다.");
+					return false;
+				}
+			})
+			
+			if(condition) {
+				$('#wrap2').append(addStd);
+				a = false;
+			}
+		})
+		
+		$(document).on('click', '.close', function(){
+			$(this).parent().remove();
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="wrap1">
+		<select id="sel">
+			<option>메뉴를 선택해주세요.</option>
+			<option value="bibimbam.png">비빔밥</option>
+			<option value="gimbam.png">김밥</option>
+			<option value="dongas.png">돈가스</option>
+			<option value="ramun.png">라면</option>
+		</select>
+		<button id="add">추가</button>
+	</div>
+	<hr />
+	<div id="wrap2"></div>
+</body>
+</html>
