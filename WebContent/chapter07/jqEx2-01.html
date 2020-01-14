@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container1 {
+		width: 300px;
+		text-align: center;
+	}
+	
+	.title {
+		border-top: 1px solid purple;
+		border-bottom: 1px solid purple;
+	}
+	
+	#day-result {
+		color: gray;
+		font-weight: bold;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#btn1').click(function(){
+			var num = $('#num1').val();
+			var numReg = /^[0-9]+$/;
+			if(numReg.test(num) == false){
+				alert("응모자수를 입력하세요.");
+			}
+			
+			var result = Math.floor(Math.random() * Number(num)) + 1;
+			$('#result1').html("당첨번호 : " + result + "번");
+		})
+		
+		$('#btn2').click(function(){
+			var site = $('#site').val();
+			location.href = site;
+		})
+		
+		$('#btn3').click(function(){
+			var dateVal = $('#day1').val();
+			var numVal = $('#day2').val();
+			var dateReg = /^[0-9]{8}$/;
+			var numReg = /^[0-9]+$/
+			if(dateReg.test(dateVal) == false){
+				alert("기준일을 다시 작성해주세요.");
+				return;
+			} else if(numReg.test(numVal) == false){
+				alert("경과 일을 입력해주세요.")
+				return;
+			}
+			
+			var year = dateVal.substring(0, 4);
+			var month = dateVal.substring(4, 6);
+			var date = dateVal.substring(6, 8);
+			
+			var days = new Date(year, (month-1), date);
+			days.setDate(days.getDate() + Number(numVal) - 1);
+			
+			var dYear = days.getFullYear();
+			var dMounth = days.getMonth()+1;
+			var dDate = days.getDate();
+			
+			$('#day-result').val(dYear+"."+dMounth+"."+dDate).css('color', '#000');
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h3 class="title">과제 1</h3>
+	<div id="container1">
+		<img src="images/dice.jpg" alt="주사위" /><br>
+		<p>
+			<input type="text" placeholder="전체 응모자 수" id="num1"/>
+			<button id="btn1">추첨 시작</button>
+		</p>
+		<h2 id="result1"></h2>
+	</div>
+	
+	<h3 class="title">과제2</h3>
+	<select id="site">
+		<option value="http://www.naver.com">네이버</option>
+		<option value="http://www.daum.net">다음</option>
+		<option value="http://www.google.com">구글</option>
+		<option value="" selected>메뉴선택해주세요</option>
+	</select>
+	<button id="btn2">open</button>
+	
+	<h3 class="title">과제3</h3>
+	<form>
+		<fieldset>
+			<legend>D-day</legend>
+			<p>
+				<label>기준일 </label>
+				<input type="text" placeholder="예) 20100303" id="day1">
+				<input type="reset" value="초기화">
+			</p>
+			<p>
+				<input type="text" id="day2">일째 되는 날은?
+				<button id="btn3" type="button">계산</button>
+				<input type="text" value="결과날짜" readonly id="day-result">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

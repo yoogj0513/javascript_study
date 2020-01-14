@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p {
+		margin: 5px 0;
+		padding: 0;
+	}
+	
+	label {
+		width: 110px;
+		display: block;
+		float: left;
+	}
+	
+	form {
+		width: 500px;
+	}
+	
+	#p1 {
+		text-align: center;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#btn1').click(function(){
+			var idReg = /^[a-zA-Z0-9]{5,15}$/;
+			var idVal = $('#id').val();
+			if(idReg.test(idVal)){				
+				$(this).remove();
+				$('#id-wrap').append('<span>중복확인 되었습니다.</span>');
+			}
+		})
+		
+		$('form').submit(function() {
+			var idReg = /^[a-zA-Z0-9]{5,15}$/;
+			var passReg = /^[a-zA-Z]{1}[a-zA-Z0-9!@#\$%&]{7,14}$/;
+			var nameReg = /^[가-힣]{2,5}$/;
+			
+			var idVal = $('#id').val();
+			var passVal = $('#pass').val();
+			var passVal2 = $('#pass2').val();
+			var nameVal = $('#name').val();			
+		
+			if(idReg.test(idVal) == false){
+				alert('아이디 규격에 맞지 않습니다.');
+				return false;
+			}
+			
+			if($('#id-wrap').html().indexOf('span') == -1) {
+				alert('아이디 중복확인을 해주세요.');
+				return false;
+			}
+			
+			if(passReg.test(passVal) == false){
+				alert('패스워드 규격에 맞지 앖습니다.');
+				return false;
+			} 
+			
+			if(passVal2 == ""){
+				alert('패스워드 확인해주세요.');
+				return false;
+			}
+			
+			if(passVal.indexOf(passVal2) < 0) {
+				alert('패스워드 확인이 맞지않습니다. 다시 확인해주세요.');
+				return false;
+			} 
+			
+			if(nameReg.test(nameVal) == false){
+				alert('이름을 다시 작성해주세요.');
+				return false;
+			}
+			
+			if($('.gender:checked').length==0){
+				alert('성별을 선택해주세요.');
+				return false;
+			}
+			
+			if($('select').val().indexOf("직업") >= 0) {
+				alert('직업을 선택해주세요.');
+				 return false;
+			}
+			
+			if($('input[type="checkbox"]:checked').length == 0) {
+				alert('관심분야를 선택해주세요.');
+				return false;
+			}
+			
+			if($('textarea').val().length < 10) {
+				alert('자기소개 10자 이상 작성해주세요.');
+				return false;
+			}
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<form>
+		<p id="id-wrap">
+			<label>아이디</label>
+			<input type="text" placeholder="영어 숫자 가능" id="id">
+			<button type="button" id="btn1">중복확인</button>
+		</p>
+		
+		<p>
+			<label>패스워드</label>
+			<input type="password" placeholder="영어 숫자 가능" id="pass">
+		</p>
+		
+		<p>
+			<label>패스워드 확인</label>
+			<input type="password" placeholder="영어 숫자 가능" id="pass2">
+		</p>
+		
+		<p>
+			<label>이름</label>
+			<input type="text" id="name">
+		</p>
+		
+		<p>
+			<label>성별</label>
+			<input type="radio" name="gender" class="gender"> 남 
+			<input type="radio" name="gender" class="gender"> 여
+		</p>
+		
+		<p>
+			<label>직업</label>
+			<select>
+				<option>직업</option>
+				<option>디자이너</option>
+				<option>프론트엔드 개발자</option>
+				<option>백엔드 개발자</option>
+				<option>DBA</option>
+			</select>
+		</p>
+		
+		<p>
+			<label>관심분야</label>
+			<input type="checkbox">  여행
+			<input type="checkbox">  스포츠
+			<input type="checkbox">  영화감상
+			<input type="checkbox">  게임
+		</p>
+		
+		<p>
+			<label>자기소개</label>
+			<textarea id="textarea" cols="50" rows="8"></textarea>
+		</p>
+		
+		<p id="p1">
+			<input type="submit" value="회원가입">
+			<input type="reset" value="취소">
+		</p>
+	</form>
+</body>
+</html>

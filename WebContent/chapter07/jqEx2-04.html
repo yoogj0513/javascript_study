@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 80px;
+	}
+	
+	table {
+		border-collapse: collapse;
+		width: 700px;
+		text-align: center;
+	}
+	
+	tr, th, td {
+		border: 1px solid #000;
+	}
+	
+	th {
+		height: 40px;
+		background-color: maroon;
+		color: #fff;
+		border-right: 1px solid #fff;
+	}
+	
+	th:last-child {
+		border-right: 1px solid #000;
+	}
+	
+	.add {
+		margin-bottom: 5px;
+	}
+	
+	.title {
+		width: 300px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var sum = 0;
+		
+		$('button').click(function(){
+			if($(this).text().indexOf("추가") >= 0){				
+				sum += Number($(this).val());
+			}
+			if($(this).text().indexOf("삭제") >= 0){
+				sum -= Number($(this).val());
+			}
+			
+			$('#total').html(sum);
+		})
+	})
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<th colspan="2">상품</th>
+			<th>가격</th>
+			<th>선택</th>
+			<th>갯수</th>
+			<th>총가격</th>
+		</tr>
+		<tr>
+			<td><img src="images/book1.jpg" alt="책이미지"></td>
+			<td class="title">뭐 먹고 살지? 제주도 라이프 길라잡이</td>
+			<td>14,400원</td>
+			<td><button class="add" value="14400">추가</button><br><button class="remove" value="14400">삭제</button></td>
+			<td>0</td>
+			<td rowspan="3"><span id="total">0</span>원</td>
+		</tr>
+		<tr>
+			<td><img src="images/book2.jpg" alt="책이미지"></td>
+			<td class="title">내 남편의 아내가 되어줄래요</td>
+			<td>13,500원</td>
+			<td><button class="add" value="13500">추가</button><br><button class="remove" value="13500">삭제</button></td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td><img src="images/book3.jpg" alt="책이미지"></td>
+			<td class="title">부부가 끝까지 행복하게 사는 방법</td>
+			<td>14,000원</td>
+			<td><button class="add" value="14000">추가</button><br><button class="remove" value="14000">삭제</button></td>
+			<td>0</td>
+		</tr>
+	</table>
+</body>
+</html>
