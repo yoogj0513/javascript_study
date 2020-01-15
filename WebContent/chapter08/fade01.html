@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 450px;
+		text-align: center;
+		border: 1px solid #000;
+		border-radius: 10px;
+		padding-top: 10px;
+		margin-top: 10px;
+	}
+	
+	img {
+		width: 400px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btnFadeIn').click(function(){
+			$('img').fadeIn("fast");
+		})
+		
+		$('#btnFadeOut').click(function(){
+			$('img').fadeOut(2000);
+		})
+		
+		$('#btnFadeToggle').click(function(){
+			$('img').fadeToggle(1000);
+		})
+		
+		$('#btnFadeTo').click(function(){
+			$('img').fadeTo("slow", .3); //30%만 노출
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="btnFadeIn">fade in</button>
+	<button id="btnFadeOut">fade out</button>
+	<button id="btnFadeToggle">fade toggle</button>
+	<button id="btnFadeTo">fadeTo</button>
+	<div>
+		<img src="images/spring.jpg">
+		<p>한국의 봄 화사하게 피어난 분홍 매화꽃</p>
+	</div>
+</body>
+</html>

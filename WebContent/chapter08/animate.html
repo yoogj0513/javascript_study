@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1, h2, h3, h4 {
+		width: 100px;
+		height: 50px;
+	}
+	
+	h1 {
+		background-color: red;
+	}
+	
+	h2 {
+		background-color: yellow;
+	}
+	
+	h3 {
+		background-color: blue;
+	}
+	
+	h4 {
+		background-color: orange;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').click(function(){
+			//애니메이션 설정 : 콜백함수는 생략가능, json 형식 ({css코드}, 속도, 콜백함수)
+			$('h1').animate({"margin-left":"200px"}, 2000/*, fuction(){} */)
+		})
+		
+		$('#btn2').click(function() {
+			$('h2').animate({"margin-left":"300px", 
+							 "width":"200px",
+							 "font-size":"30px"}, 2000);
+		})
+		
+		$('#btn3').click(function() {
+			$('h3').animate({"margin-left":'300px'}, 2000)
+				   .animate({"width": "200px"}, 1000);
+		})
+		
+		$('#btn4').click(function() {
+			$('h4').animate({"margin-left" : '300px'}, 2000)
+			       .animate({"margin-top":"200px"}, 1000);
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">1번</button>
+	<button id="btn2">2번</button>
+	<button id="btn3">3번</button>
+	<button id="btn4">4번</button>
+	<br /><br />
+	<h1>내용1</h1>
+	<h2>내용2</h2>
+	<h3>내용3</h3>
+	<h4>내용4</h4>
+</body>
+</html>

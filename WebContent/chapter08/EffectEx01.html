@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+
+	.wrap {
+		position: relative;
+		width: 852px;
+	}
+	
+	#small-img {
+		border: 1px solid #000;
+		border-radius: 10px;
+		background-color: gray;
+		overflow: hidden;
+		padding: 10px;
+	}
+	
+	#small-img img {
+		display: block;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	#small-img img:last-child {
+		margin-right: 0;
+	}
+	
+	#big-img {
+		position: absolute;
+		top: 100px;
+		left: 25px;
+	}
+	
+	#big-img img {
+		position: absolute;
+		top: 0;
+		
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	
+	$(function(){
+		$('#big-img img').hide();
+		
+		$('#small-img img').click(function(){
+			var index = $(this).index();
+			$('#big-img img').hide();
+			$('#big-img img').eq(index).fadeIn(1000);
+		})
+		
+		$('#big-img img').click(function(){
+			$(this).fadeOut("fast");
+		})
+	})
+	
+</script>
+</head>
+<body>
+	<h1>사용법</h1>
+	<ol>
+		<li>작은 이미지를 클릭하면 큰 이미지가 나타납니다.</li>
+		<li>큰 이미지를 클릭하면 큰 이미지가 사라집니다.</li>
+	</ol>
+	<div class="wrap">
+		<div id="small-img">
+			<img src="images/spring-s.jpg">
+			<img src="images/summer-s.jpg">
+			<img src="images/fall-s.jpg">
+			<img src="images/winter-s.jpg">
+		</div>
+		<div id="big-img">
+			<img src="images/spring.jpg">
+			<img src="images/summer.jpg">
+			<img src="images/fall.jpg">
+			<img src="images/winter.jpg">
+		</div>
+	</div>
+	
+</body>
+</html>

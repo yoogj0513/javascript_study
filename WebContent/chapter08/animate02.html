@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.wrap {
+		text-align: center;
+	}
+	
+	img {
+		width: 400px;
+		height: 270px;
+		border: 2px solid #000;
+	}
+	
+	button {
+		border: 1px solid #aaa;
+		padding: 5px 20px;
+		margin: 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("#btn1").click(function() {
+			$(".wrap img").animate({"width" : "500px"}, 1000)
+						  .animate({"height" : "400px"}, 1000)
+						  .animate({"border-radius" : "50px"}, 1000);
+		})
+		
+		$("#btn2").click(function(){
+			$(".wrap img").animate({"width" : "500px",
+									"height" : "400px",
+									"border-radius":"50px"}, 1000);
+		})
+		
+		$("#btn3").click(function() {
+			// 클릭 했을 때마다 100씩 이동하려면 +=을 작성
+			$('img').animate({"margin-left":"+=100px"}, 1000, function(){
+				$('#test span').html($('img').css("margin-left"));
+			});
+		})
+		
+		$('#btn5').click(function() {
+			$('img').animate({"margin-left":"-=100px"}, 1000, function(){
+				$('#test span').html($('img').css("margin-left"));
+			});
+		})
+		
+		$('#btn4').click(function() {
+			$('img').animate({"height":"toggle"}, 1000);
+		})
+		
+		$('#btn6').click(function() {
+			//animate: css의 숫치관련, 숫자관련만 가능
+			//이미지 이동 후에 border 색상 변경
+			//.animate({"border":"2px solide red"}, 1000); -> 애니메이션일 일어나지 않음
+			$('img').animate({"margin-left":'100px'}, 1000, function(){
+				$(this).css('border', '2px solid red');
+			})
+		})
+		
+		$('#btn7').click(function() {
+			//이미지 이동 후에 글자도 이동
+			$('img').animate({"margin-left":"100px"}, 1000);
+			$('#text').delay(1000).animate({"margin-left":"100px"}, 1000);
+			
+		})
+		
+		$('#btn8').click(function(){
+			$('.box').animate({"margin-left":"150px"}, 1000);
+			$('#text').delay(1000).animate({"font-size":"1.5em"}, 1000);
+			$('.box').delay(2000).animate({"margin-left":"0px"}, 1000);
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box">
+			<img src="images/fall.JPG" alt="가을" />
+			<p id="text"><strong>한국의 가을</strong> 마지막 절정을 향해 치닫는 빨간 얼굴</p>
+		</div>
+		<button id="btn1">확대하기</button>
+		<button id="btn2">확대하기2</button>
+		<button id="btn3">100px씩 이동하기</button>
+		<button id="btn4">이미지 높이 토글</button>
+		<button id="btn5">-100씩 이동하기</button>
+		<button id="btn6">border 색상 변경</button>
+		<button id="btn7">delay</button>
+		<button id="btn8">좌우이동</button>
+		<br />
+		<p id="test">margin-left값 : <span></span></p>
+	</div>
+</body>
+</html>

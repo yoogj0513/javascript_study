@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('img').click(function() {
+			
+			$('.wrap').animate({"margin-left":"500px"}, 1000);
+			$('img').delay(1000).animate({"width":"+=150px", 
+										 "height":"+=100px"}, 1000)
+							   .animate({"width":"-=150px",
+								   		 "height":"-=100px"}, 1000);
+			$('img').fadeOut(1000);
+			$('h3').delay(4000).animate({"font-size":"30px"}, 1000, function(){
+				$(this).css('color', 'red');
+			})
+			
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="wrap">
+		<img src="images/car.png" alt="car" />
+		<h3>Run, Run!</h3>
+	</div>
+</body>
+</html>

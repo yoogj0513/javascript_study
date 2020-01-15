@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.box {
+		float: left;
+		margin: 30px;
+		width: 330px;
+	}
+	
+	button {
+		border: none;
+		padding: 15px;
+		box-shadow: 3px 3px 3px #000;
+		background-color: olive;
+		color: #fff;
+		font-size: 18px;
+		cursor: pointer;
+	}
+	
+	.text {
+		border: 1px solid #000;
+		border-radius: 10px;
+		margin-top: 20px;
+	}
+	
+	ul {
+		list-style: none;
+		padding: 20px;
+		margin: 0;
+		line-height: 25px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$(".text").hide();
+		
+		$("#btn1").click(function() {
+			var text = $(this).next();
+			text.slideToggle(1000);
+		})
+		
+		$("#btn2").click(function() {
+			var text = $(this).next();
+			text.fadeToggle(1000);
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>컴퓨터 공학과 교수님 소개</h1>
+	<div class="box">
+		<button id="btn1">홍길동 교수님</button>
+		<div class="text">
+			<ul>
+				<li>소속 : 컴퓨터공학과</li>
+				<li>전공 : 프로그래밍 언어</li>
+				<li>전화 : xxx-xxx-xxxx</li>
+				<li>연구실 : 공학관 103호</li>
+			</ul>
+		</div>	
+	</div>
+	
+	<div class="box">
+		<button id="btn2">한라산 교수님</button>
+		<div class="text">
+			<ul>
+				<li>소속 : 컴퓨터공학과</li>
+				<li>전공 : 분산처리</li>
+				<li>전화 : xxx-xxx-xxxx</li>
+				<li>연구실 : 공학관 101호</li>
+			</ul>
+		</div>	
+	</div>
+	
+</body>
+</html>

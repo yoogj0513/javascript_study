@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 450px;
+		text-align: center;
+		border: 1px solid #000;
+		border-radius: 10px;
+		padding-top: 10px;
+		margin-top: 10px;
+	}
+	
+	img {
+		width: 400px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#btnSlideUp').click(function(){
+			$('img').slideUp(2000);
+		})
+		
+		$('#btnSlideDown').click(function() {
+			$('img').slideDown(2000);
+		})
+		
+		$('#btnSlideToggle').click(function() {
+			$('img').slideToggle(1000);
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<button id="btnSlideUp">slide up</button>
+	<button id="btnSlideDown">slide down</button>
+	<button id="btnSlideToggle">slide toggle</button>
+	<div>
+		<img src="images/spring.jpg">
+		<p>한국의 봄 화사하게 피어난 분홍 매화꽃</p>
+	</div>
+</body>
+</html>

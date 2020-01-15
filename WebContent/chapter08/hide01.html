@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 450px;
+		text-align: center;
+		border: 1px solid #000;
+		border-radius: 10px;
+		padding-top: 10px;
+		margin-top: 10px;
+	}
+	
+	img {
+		width: 400px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btnHide').click(function(){
+			$('img').hide(1000, function(){
+				alert("숨김완료");
+			}); 
+			//$('요소 선택').효과메서드(효과 소요 시간, 가속도, 콜백함수);
+			//fast, slow, ms값(ex.1000) : 속도설정
+			
+			
+			//alert("완료"); 효과메서드(애니메이션) 실행 전에 먼저 실행됨, 애니메이션이 먼저 실행되고 실행되길 원한다면 애니메이션에 콜백넣기
+		})
+	
+		$('#btnShow').click(function(){
+			$('img').show(2000, function(){
+				$('div').css('background-color', 'pink');
+			});
+		})
+		
+		$('#btnToggle').click(function(){
+			$('img').toggle(1500);
+		})
+		
+		$('#btnHide2').click(function(){
+			$('div').hide(1000).show(1000);
+		})
+		
+		$('#btnShow2').click(function(){
+			$('div').show(1000);
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="btnHide">hide</button>
+	<button id="btnShow">show</button>
+	<button id="btnToggle">toggle</button>
+	<button id="btnHide2">hide 2</button>
+	<button id="btnShow2">show 2</button>
+	<div>
+		<img src="images/spring.jpg">
+		<p>한국의 봄 화사하게 피어난 분홍 매화꽃</p>
+	</div>
+</body>
+</html>
