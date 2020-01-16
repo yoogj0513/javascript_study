@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 400px;
+		text-align: center;
+	}
+	
+	img {
+		width: 400px;
+		height: 260px;
+		border: 5px solid #000;
+	}
+	
+	span {
+		color: blue;
+		font-weight: bold;
+	}
+	
+	button {
+		padding: 10px 20px;
+		border: 1px solid #aaa;
+		font-style: italic;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		$('button').click(function(){
+			
+			$('img').animate({"width":"500px"}, 1000)
+					.animate({"height":"300px"}, 1000)
+					.animate({"border-radius":"30px"}, 1000, function(){
+						$(this).css("border-color", "green")
+							   .css("box-shadow", "5px 5px 10px #000");
+					});
+			$('p').animate({"font-size":"1.4rem"}, 3000, function(){
+				$(this).css("font-style", 'italic');
+			})
+			
+		})
+		
+	})
+</script>
+</head>
+<body>
+		<img src="images/winter.JPG" alt="겨울" />
+		<p><span>한국의 겨울</span> 너의 부재를 덮어주는 사방의 눈, 눈.</p>
+	<div>
+		<button>확대하기</button>
+	</div>
+</body>
+</html>

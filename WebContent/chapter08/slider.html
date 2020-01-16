@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	h1 {
+		text-align: center;
+		margin-top: 20px;
+	}
+	
+	#banner_wrap {
+		width: 260px;
+		margin: 0 auto;
+		border: 1px solid #aaa;
+		padding: 10px;
+		overflow: hidden;
+	}
+	
+	#frame {
+		width: 240px;
+		overflow: hidden;
+		margin: 10px auto;
+	}
+	
+	ul#banner {
+		width: 700px;
+	}
+	
+	ul li {
+		list-style: none;
+		float: left;
+		width: 80px;
+	}
+	
+	p {
+		float: left;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	var index = 0;
+
+	$(function() {
+		$("#next").click(function() {
+			if(index == -5){
+				alert("오른쪽 끝입니다.")
+				return;
+			}
+			
+			index--;
+			var marginLeft = index * 80;
+			$("#banner").animate({"margin-left":marginLeft+"px"}, 1000);
+		})
+		
+		$('#prev').click(function(){
+			if(index == 0){
+				alert("왼쪽 끝입니다.")
+				return;
+			}
+			index++;
+			var marginLeft = index * 80;
+			$("#banner").animate({"margin-left":marginLeft+"px"}, 1000);
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>슬라이드 배너 만들기</h1>
+	<div id="banner_wrap">
+		<div id="frame">
+			<ul id="banner">
+				<li><a href="#"><img src="images/pic_t1.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t2.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t3.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t4.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t5.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t6.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t7.jpg"></a></li>
+				<li><a href="#"><img src="images/pic_t8.jpg"></a></li>
+			</ul>
+		</div>
+		<p>
+			<a href="#" id="prev"><img src="images/prev_btn.png"></a>
+		</p>
+		<p>
+			<a href="#" id="next"><img src="images/next_btn.png"></a>
+		</p>
+	</div>
+</body>
+</html>
