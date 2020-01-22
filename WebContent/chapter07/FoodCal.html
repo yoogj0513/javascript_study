@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+		background-color: pink;
+	}
+	
+	#container {
+		width: 1300px;
+		margin: 10px auto;
+		background-color: #fff;
+		overflow: hidden;
+	}
+	
+	.menu-wrap {
+		width: 750px;
+		padding: 10px;
+		padding-right: 0;
+		float: left;
+	}
+	
+	.menu {
+		width: 32%;
+		float: left;
+		padding: 5px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	
+	.menu:hover {
+		background-color: skyblue;
+	}
+	
+	img {
+		width: 100%;
+		height: 180px;
+	}
+	
+	.order-wrap {
+		width: 470px;
+		padding: 35px;
+		float: right;
+	}
+	
+	.order-wrap h2 {
+		text-align: center;
+		padding: 10px;
+	}
+	
+	.menu-list {
+		border: 3px solid #000;
+		height: 400px;
+	}
+	
+	.list {
+		background-color: pink;
+		margin: 5px;
+		overflow: hidden;
+		padding: 8px 20px;
+		font-weight: bold;
+		text-align: center;
+	}
+	
+	.list p {
+		float: left;
+		width: 30%;
+	}
+	
+	.list p:last-child {
+		width: 10%;
+	}
+	
+	.list input {
+		width: 20px;
+		height: 20px;
+		display: block;
+		margin-left: 10px;
+	}
+	
+	#remove {
+		width: 100%;
+		margin-top: 5px;
+		background-color: #000;
+		color: #fff;
+		border: none;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 5px;
+	}
+	
+	#result {
+		background-color: purple;
+		color: #fff;
+		margin-top: 10px;
+		font-size: 25px;
+		padding: 15px 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		var totalSum = 0;
+		
+		$(".menu").click(function() {			
+			
+			var name = $(this).children(".name").text();
+			var price = $(this).children(".price").text().replace(",", "");
+			
+			var selName = $(".selMenu").text();
+						
+			if(selName.indexOf(name) > -1) {
+				
+				$(".list").each(function(i, obj) {
+					
+					var selMenu = $(obj).find(".selMenu").text();
+					if(name == selMenu){
+						var count = $(obj).find(".selCnt").text();
+						var menuSum = Number(count) + 1;
+						$(obj).find(".selCnt").text(menuSum);
+						
+						var menuPri = $(obj).find(".menuPri").text();
+						var priceSum = Number(menuPri) + Number(price);
+						$(obj).find(".menuPri").text(priceSum);
+												
+						totalSum += Number(price);
+						$(".total").text(totalSum);
+					}
+					
+				})				
+				return;
+			}
+			
+			var $p1 = $("<p>").addClass("selMenu").text(name);
+			var $span1 = $("<span>").addClass("selCnt").text("1");
+			var $p2 = $("<p>").append($span1).append("개");
+			var $span2 = $("<span>").addClass("menuPri").text(price);			
+			var $p3 = $("<p>").append($span2).append("원");
+			var $input = $("<input>").attr("type", "checkbox");
+			var $p4 = $("<p>").append($input);
+			var $div = $("<div>").addClass("list").append($p1).append($p2).append($p3).append($p4);
+			
+			$(".menu-list").append($div);
+			
+			totalSum += Number(price);
+			$(".total").text(totalSum);
+		})
+		
+		$("#remove").click(function(){
+			
+			$(".list").each(function(i, obj) {
+				var check = $(obj).find("input");
+				if(check.prop("checked")){
+					var price = $(obj).find(".menuPri").text();
+					totalSum -= Number(price);
+					$(".total").text(totalSum);
+					$(obj).remove();
+				}
+			})
+			
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="container">
+		<div class="menu-wrap">
+			<div class="menu">
+				<img src="images/ramun.png" alt="라면" />
+				<p class="name">해물 라면</p>
+				<p class="price">4,000</p>
+			</div>
+			<div class="menu">
+				<img src="images/udong.jpg" alt="우동" />
+				<p class="name">우동</p>
+				<p class="price">4,000</p>
+			</div>
+			<div class="menu">
+				<img src="images/Jajangmun.jpg" alt="짜장면" />
+				<p class="name">짜장면</p>
+				<p class="price">4,000</p>
+			</div>
+			<div class="menu">
+				<img src="images/fried_rice.jpg" alt="새우볶음밥" />
+				<p class="name">새우볶음밥</p>
+				<p class="price">5,000</p>
+			</div>
+			<div class="menu">
+				<img src="images/bibimbam.png" alt="비빔밥" />
+				<p class="name">비빔밥</p>
+				<p class="price">6,000</p>
+			</div>
+			<div class="menu">
+				<img src="images/dongas.png" alt="돈가스" />
+				<p class="name">돈가스</p>
+				<p class="price">6,500</p>
+			</div>
+			<div class="menu">
+				<img src="images/denjang.png" alt="된장찌개" />
+				<p class="name">된장찌개</p>
+				<p class="price">4,500</p>
+			</div>
+			<div class="menu">
+				<img src="images/sundubu.jpg" alt="순두부찌개" />
+				<p class="name">순두부찌개</p>
+				<p class="price">5,500</p>
+			</div>
+			<div class="menu">
+				<img src="images/gimbam.png" alt="김밥" />
+				<p class="name">김밥</p>
+				<p class="price">3,000</p>
+			</div>
+		</div>
+		<div class="order-wrap">
+			<h2>주문 리스트</h2>
+			<div class="menu-list"></div>
+			<button id="remove">삭제</button>
+			<p id="result">합계 : <span class="total">0</span>원</p>
+		</div>
+	</div>
+</body>
+</html>
