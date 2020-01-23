@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.hideTest {
+		display:none;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/gPlugin.js"></script>
+<script>
+	$(function(){
+		//$("#test1, #box1, #test2").green();
+		$("#test1, #box1, #test2").setBgColor("pink");
+		$("#test1").hideTest();
+	})
+</script>
+</head>
+<body>
+	<input type="text" id="test1" />
+	<br /><br />
+	<br /><br />
+	<div id="box1">plugin Test</div>
+	<br /><br />
+	<br /><br />
+	<input type="text" id="test2" />	
+</body>
+</html>
