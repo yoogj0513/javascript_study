@@ -111,11 +111,19 @@
 		
 		$(".menu").click(function() {			
 			
-			var name = $(this).children(".name").text();
-			var price = $(this).children(".price").text().replace(",", "");
+			var name = $(this).find(".name").text();
+			var price = $(this).find(".price").text().replace(",", "");
 			
 			var selName = $(".selMenu").text();
-						
+			
+			/*		
+			if($(".selMenu:contains('"+name+"')").length == 0){ -> 이 조건으로도 가능
+				새로추가코드
+			} else {
+				기존 주문 음식을 찾아 갯수와 가격 조정 
+			} 
+			*/
+			
 			if(selName.indexOf(name) > -1) {
 				
 				$(".list").each(function(i, obj) {
@@ -126,6 +134,8 @@
 						var menuSum = Number(count) + 1;
 						$(obj).find(".selCnt").text(menuSum);
 						
+						// 메뉴 하나의 가격에 갯수를 곱해도 됨
+						// -> Number(price) * menuSum
 						var menuPri = $(obj).find(".menuPri").text();
 						var priceSum = Number(menuPri) + Number(price);
 						$(obj).find(".menuPri").text(priceSum);

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		background-color: pink;
+	}
+	#container{
+		background-color:white;
+		width:1240px;
+		margin:0 auto;
+		overflow: hidden;
+	}
+	#item_wrap{
+		width:60%;
+		float:left;
+	}
+	#item_wrap ul{
+		list-style: none;
+		padding:0;
+		margin:0;
+		overflow: hidden;
+	}
+	#item_wrap .item{
+		width:32%;
+		float:left;
+		text-align: center;
+		padding:5px 0px;
+	}
+	#item_wrap .item img{
+		width:90%;
+		height:150px;		
+	}
+	#item_wrap .item:hover{
+		background-color: yellow;
+	}
+	
+	#order_wrap{
+		width:37%;
+		float:left;		
+	}
+	#order_wrap h3{
+		text-align: center;
+		font-size: 25px;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+	
+	#order_list_wrap ul{
+		list-style: none;
+		padding:0 10px;
+		margin: 0;
+		border:2px solid black;
+		height:360px;
+		margin-top:10px;
+	}
+	
+	#order_list_wrap ul .order_item{
+		/* width:100%; */
+		line-height: 24px;
+		height: 24px;
+		font-size: 18px;
+		font-weight: bold;
+		margin:5px 0;
+		padding:5px 0;
+		background-color: pink;
+		overflow: hidden;
+	}
+	
+	#order_list_wrap ul .order_item .order_food{
+		width:120px;
+		float:left;
+		margin-left:20px;
+	}
+	
+/* 	#order_list_wrap ul .order_item .order_food_count_wrap{
+		float:left;
+	} */
+	
+	#order_list_wrap ul .order_item .order_food_count{
+		width:50px;
+		float:left;
+		text-align: center;
+	}	
+	
+	#order_list_wrap ul .order_item .order_food_price{
+		margin-left:20px;
+		width:120px;
+		text-align:right;
+		float:left;
+	}
+	
+	#order_list_wrap ul .order_item .orderCheck{
+		margin-left:20px;
+		width:24px;
+		height:24px;
+		padding:0;
+		margin:0;
+		margin-right:20px;
+		float:right;
+	}
+	
+	#deleteBtn{
+		width:100%;
+		height:36px;
+		display:block;
+		margin-top:5px;
+		
+		background-color: black;
+		color:white;
+		font-size: 22px;
+		font-weight: bold;
+		border:none;
+	}
+	
+	#deleteBtn:hover{
+		background-color: red;
+	}
+	
+	#result_wrap{
+		height:70px;
+		line-height: 70px;
+		font-size: 33px;
+		background-color: blue;
+		padding:0 10px;
+		color:white;
+		margin-top:10px;
+	}
+	#result_wrap p{
+		margin:0;
+	}
+	
+	#result_wrap #result{
+		font-size: 35px;
+		font-weight: bold;
+		
+	}
+	
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script>
+	$(function(){
+		$(".item").click(function(){
+			var foodName = $(this).find(".subtitle").text();
+			var foodPrice = $(this).find(".price").text().replace(",", "");//4,000 -> 4000
+			
+			
+			/* <li class='order_item'>
+					 <span class='order_food'>된장찌개</span>
+					 <span class='order_food_count'>1개</span>
+					 <span class='order_food_price'>4000원</span>
+					 <input type='checkbox' class='orderCheck' value='삭제'>
+				</li> */
+			// .order_food 중에서 돈가스를(foodName)을 가진 태그
+			// 기존 음식 존재 여부 판단
+			if( $(".order_food:contains('"+foodName+"')").length == 0){//새로 추가		
+				var $li = $("<li>").addClass("order_item");
+				var $span1 = $("<span>").addClass("order_food").text(foodName);
+				var $span2 = $("<span>").addClass("order_food_count").text("1개");
+				var $span3 = $("<span>").addClass("order_food_price").text(foodPrice+"원");
+				var $input = $("<input>").addClass("orderCheck").attr("type","checkbox").val("삭제");
+				
+				$li.append($span1).append($span2).append($span3).append($input);
+				
+				$("#order_list").append($li);
+			}else{ //기존 주문 음식을 찾아 갯수와 가격 조정
+				var $order_item = $(".order_food:contains('"+foodName+"')").parent();
+				var sCount = $order_item.find(".order_food_count").text().replace("개", "");//1개
+				var count = Number(sCount) + 1;
+				$order_item.find(".order_food_count").text(count+"개");
+				
+				var price = Number(foodPrice) * count;
+				$order_item.find(".order_food_price").text(price+"원");
+			}
+			
+			//전체 가격
+			var sum  = 0;
+			$(".order_food_price").each(function(i, obj) {
+				var price = $(obj).text().replace("원", "");
+				sum += Number(price);
+			})
+			
+			$("#result").text(sum);			
+		})
+		
+		$("#deleteBtn").click(function() {
+			//check된 item삭제
+			$(".orderCheck:checked").parent().remove();
+			
+			//전체 가격
+			var sum  = 0;
+			$(".order_food_price").each(function(i, obj) {
+				var price = $(obj).text().replace("원", "");
+				sum += Number(price);
+			})
+			
+			$("#result").text(sum);	
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="container">
+		<div id="item_wrap">
+			<ul>
+				<li class="item" >
+					<img src="images/ramun.png"><br>
+					<span class="subtitle">해물 라면</span><br>
+					<span class="price">4,000</span>
+				</li>
+				<li class="item" >
+					<img src="images/udong.jpg"><br>
+					<span class="subtitle">우동</span><br>
+					<span class="price">4,000</span>
+				</li>
+				<li class="item" >
+					<img src="images/Jajangmun.jpg"><br>
+					<span class="subtitle">짜장면</span><br>
+					<span class="price">4,000</span>
+				</li>				
+				<li class="item" >
+					<img src="images/fried_rice.jpg"><br>
+					<span class="subtitle">새우볶음밥</span><br>
+					<span class="price">5,000</span>
+				</li>
+				<li class="item" >
+					<img src="images/bibimbam.png"><br>
+					<span class="subtitle">비빔밥</span><br>
+					<span class="price">6,000</span>
+				</li>
+				<li class="item" >
+					<img src="images/dongas.png"><br>
+					<span class="subtitle">돈가스</span><br>
+					<span class="price">6,500</span>
+				</li>				
+				<li class="item">
+					<img src="images/denjang.png"><br>
+					<span class="subtitle">된장찌개</span><br>
+					<span class="price">4,500</span>
+				</li>				
+				<li class="item" >
+					<img src="images/sundubu.jpg"><br>
+					<span class="subtitle">순두부찌개</span><br>
+					<span class="price">5,500</span>
+				</li>
+				<li class="item" >
+					<img src="images/gimbam.png"><br>
+					<span class="subtitle">김밥</span><br>
+					<span class="price">3,000</span>
+				</li>				
+			</ul>
+		</div>
+		
+		<div id="order_wrap">
+			<h3>주문 리스트</h3>
+			<div id="order_list_wrap">
+				<ul id="order_list">
+					<!--<li class='order_item'>
+						 <span class='order_food'>된장찌개</span>
+						 <span class='order_food_count'>1개</span>
+						 <span class='order_food_price'>4000원</span>
+						 <input type='checkbox' class='orderCheck' value='삭제'>
+					</li> -->					
+				</ul>
+			</div>			
+			<button id="deleteBtn">삭제</button>
+			<div id="result_wrap">
+				<p>합계 : <span id="result">0</span>원</p>
+			</div>
+		</div>
+	
+	</div>
+</body>
+</html>
