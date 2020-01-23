@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#tabs {
+		height: 700px; 
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script>
+	$(function() {
+		$("#tabs").tabs();
+	});
+</script>	
+</head>
+<body>
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">해돋이</a></li>
+			<li><a href="#tabs-2">신간소개</a></li>
+			<li><a href="#tabs-3">벌</a></li>
+		</ul>
+		<div id="tabs-1">
+			<p>해돋이</p>
+			<img src="images/pic_6.jpg" alt="해돋이" />
+		</div>
+		<div id="tabs-2">
+			<p>신간소개</p>
+			<img src="images/window_object_1.jpg" alt="신간소개" />
+		</div>
+		<div id="tabs-3">
+			<p>벌</p>
+			<img src="images/bee.jpg" alt="벌" />
+		</div>
+	</div>
+</body>
+</html>
