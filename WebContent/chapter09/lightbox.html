@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+<style>
+	.box img {
+		width: 200px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+</head>
+<body>
+	<h1>LightBox Plugin</h1>
+	<div class="box">
+		<a href="images/page1.jpg" data-lightbox="image-1" data-title="My caption1"><img src="images/page1.jpg"></a>
+		<a href="images/page2.jpg" data-lightbox="image-2" data-title="My caption2"><img src="images/page2.jpg"></a>
+		<a href="images/page3.jpg" data-lightbox="image-3" data-title="My caption3"><img src="images/page3.jpg"></a>
+	</div>
+	<h1>LightBox Plugin 그룹</h1>
+	<div class="box">
+		<!-- data-lightbox를 같은 이름으로 하면 그룹으로 인식해 좌우버튼이 나타나고 lightbox에서 좌우 이동이 가능 -->
+		<a href="images/page1.jpg" data-lightbox="image" data-title="My caption1"><img src="images/page1.jpg"></a>
+		<a href="images/page2.jpg" data-lightbox="image" data-title="My caption2"><img src="images/page2.jpg"></a>
+		<a href="images/page3.jpg" data-lightbox="image" data-title="My caption3"><img src="images/page3.jpg"></a>
+	</div>
+</body>
+</html>
