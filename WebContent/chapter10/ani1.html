@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	header {
+		background-color: #fff;
+	}
+	
+	header h1 {
+		width: 976px;
+		margin: 0 auto;
+		height: 80px;
+		font-size: 25px;
+		font-weight: normal;
+		line-height: 80px;
+		letter-spacing: 0.1em;
+		padding-left: 10px;
+	}
+	
+	section {
+		background-color: #ebc000;
+		height: 500px;
+	}
+	
+	section #main {
+		width: 976px;
+		margin: 0 auto;
+	}
+	
+	section #main h2 {
+		color: #fff;
+		text-align: center;
+		font-weight: normal;
+		letter-spacing: 0.1em;
+		padding:50px 0;
+	}
+	
+	section #main button {
+		width: 224px;
+		height: 80px;
+		float: left;
+		margin: 0 10px 20px;
+		padding: 0;
+		font-size: 16px;
+		letter-spacing: 0.15em;
+		color: #ebc000;
+		background-color: #fff;
+		border: none;
+		border-radius: 20px;
+		position: relative;
+	}
+	
+	section #main button span {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #ae5e9b;
+		line-height: 80px;
+		color: #fff;
+		border-radius: 20px;
+		width: 0;
+		overflow: hidden;
+	}
+	
+	section #main button.effect2 {
+		border: 0px solid #ae5e9b;
+	}
+	
+	footer {
+		clear: both;
+		background-color: #656565;
+	}
+	
+	footer small {
+		display: block;
+		color: #fff;
+		width: 976px;
+		margin: 0 auto;
+		height: 120px;
+		text-align: right;
+		line-height: 120px;
+		font-size: 11px;
+	}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- jquery ui plugin 사용 -->
+<script src="js/jquery-ui.min.js"></script>
+<script>
+	$(function(){
+		
+		$(".effect1").hover(function(){
+			//jquery ui plugin을 사용하여 animate에 배경 애니메이션을 적용할 수 있음. 플러그인이 없다면 적용되지 않음(animate에는 수치값(숫자)을 가진 속성만 적용이 가능)
+			//animate은 이벤트 실행만큼 큐가 저장되어 이벤트를 벗어나도 애니메이션이 일어나고 있을 수 있음 그러므로 stop()을 설정해 이벤트를 벗어났을때 정지되도록 함
+			$(this).stop().animate({"background-color": "#ae5e9b", "color":"#fff"}, 500);
+		}, function(){
+			$(this).stop().animate({"background-color": "#fff", "color":"#ebc000"}, 500);
+		})
+		
+		$(".effect2").hover(function(){
+			$(this).stop().animate({"border-width":"10px", "color":"#ae5e9b"}, 500);
+		}, function(){
+			$(this).stop().animate({"border-width":"0", "color":"#ebc000"}, 500);
+		})
+		
+		$(".effect3").hover(function() {
+			$(this).find("span").stop().animate({"width": "100%"}, 500);
+		}, function() {
+			$(this).find("span").stop().animate({"width": "0"}, 500);
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<header>
+		<h1>Create jQuery Sample</h1>
+	</header>
+	<section>
+		<div id="main">
+			<h2>BUTTON</h2>
+			<div class="inner">
+				<button class="effect1">Albatross</button>
+				<button class="effect1">Bishop</button>				
+				<button class="effect1">Canary</button>				
+				<button class="effect1">Duck</button>	
+				
+				<button class="effect2">Eagle</button>
+				<button class="effect2">FaIcon</button>				
+				<button class="effect2">Goose</button>				
+				<button class="effect2">Hawk</button>	
+				
+				<button class="effect3">Ibis<span class="bg">Ibis</span></button>
+				<button class="effect3">Jeager<span class="bg">Jeager</span></button>				
+				<button class="effect3">Kingfisher<span class="bg">Kingfisher</span></button>				
+				<button class="effect3">Duck<span class="bg">Duck</span></button>	
+			</div>
+		</div>
+	</section>
+	<footer>
+		<small class="copyright">COPYRIGHT</small>
+	</footer>
+</body>
+</html>

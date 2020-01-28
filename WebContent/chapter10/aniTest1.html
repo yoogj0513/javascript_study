@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	header {
+		background-color: #fff;
+	}
+	
+	header h1 {
+		width: 976px;
+		margin: 0 auto;
+		height: 80px;
+		font-size: 25px;
+		font-weight: normal;
+		line-height: 80px;
+		letter-spacing: 0.1em;
+		padding-left: 10px;
+	}
+	
+	section {
+		padding-bottom: 50px;
+	}
+	
+	section #main {
+		width: 976px;
+		margin: 0 auto;
+		text-align: center;
+		padding-bottom: 50px;
+	}
+	
+	section #main h2 {
+		text-align: center;
+		font-weight: normal;
+		letter-spacing: 0.1em;
+		padding:50px 0;
+	}
+	
+	footer {
+		clear: both;
+		background-color: #656565;
+	}
+	
+	footer small {
+		display: block;
+		color: #fff;
+		width: 976px;
+		margin: 0 auto;
+		height: 120px;
+		text-align: right;
+		line-height: 120px;
+		font-size: 11px;
+	}
+	
+	aside {
+		background-color: rgba(0,0,0,.9);
+		width: 250px;
+		height: 100%;
+		text-align: center;
+		position: fixed;
+		top: 0;
+		left: -250px;
+		padding-top: 80px;
+		overflow: hidden;
+	}
+	
+	aside #clickImg {
+		position: fixed;
+		top: 100px;
+		/* left: 250px; */
+		left: 0;
+		background-color: rgba(0,0,0,.9);
+	}
+	
+	aside .img img {
+		margin: 15px;
+	}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- jquery ui plugin 사용 -->
+<script src="js/jquery-ui.min.js"></script>
+<script>
+	$(function(){
+		
+		$("#clickImg").on("click", function(){
+			if($(this).attr("src") == "images/btn_open.png"){				
+				$(this).attr("src", "images/btn_close.png");
+				$("aside").stop().animate({"left":"0px"}, 500);
+				$(this).stop().animate({"left":"250px"}, 500);
+			} else {
+				$(this).attr("src", "images/btn_open.png");		
+				$("aside").stop().animate({"left":"-250px"}, 500);
+				$(this).stop().animate({"left":"0"}, 500);
+			}
+		})                                                                                              
+		
+	})
+</script>
+</head>
+<body>
+	<header>
+		<h1>Create jQuery Sample</h1>
+	</header>
+	<aside>
+		<div class="img">
+			<img src="images/01_aside.png">
+			<img src="images/02_aside.png">
+			<img src="images/03_aside.png">
+		</div>
+		<img src="images/btn_open.png" id="clickImg">
+	</aside>
+	<section>
+		<div id="main">
+			<h2>contetn 영역</h2>
+			<img src="images/01_img.jpg">
+		</div>
+	</section>
+	<footer><small>COPYRIGHT &copy; SHIFTBRAIN.Isc.</small></footer>
+</body>
+</html>
